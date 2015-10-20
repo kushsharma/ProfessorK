@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="320" height="50" tilewidth="32" tileheight="32" nextobjectid="800">
+ <tileset firstgid="1" name="tiles_128" tilewidth="32" tileheight="32" tilecount="16">
+  <image source="../tiles_128.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="17" name="tileset-new" tilewidth="32" tileheight="32" spacing="2" margin="1" tilecount="225">
+  <image source="../tileset-new.png" width="512" height="512"/>
+  <tile id="35">
+   <properties>
+    <property name="type" value="3"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Platform" width="320" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztndFqAjEQRfMr/QefVag+FqH0g/tpjRRpCSa6bjYzmXsOHISiqzM7udEVbEoAAAAAAAAAAAAAdS4pfX9l3+KbWm7B1scHgHUEzb9m1kUSAF4naP7JZCAAvE6w/DPPo9F+5ro/sj1mAUAN4fyrPda6hkWSfwCvEyz/HmXg2uNY10b+AWQ+Oh0nWP61sq/MsWfv6zL3yD9Q5pp/lw7HmTz/lmRYLdOmyDnyD+AP4fwr82pJ1t27v3U95B/AQoTyb0m2PfM463o2y78JzmX3moPPvqt+eSJ4/qWGSx9rXcuw2XZ6LjetOeDsu+2XJ4Ln31pTQ+vXttlsBz2XzZqZ/XH98gT599DU0Pq1bTLbgc/l3Zp3ueaa4rNfnZEo9My/c/YUTMXZVqx57ezTrznplX/H3JdDQBVnW7HmNdCveemVf1FRnG3FmpmRcf3yBPnXJurn+tL3RP7VaF0f3NGvqSH/2hyT/WfwUe4T+fcK9GteyD8oYT3TL/IPVGE90y/yD1RRW8+Pru/RL/IPdGA90y/yD1RR/M6bfo3rlyfIPyg5Jvvvokd/502/xvXLE+QfAKhC/gGAKuQfAKhC/sE9nv3tJ/AP57IO+Qcl++wBQ3lM9nidq5nyb1fcQn+ue+J79oQhPCcfa9zrXHnozbMs/W1eWM51Tj/Tqv8Jig70jnV/bs6Wf/9vo+GhLvIvhjVGzljruaz7c3OW/PN6/WDE9Zra+95ef/8P+RfDe4z8/PTouaz7c3Nt/o3aT7xeP4h2vYb8i+VX+p0n6z3d61ytWWsj9xOv/dtqXq1Q6bOKt3my3te9zpX1vjD7/rHVvFqh0mfEq9b7wuz7R2/JP0QsVVmX5B8ilqqsS/IPEUtV1iX5h4ilKuuS/EPEUpV1Sf4hYqnKuiT/ELFUZV2Sf4hYqrIuyT9ELFVZl+Qf4jh/ABaNrTI=
+  </data>
+ </layer>
+ <layer name="Spikes" width="320" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt2EkKwCAQBEA/kPj/3+biKXgYsqA0VSCieBAG2qU1AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAg3bF6A7zWR79zLc/Rvl4LQKadzzSAPyXmn7s9UJGWf5W/mlk+VucAAAB4pt/Gae9RAAAAAAAAAAAAAAAAAABY4QJpOgD5
+  </data>
+ </layer>
+ <layer name="Portal" width="320" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt2aERADAMA7FM02b/CRvQHRwg3T03dxUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADsdKb76/AWAAAAAAAAAHL8xwAAAAAAAAAAAAAAAAAAkPEAbpwBOQ==
+  </data>
+ </layer>
+ <layer name="Overlay" width="320" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt1NEJABAYhdF/FQNJyf6zoJQJJDmnvvf7dCMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA7kqrNiqXt0x5VGPvAjjF/wG/8n8AAAAAAAAAAAAAAAAAAAAAb+gHKgVT
+  </data>
+ </layer>
+ <objectgroup name="PlatformOb">
+  <object id="649" x="0" y="352" width="32" height="896"/>
+  <object id="650" x="0" y="1248" width="1344" height="352"/>
+  <object id="651" x="1344" y="1152" width="1920" height="448"/>
+  <object id="653" x="2272" y="480" width="1920" height="224"/>
+  <object id="655" x="4224" y="416" width="1920" height="480"/>
+  <object id="656" x="6656" y="416" width="1920" height="480"/>
+  <object id="657" x="6144" y="512" width="224" height="32"/>
+  <object id="658" x="6400" y="640" width="256" height="32"/>
+  <object id="659" x="6144" y="768" width="256" height="32"/>
+  <object id="662" x="4224" y="1024" width="3776" height="64"/>
+  <object id="663" x="4224" y="1088" width="3680" height="512"/>
+  <object id="664" x="7904" y="1184" width="2336" height="416"/>
+  <object id="665" x="9024" y="1024" width="1216" height="64"/>
+  <object id="666" x="10208" y="288" width="32" height="736"/>
+  <object id="667" x="9120" y="1088" width="512" height="96"/>
+  <object id="668" x="3360" y="1152" width="96" height="32"/>
+  <object id="669" x="3552" y="1152" width="96" height="32"/>
+  <object id="670" x="3744" y="1152" width="96" height="32"/>
+  <object id="671" x="3936" y="1152" width="96" height="32"/>
+  <object id="673" x="480" y="1216" width="96" height="32"/>
+  <object id="674" x="512" y="1184" width="32" height="32"/>
+  <object id="675" x="1376" y="1056" width="32" height="96"/>
+  <object id="676" x="1440" y="1056" width="32" height="96"/>
+  <object id="677" x="1408" y="1088" width="32" height="32"/>
+  <object id="678" x="3168" y="1120" width="32" height="32"/>
+  <object id="679" x="4256" y="992" width="32" height="32"/>
+  <object id="680" x="8032" y="1152" width="96" height="32"/>
+  <object id="681" x="8064" y="1120" width="32" height="32"/>
+  <object id="682" x="7936" y="992" width="32" height="32"/>
+  <object id="683" x="8896" y="1152" width="96" height="32"/>
+  <object id="684" x="8928" y="1120" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup name="SpikesOb">
+  <object id="688" x="466.25" y="1218.25" width="11" height="27"/>
+  <object id="689" x="576.75" y="1219.5" width="12" height="25.75"/>
+  <object id="690" x="1473.25" y="1060.25" width="12" height="89"/>
+  <object id="691" x="3153.5" y="1124.5" width="12" height="25"/>
+  <object id="692" x="3172.25" y="1106.25" width="24.5" height="12.5"/>
+  <object id="693" x="3201.25" y="1124" width="11.75" height="25.25"/>
+  <object id="694" x="3426.25" y="1138.5" width="27.25" height="11.75"/>
+  <object id="695" x="3586.5" y="1139" width="27.75" height="12"/>
+  <object id="696" x="3746" y="1138.5" width="28.25" height="12.25"/>
+  <object id="697" x="4288.62" y="995.75" width="12.25" height="24.5"/>
+  <object id="698" x="7921.09" y="995.273" width="11.6364" height="25.8182"/>
+  <object id="699" x="7969.64" y="995.455" width="11.4545" height="25.4545"/>
+  <object id="700" x="9219.33" y="1009" width="57.6667" height="13.6667"/>
+  <object id="701" x="9571.67" y="1009.33" width="57" height="14"/>
+ </objectgroup>
+ <objectgroup name="EnemyOb">
+  <object id="754" x="4704" y="960" width="32" height="32"/>
+  <object id="755" x="5088" y="960" width="32" height="32"/>
+  <object id="756" x="5312" y="960" width="32" height="32"/>
+  <object id="757" x="5632" y="960" width="32" height="32"/>
+  <object id="758" x="5888" y="960" width="32" height="32"/>
+  <object id="759" x="6272" y="896" width="32" height="32"/>
+  <object id="760" x="6528" y="896" width="32" height="32"/>
+  <object id="761" x="6240" y="448" width="32" height="32"/>
+  <object id="762" x="6336" y="448" width="32" height="32"/>
+  <object id="763" x="6496" y="544" width="32" height="32"/>
+  <object id="764" x="6592" y="544" width="32" height="32"/>
+  <object id="765" x="6208" y="672" width="32" height="32"/>
+  <object id="766" x="7648" y="960" width="32" height="32"/>
+  <object id="767" x="7456" y="960" width="32" height="32"/>
+  <object id="768" x="6944" y="960" width="32" height="32"/>
+  <object id="769" x="7840" y="960" width="32" height="32"/>
+  <object id="770" x="6656" y="960" width="32" height="32"/>
+  <object id="771" x="6336" y="704" width="32" height="32"/>
+  <object id="772" x="6176" y="448" width="32" height="32"/>
+  <object id="773" x="1984" y="1056" width="32" height="32"/>
+  <object id="774" x="2400" y="1056" width="32" height="32"/>
+  <object id="775" x="2848" y="992" width="32" height="32"/>
+  <object id="776" x="2976" y="992" width="32" height="32"/>
+  <object id="778" x="3072" y="992" width="32" height="32"/>
+  <object id="779" x="8832" y="1056" width="32" height="32"/>
+  <object id="780" x="8352" y="1056" width="32" height="32"/>
+  <object id="781" x="8640" y="1056" width="32" height="32"/>
+  <object id="782" x="9792" y="928" width="32" height="32"/>
+  <object id="783" x="9664" y="928" width="32" height="32"/>
+  <object id="784" x="992" y="1152" width="32" height="32"/>
+  <object id="786" x="5440" y="960" width="32" height="32"/>
+  <object id="787" x="5568" y="960" width="32" height="32"/>
+  <object id="788" x="6528" y="448" width="32" height="32"/>
+  <object id="789" x="6592" y="448" width="32" height="32"/>
+  <object id="791" x="6432" y="480" width="32" height="32"/>
+  <object id="792" x="6272" y="576" width="32" height="32"/>
+  <object id="793" x="6336" y="608" width="32" height="32"/>
+  <object id="794" x="7072" y="960" width="32" height="32"/>
+  <object id="795" x="10080" y="928" width="32" height="32"/>
+  <object id="796" x="10144" y="928" width="32" height="32"/>
+  <object id="798" x="2912" y="1056" width="32" height="32"/>
+  <object id="799" x="3040" y="1056" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup name="PowerUpOb">
+  <object id="739" x="512" y="1088" width="32" height="64">
+   <properties>
+    <property name="level" value="1"/>
+   </properties>
+  </object>
+  <object id="740" x="1408" y="960" width="32" height="64">
+   <properties>
+    <property name="level" value="2"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="LightOb">
+  <object id="748" x="185.379" y="1221.82" width="77.2423" height="16">
+   <properties>
+    <property name="color" value="4"/>
+   </properties>
+  </object>
+  <object id="750" x="9913.5" y="999.315" width="77.2423" height="16">
+   <properties>
+    <property name="color" value="4"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="CoinOb">
+  <object id="706" x="3584" y="1088" width="32" height="32"/>
+  <object id="707" x="3392" y="1088" width="32" height="32"/>
+  <object id="708" x="3776" y="1088" width="32" height="32"/>
+  <object id="709" x="3968" y="1088" width="32" height="32"/>
+  <object id="710" x="4128" y="1120" width="32" height="32"/>
+  <object id="711" x="4128" y="1056" width="32" height="32"/>
+  <object id="712" x="4128" y="992" width="32" height="32"/>
+  <object id="713" x="4896" y="960" width="32" height="32"/>
+  <object id="714" x="4960" y="960" width="32" height="32"/>
+  <object id="715" x="5024" y="960" width="32" height="32"/>
+  <object id="716" x="7200" y="960" width="32" height="32"/>
+  <object id="717" x="7264" y="960" width="32" height="32"/>
+  <object id="719" x="7328" y="960" width="32" height="32"/>
+  <object id="720" x="7904" y="1120" width="32" height="32">
+   <properties>
+    <property name="type" value="3"/>
+   </properties>
+  </object>
+  <object id="722" x="7936" y="1120" width="32" height="32">
+   <properties>
+    <property name="type" value="3"/>
+   </properties>
+  </object>
+  <object id="723" x="9056" y="1120" width="32" height="32">
+   <properties>
+    <property name="type" value="3"/>
+   </properties>
+  </object>
+  <object id="724" x="9088" y="1120" width="32" height="32">
+   <properties>
+    <property name="type" value="3"/>
+   </properties>
+  </object>
+  <object id="726" x="9216" y="928" width="32" height="32"/>
+  <object id="727" x="9248" y="928" width="32" height="32"/>
+  <object id="728" x="9568" y="928" width="32" height="32"/>
+  <object id="729" x="9600" y="928" width="32" height="32"/>
+  <object id="730" x="8448" y="1120" width="32" height="32"/>
+  <object id="731" x="8576" y="1120" width="32" height="32"/>
+  <object id="732" x="8544" y="1088" width="32" height="32"/>
+  <object id="733" x="8480" y="1088" width="32" height="32"/>
+  <object id="734" x="8512" y="1056" width="32" height="32"/>
+  <object id="735" x="1376" y="992" width="32" height="32"/>
+  <object id="736" x="1440" y="992" width="32" height="32"/>
+  <object id="737" x="544" y="1152" width="32" height="32"/>
+  <object id="738" x="480" y="1152" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup name="MoverOb">
+  <object id="672" x="4096" y="1024" width="96" height="192">
+   <properties>
+    <property name="direction" value="v"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="BeamSpotOb">
+  <object id="686" x="9387.5" y="992" width="64" height="32"/>
+  <object id="702" x="6370" y="992" width="64" height="32"/>
+  <object id="703" x="2048" y="1120" width="64" height="32"/>
+  <object id="704" x="2688" y="1120" width="64" height="32"/>
+  <object id="705" x="1248" y="1216" width="64" height="32"/>
+ </objectgroup>
+ <objectgroup name="PortalOb">
+  <object id="745" x="160.301" y="1248.31">
+   <properties>
+    <property name="place" value="entry"/>
+    <property name="type" value="body"/>
+   </properties>
+   <polygon points="0,0 16,-16.25 113.25,-16 128,0.25"/>
+  </object>
+  <object id="746" x="178.061" y="1225.73" width="93.3334" height="18">
+   <properties>
+    <property name="place" value="entry"/>
+    <property name="type" value="sensor"/>
+   </properties>
+  </object>
+  <object id="752" x="9888.07" y="1024.45">
+   <properties>
+    <property name="place" value="exit"/>
+    <property name="type" value="body"/>
+   </properties>
+   <polygon points="0,0 16,-16.25 113.25,-16 128,0.25"/>
+  </object>
+  <object id="753" x="9905.83" y="1001.88" width="93.3334" height="18">
+   <properties>
+    <property name="place" value="exit"/>
+    <property name="type" value="sensor"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

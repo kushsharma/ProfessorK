@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="300" height="50" tilewidth="32" tileheight="32" nextobjectid="238">
+ <tileset firstgid="1" name="tiles_128" tilewidth="32" tileheight="32" tilecount="16">
+  <image source="../tiles_128.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="17" name="tileset-new" tilewidth="32" tileheight="32" spacing="2" margin="1" tilecount="225">
+  <image source="../tileset-new.png" width="512" height="512"/>
+ </tileset>
+ <layer name="Platform" width="300" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztndFO20AQRf0r/EN5pZGAR4RU9bEgtf3/f6gtZKmKbGeXnVnfu5wj3RdEAjPOnGw2jjNNAAAAAAAAkMHLnB9z7kTzmlc6AJiBr6CV7MfQz4nHAXzg4Kutn0f838xBDPgKeoGvoBV81Qe1WT3juKj1AF/5ga/6oDar+ApfOYKv+qA2q/gKXzmCr/qgNqv4Cl85gq/6oDar+ApfOYKv+qA2q+txub+RkXuAr/zAV31Qm9WS44Kv8JUa+KoParN6lq9+z/kjGnylD77qg6uvIvNrzptw8JU+2c95fyeO04KjrxyIWgMuxwdf6dPjOe+9WzW64Ksc8BVAPGp7N6Ose/EVQDyKezcjrHvxFQC4gK8AwAV8BQAu4CsAcAFfAYAL0b7aei8VXwFABNG+2nofNeJclFHOHwGAzxPtqy2izkUZ4fwRAPg8PXwFsPDtKg73HXV/D3O+F+YS8Pd6U1NfSx/wFcA+Ub5a5uNxztONPE+ec1RaX2n2+oCv4JrotY8zNb46+r31PSdXbl07Jvrz3UfXQ40AX+Vx/Vqn1ielt89Y03/FXDZ6O4KvjsjyVRb4yp/oNf1XzN7rGHyFryAWtWs2OWZvzkp7u97+7DVibfAV9GR5jYivdHx19jqxNviqnax949H2o9c9LXyl46uz66gNvmrHbf/40lBrxF48vsqbM3wV08coFH3ltH+scN4NvsqbM3wV08eViLXI2fN2jdP8KXye26lfqsFXuX38v5+ta5He83brtY/T/OGrMYKvcvtY28+jqO39OM0fvhoj+Cq3j7X9PIra3o/T/OGrMYKvcvtY20/FtD5GFIKvxgi+yu1jbT8Vg69icOqXavBVbh9r+6kYfBWD2ncSO2bvOrj4KnYenGa7tDanmhR8pfidxI7Zug4uvoqdB6fZLq3NqSYFX0Ee+Cp2Hpxmu7Q2p5rw1djgq9h5cJrt0tqcasJXY4OvYufBabZLa3OqCV+NDb6KnQen2S6tzakmfDU2+Cp2HiL+3j8IzCQe
+  </data>
+ </layer>
+ <layer name="Spikes" width="300" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt2FEKgCAMAFAvUF2m+5+t3xhCRCOdvAf78UN0MmFrDQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAUc4QAAAAADCTPUR12fdYJS/UdHTWtgJ786yX/yzeEcjkvyL62jus1Hv85V6H6gYAAABgHDMtqGOVWXT18wMAAAAAAAAAAAAAAAAAAAAAALx1AZsIAmc=
+  </data>
+ </layer>
+ <layer name="Portal" width="300" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt1jEKACAMBMG8Jvr/F8bCKnVAhBnY/sqLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALo8rdt+vAUA+IsfAQAAAAAAAAAAAAAAAAAAADCjAB+iATk=
+  </data>
+ </layer>
+ <layer name="Overlay" width="300" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt1KERACAMBMG0koow9F8LOCQCERh2Z86/+ggAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfpeb+qyVrQNY/BXwCn8FANwgqwcAAAAAAAAAAAAAAAAAAAAAAAAAHBr4UQUj
+  </data>
+ </layer>
+ <objectgroup name="PlatformOb">
+  <object id="221" x="192" y="544" width="608" height="320"/>
+  <object id="222" x="0" y="512" width="32" height="1088"/>
+  <object id="223" x="32" y="544" width="160" height="288"/>
+  <object id="227" x="34.6667" y="1252" width="992" height="352"/>
+  <object id="228" x="896" y="1216" width="32" height="32"/>
+  <object id="229" x="1152" y="1088" width="32" height="32"/>
+  <object id="230" x="1152" y="1120" width="1440" height="480"/>
+  <object id="231" x="1856" y="1088" width="32" height="32"/>
+  <object id="232" x="2752" y="960" width="160" height="32"/>
+  <object id="233" x="3040" y="1120" width="96" height="32"/>
+  <object id="234" x="3264" y="960" width="160" height="32"/>
+  <object id="235" x="3552" y="1056" width="32" height="96"/>
+  <object id="236" x="3520" y="1088" width="32" height="64"/>
+  <object id="237" x="3488" y="1120" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup name="SpikesOb"/>
+ <objectgroup name="EnemyOb"/>
+ <objectgroup name="PortalOb">
+  <object id="39" x="9296.76" y="1130.85" width="94.6667" height="18">
+   <properties>
+    <property name="place" value="exit"/>
+    <property name="type" value="sensor"/>
+   </properties>
+  </object>
+  <object id="97" x="9280.13" y="1152.37">
+   <properties>
+    <property name="place" value="exit"/>
+    <property name="type" value="body"/>
+   </properties>
+   <polygon points="0,0 16,-16.25 113.25,-16 128,0.25"/>
+  </object>
+  <object id="110" x="1937.76" y="1097.25" width="93.3334" height="18">
+   <properties>
+    <property name="place" value="entry"/>
+    <property name="type" value="sensor"/>
+   </properties>
+  </object>
+  <object id="112" x="1920" y="1119.83">
+   <properties>
+    <property name="place" value="entry"/>
+    <property name="type" value="body"/>
+   </properties>
+   <polygon points="0,0 16,-16.25 113.25,-16 128,0.25"/>
+  </object>
+ </objectgroup>
+ <objectgroup name="PowerUpOb"/>
+ <objectgroup name="LightOb">
+  <object id="65" x="9300.76" y="1128.13" width="86.49" height="11.5452">
+   <properties>
+    <property name="color" value="4"/>
+   </properties>
+  </object>
+  <object id="113" x="1945.47" y="1093.27" width="77.2423" height="16">
+   <properties>
+    <property name="color" value="4"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="CoinOb"/>
+</map>

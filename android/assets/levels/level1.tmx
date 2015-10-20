@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="110" height="40" tilewidth="32" tileheight="32" nextobjectid="41">
+ <tileset firstgid="1" name="tileset-new" tilewidth="32" tileheight="32" spacing="2" margin="1" tilecount="225">
+  <image source="../tileset-new.png" width="512" height="512"/>
+ </tileset>
+ <tileset firstgid="226" name="tiles_128" tilewidth="32" tileheight="32" tilecount="16">
+  <image source="../tiles_128.png" width="128" height="128"/>
+ </tileset>
+ <layer name="Platform" width="110" height="40">
+  <data encoding="base64" compression="zlib">
+   eJztlkEKQiEURd8WmlQLaFxBNYwg2v9W2kIGP3AgfNSneeUcuJM/8f17RDUDAAAAACjn8e8BIJu74U0RvGmCN03wpgneNMGbJnjTBG+a4E0TvGmCN03wpgneNMGbJnjTBG+a4E0TvGmCN01m9HYMOVXk3H/kbGb09v2nS8i1IDfT6GNWb8+QTUFeptGHqrd3lJiDzedtG7Jbsl++jeSt9l76RdlbTgepOVOOW1NzL8UZ0VvqbEiR04HHHvd4t9X0HaeFN6+zYO3dmjN77f72ereN7M3rLFh7t3p10Cqpfkb35tlnr3Xwhje84Q1veMMb3nqs8wGysH+2
+  </data>
+ </layer>
+ <objectgroup name="PlatformOb">
+  <object id="3" x="1" y="192.375" width="30" height="1087.12"/>
+  <object id="4" x="31.6364" y="1024.64" width="959.614" height="254.864"/>
+  <object id="5" x="1088.73" y="960.727" width="574.545" height="318.545"/>
+  <object id="6" x="1664.91" y="833.091" width="541.818" height="447.091"/>
+  <object id="7" x="2337.33" y="1025.67" width="701" height="253.667"/>
+  <object id="8" x="3169.33" y="961.333" width="350" height="318.333"/>
+  <object id="9" x="3489.33" y="193" width="29.3333" height="767"/>
+  <object id="22" x="1632.64" y="928.818" width="32.0909" height="31.5455"/>
+ </objectgroup>
+ <objectgroup name="PortalOb">
+  <object id="15" x="3327.73" y="961.091">
+   <properties>
+    <property name="place" value="exit"/>
+    <property name="type" value="body"/>
+   </properties>
+   <polygon points="0,0 16,-16.25 113.25,-16 128,0.25"/>
+  </object>
+  <object id="17" x="3345.52" y="939.727" width="93.3334" height="18">
+   <properties>
+    <property name="place" value="exit"/>
+    <property name="type" value="sensor"/>
+   </properties>
+  </object>
+  <object id="18" x="160.293" y="1024.31">
+   <properties>
+    <property name="place" value="entry"/>
+    <property name="type" value="body"/>
+   </properties>
+   <polygon points="0,0 16,-16.25 113.25,-16 128,0.25"/>
+  </object>
+  <object id="19" x="178.083" y="1002.94" width="93.3334" height="18">
+   <properties>
+    <property name="place" value="entry"/>
+    <property name="type" value="sensor"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="SpikesOb">
+  <object id="12" x="2849.55" y="1009.18" width="61.3636" height="14.4545"/>
+  <object id="13" x="1442.12" y="944.625" width="92.625" height="14.875"/>
+ </objectgroup>
+ <objectgroup name="LightOb">
+  <object id="16" x="3350.82" y="937.909" width="82.1818" height="15.9091">
+   <properties>
+    <property name="color" value="4"/>
+   </properties>
+  </object>
+  <object id="21" x="182.784" y="1001.05" width="82.1818" height="15.9091">
+   <properties>
+    <property name="color" value="4"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="CoinOb">
+  <object id="32" x="1440" y="864" width="32" height="32"/>
+  <object id="33" x="1472" y="864" width="32" height="32"/>
+  <object id="34" x="1504" y="864" width="32" height="32"/>
+  <object id="35" x="2336" y="864" width="32" height="32"/>
+  <object id="36" x="2368" y="864" width="32" height="32"/>
+  <object id="37" x="2944" y="928" width="32" height="32"/>
+  <object id="38" x="2976" y="928" width="32" height="32"/>
+  <object id="40" x="3008" y="928" width="32" height="32"/>
+ </objectgroup>
+</map>

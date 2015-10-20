@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="250" height="30" tilewidth="32" tileheight="32" nextobjectid="207">
+ <tileset firstgid="1" name="tiles_128" tilewidth="32" tileheight="32" tilecount="16">
+  <image source="tiles_128.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="17" name="tileset-new" tilewidth="32" tileheight="32" spacing="2" margin="1" tilecount="225">
+  <image source="tileset-new.png" width="512" height="512"/>
+ </tileset>
+ <imagelayer name="bg" visible="0">
+  <image source="backgroundO.png"/>
+ </imagelayer>
+ <imagelayer name="bg2" x="1912" visible="0">
+  <image source="backgroundO.png"/>
+ </imagelayer>
+ <imagelayer name="bg3" x="5751" y="-1" visible="0">
+  <image source="backgroundO.png"/>
+ </imagelayer>
+ <imagelayer name="bg4" x="3832" y="-1" visible="0">
+  <image source="backgroundO.png"/>
+ </imagelayer>
+ <layer name="Sky" width="250" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztxSESAAAEADCJ//9Yd5rmtrIIAAAAAADgqsbAPzkGAAAAAAAAAAAAAAAAAAAAAAAAAAAAYNfL7wAb
+  </data>
+ </layer>
+ <layer name="Platform" width="250" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztnEFOwzAQRXMV7tBuoRJ0SZEqloAE3P8OxKJRK2QTO+MZT+L3pC9WxPEwz7GrhmEAAAAA2BZ3DQMAujyPOQ9tPX8d86I9UeiW8+Vnyx5v7QWew9bBczy3wqrOubXcXbJ1Qi3w/Lf/Psd8LYjH+XgFz9vQi+f7mbyNeS+MZG2I5btgPmsFz9sQalGzVy1T4sW+qCp5LFkb5vKhcJ+eqL02SnujJ89r96plghdzz+opFsTGsRp7DWisjZI1syfPA//1okWflozh2Rs8X06L9RrPr+B5Pi33ElvDonZ4fsWb59AHeF6PW89bnm3xHP6C5/XIeZ5b0Hp88NfveF4PT55ztoVb8LweXjxP4fW+tsLJ+PdKwPN64HnfnATRBs/rged9kdvXHs5N0/j3Yx4UczCaT0vw3A+l/XxQvBdPnofvyj6OeVLIcdj+OwWBXj3fDX72bNM9lPRzbn8u2V97+Sz01nOtd196eEcw0KvnHinp51h/xtYt7T2vRfBcjvW5pqTvwvVbe271mVNA6nnqmlp7XoscC+uC53GszzW5fTddv2SdWfvzTMvz1v8nR+ohnsuxrk/u32y6vnSdWdPzDM/xXAvvnvfU53genyeey7GuD56ng+fxeeK5HOv64Hk6eB6fJ57Lsa4PnqeD5/F54rkc6/rgeTp4Hp8nnsv5AXX3v0Q=
+  </data>
+ </layer>
+ <objectgroup name="PlatformOb">
+  <object id="1" x="0.666667" y="707" width="507.333" height="251.667"/>
+  <object id="31" x="1" y="257" width="30" height="450"/>
+  <object id="119" x="3168.75" y="608.75" width="411.25" height="350.583"/>
+  <object id="120" x="3871.33" y="674" width="1535.33" height="284.666"/>
+  <object id="122" x="1793.33" y="738.667" width="1370.67" height="224"/>
+  <object id="127" x="1278.67" y="740" width="257.333" height="217.333"/>
+  <object id="128" x="899" y="708" width="378.333" height="248.667"/>
+  <object id="138" x="2306.5" y="705.5" width="59" height="29"/>
+  <object id="139" x="1986.5" y="642.5" width="91.5" height="26.5"/>
+  <object id="140" x="3681.5" y="673.75" width="61.25" height="28.75"/>
+  <object id="141" x="3840.4" y="640.658" width="31.2447" height="318.009"/>
+  <object id="142" x="5411" y="577.528" width="796" height="379.806"/>
+  <object id="143" x="6147" y="163" width="58" height="411"/>
+  <object id="144" x="4096.73" y="513.091" width="30.5455" height="62.1818"/>
+  <object id="145" x="4193" y="448.667" width="30.3333" height="30.3333"/>
+  <object id="146" x="4545" y="512.667" width="30.3333" height="62"/>
+  <object id="147" x="4128.33" y="544.333" width="415" height="30.3333"/>
+  <object id="148" x="1633.09" y="737.091" width="62.1818" height="30"/>
+  <object id="164" x="3106" y="645" width="28.5" height="25.5"/>
+  <object id="166" x="3971.33" y="578.667" width="57.3333" height="26.6667"/>
+  <object id="198" x="40" y="196" width="1524" height="133"/>
+  <object id="200" x="2115" y="131" width="1115" height="127"/>
+  <object id="201" x="2529" y="258.008" width="700.996" height="30.9922"/>
+  <object id="203" x="4994" y="191.333" width="892.667" height="127.667"/>
+ </objectgroup>
+ <objectgroup name="SpikesOb">
+  <object id="115" x="1922.37" y="720.125" width="28.38" height="15.375"/>
+  <object id="116" x="3522.62" y="592.5" width="61.125" height="13.75"/>
+  <object id="179" x="2018.18" y="720.312" width="28.38" height="15.375"/>
+  <object id="180" x="2113.93" y="720.438" width="28.38" height="15.375"/>
+ </objectgroup>
+ <layer name="Spikes" width="250" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztxrEJAAAIwDAv8P9zXTzATcQECo0AAAAAAAAAAAAAAAAAAAAAAAC2ZAcAAAAX5eABAAAAAAAA+KcAXRYARw==
+  </data>
+ </layer>
+ <objectgroup name="EnemyOb">
+  <object id="34" x="3190.67" y="509.667" width="32.3333" height="31.3333"/>
+  <object id="36" x="2465" y="626.333" width="30.6667" height="32"/>
+  <object id="132" x="2749.33" y="625.333" width="29" height="28"/>
+  <object id="134" x="3452.67" y="518.5" width="29" height="29"/>
+  <object id="153" x="4290" y="480" width="29" height="28"/>
+  <object id="154" x="4474" y="480" width="32" height="30"/>
+  <object id="155" x="4349" y="585" width="31" height="31"/>
+  <object id="156" x="4671" y="581.5" width="32" height="31"/>
+  <object id="157" x="5032.5" y="570" width="33" height="31"/>
+  <object id="158" x="5336" y="570" width="36" height="34"/>
+  <object id="159" x="5546.5" y="466.5" width="43" height="36"/>
+  <object id="160" x="5973" y="452.5" width="32" height="32"/>
+  <object id="175" x="6092.17" y="368.333" width="31.3333" height="30.6667"/>
+  <object id="176" x="5716.67" y="469.167" width="34.6667" height="35.3333"/>
+  <object id="177" x="5852.33" y="353.167" width="30.6667" height="33.3333"/>
+ </objectgroup>
+ <objectgroup name="PortalOb">
+  <object id="39" x="6001.33" y="555.864" width="94.6667" height="18">
+   <properties>
+    <property name="place" value="exit"/>
+    <property name="type" value="sensor"/>
+   </properties>
+  </object>
+  <object id="97" x="5984.7" y="577.384">
+   <properties>
+    <property name="place" value="exit"/>
+    <property name="type" value="body"/>
+   </properties>
+   <polygon points="0,0 16,-16.25 113.25,-16 128,0.25"/>
+  </object>
+  <object id="110" x="178.167" y="684.03" width="93.3334" height="18">
+   <properties>
+    <property name="place" value="entry"/>
+    <property name="type" value="sensor"/>
+   </properties>
+  </object>
+  <object id="112" x="160.407" y="706.613">
+   <properties>
+    <property name="place" value="entry"/>
+    <property name="type" value="body"/>
+   </properties>
+   <polygon points="0,0 16,-16.25 113.25,-16 128,0.25"/>
+  </object>
+ </objectgroup>
+ <layer name="Portal" width="250" height="30">
+  <data encoding="base64" compression="zlib">
+   eJzt17ENADAIA0GmCdl/wqRgADokdCd979YRAAAAAAAAAAAAAAAAAAAAAAB7nF9Wd3gLAABAhx8DAAAAAAAAAMA2D/r2ATk=
+  </data>
+ </layer>
+ <layer name="PowerUp" width="250" height="30">
+  <data encoding="base64" compression="zlib">
+   eJzt07EJAAAMw7DM/f/gXlFKQLrAixMAAAAAAAAAAAAAAAAAAAAAAKDNfAcA53wOAAAAAAAAAAAAtFrRDQAV
+  </data>
+ </layer>
+ <objectgroup name="PowerUpOb">
+  <object id="63" x="2017.81" y="546.833" width="30" height="60">
+   <properties>
+    <property name="level" value="1"/>
+   </properties>
+  </object>
+  <object id="152" x="4193.03" y="355.909" width="30" height="60">
+   <properties>
+    <property name="level" value="2"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="LightOb">
+  <object id="65" x="6002.17" y="553.197" width="93.2727" height="11.5452">
+   <properties>
+    <property name="color" value="4"/>
+   </properties>
+  </object>
+  <object id="113" x="179.091" y="679.273" width="91.4545" height="16">
+   <properties>
+    <property name="color" value="4"/>
+   </properties>
+  </object>
+  <object id="168" x="2012" y="652.333" width="39" height="9">
+   <properties>
+    <property name="color" value="6"/>
+   </properties>
+  </object>
+  <object id="169" x="4203.33" y="458" width="12.3333" height="11">
+   <properties>
+    <property name="color" value="6"/>
+   </properties>
+  </object>
+  <object id="171" x="3989" y="583" width="19.75" height="18">
+   <properties>
+    <property name="color" value="6"/>
+   </properties>
+  </object>
+  <object id="172" x="3700.67" y="683.167" width="24.6667" height="10.1667">
+   <properties>
+    <property name="color" value="6"/>
+   </properties>
+  </object>
+  <object id="173" x="3114.67" y="651.667" width="10" height="9">
+   <properties>
+    <property name="color" value="6"/>
+   </properties>
+  </object>
+  <object id="174" x="1650" y="746.667" width="24.3333" height="9">
+   <properties>
+    <property name="color" value="6"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="MoverOb">
+  <object id="161" x="547" y="738" width="319" height="28">
+   <properties>
+    <property name="direction" value="h"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="CoinOb">
+  <object id="181" x="641.5" y="675" width="28" height="28"/>
+  <object id="182" x="738" y="674.5" width="28" height="28.5"/>
+  <object id="183" x="1954" y="578" width="31" height="30.5"/>
+  <object id="185" x="2080.5" y="576.5" width="29" height="30.5"/>
+  <object id="186" x="3328.5" y="514.5" width="32" height="30"/>
+  <object id="187" x="3393" y="515.5" width="29.5" height="28"/>
+  <object id="188" x="3969" y="513" width="29.5" height="30.5"/>
+  <object id="189" x="4001.5" y="513" width="29.5" height="31"/>
+  <object id="190" x="4098.5" y="449.5" width="29.5" height="32"/>
+  <object id="191" x="5633.5" y="482.5" width="28.5" height="29.5"/>
+  <object id="192" x="5730" y="481.5" width="31" height="31"/>
+ </objectgroup>
+ <objectgroup name="SwitchOb">
+  <object id="195" x="1439.02" y="351.22" width="34.25" height="33.1439"/>
+ </objectgroup>
+ <objectgroup name="GravityOb">
+  <object id="205" x="994.82" y="695.295" width="46.6818" height="10">
+   <properties>
+    <property name="type" value="flipper"/>
+   </properties>
+  </object>
+  <object id="206" x="1206.8" y="317.102" width="46.6818" height="15.6477">
+   <properties>
+    <property name="type" value="fixer"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>
