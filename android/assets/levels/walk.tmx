@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="300" height="40" tilewidth="32" tileheight="32" nextobjectid="9">
+ <tileset firstgid="1" name="tileset-new" tilewidth="32" tileheight="32" spacing="2" margin="1" tilecount="225">
+  <image source="../tileset-new.png" width="512" height="512"/>
+  <tile id="35">
+   <properties>
+    <property name="type" value="3"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Platform" width="300" height="40">
+  <data encoding="base64" compression="zlib">
+   eJzt3DFOAzEUBmFfIRcJSIEyQopoaTgxR4sThIRoMGLXz8/+RpouhWd383e7pczBoZSPPZ25L7rtxux92IaXej9fd/6vk+R/vFTPVXtFcnTtFcks2iuSWbRXJLNor0hm0V6RzKK9IplFe0Uyi/aKZBbtFcks2iuSWfy+V8/Vp0l9L6X8NPpMPVqjz6Jvm87fWld5tk/lc68eqw+T+1bvY/QZdGps7ftyy9/O4LH41gYAAAAAAAAAAAAAAAAAAAAAAADwF47l/u4RSQ7vuXoq9/e6SXJob3t1qR7yuef3dpx5rZbVm9N02atuz86e593rzDNdf80TdNkrezVgT++W1ZvTdNkrezVgT++W1ZvTdNkrezVgT++W1ZvTdNkrezVgT++W1ZvTdNkre7V4i+ZEXfZqir2a6dpH9EQ3a2vUXtmrwVoieqKbtTVqr+zVYC0RPdHN2hq1V/ZqsJaInuhmbY3aK3s1WEtET3Sztkav0Qxe0w==
+  </data>
+ </layer>
+ <objectgroup name="PlatformOb">
+  <object id="2" x="0" y="832" width="9600" height="448"/>
+ </objectgroup>
+ <objectgroup name="PortalOb">
+  <object id="4" x="120" y="810.045" width="93.3334" height="18">
+   <properties>
+    <property name="place" value="entry"/>
+    <property name="type" value="sensor"/>
+   </properties>
+  </object>
+  <object id="5" x="102.24" y="832.628">
+   <properties>
+    <property name="place" value="entry"/>
+    <property name="type" value="body"/>
+   </properties>
+   <polygon points="0,0 16,-16.25 113.25,-16 128,0.25"/>
+  </object>
+  <object id="7" x="9458.67" y="809.379" width="93.3334" height="18">
+   <properties>
+    <property name="place" value="exit"/>
+    <property name="type" value="sensor"/>
+   </properties>
+  </object>
+  <object id="8" x="9440.91" y="831.962">
+   <properties>
+    <property name="place" value="exit"/>
+    <property name="type" value="body"/>
+   </properties>
+   <polygon points="0,0 16,-16.25 113.25,-16 128,0.25"/>
+  </object>
+ </objectgroup>
+</map>

@@ -1004,6 +1004,41 @@ public class MainMenuScreen implements Screen, ActionListener{
 		scrollStore.row();
 		
 		
+		Image test1Image = new Image(coinsTex);
+		scrollStore.add(test1Image).width(100).height(100);
+
+		VerticalGroup vGroupTest1 = new VerticalGroup();
+		
+		vGroupTest1.addActor(new Label("Guns - UNDER CONSTRUCTION", labelHeadStyle));
+		vGroupTest1.addActor(new Label("Remove ads and get 5000 score points free.", labelStyle));
+		vGroupTest1.align(Align.left);
+		scrollStore.add(vGroupTest1).align(Align.left);		
+		
+		scrollStore.row();
+		
+		Image test2Image = new Image(coinsTex);
+		scrollStore.add(test2Image).width(100).height(100);
+
+		VerticalGroup vGroupTest2 = new VerticalGroup();
+		
+		vGroupTest2.addActor(new Label("Costume - UNDER CONSTRUCTION", labelHeadStyle));
+		vGroupTest2.addActor(new Label("Remove ads and get 5000 score points free.", labelStyle));
+		vGroupTest2.align(Align.left);
+		scrollStore.add(vGroupTest2).align(Align.left);		
+		
+		scrollStore.row();
+		
+		Image test3Image = new Image(coinsTex);
+		scrollStore.add(test3Image).width(100).height(100);
+
+		VerticalGroup vGroupTest3 = new VerticalGroup();
+		
+		vGroupTest3.addActor(new Label("Powers - UNDER CONSTRUCTION", labelHeadStyle));
+		vGroupTest3.addActor(new Label("Remove ads and get 5000 score points free.", labelStyle));
+		vGroupTest3.align(Align.left);
+		scrollStore.add(vGroupTest3).align(Align.left);		
+		
+		scrollStore.row();
 		
 		TextButtonStyle storeStyle = new TextButtonStyle();
 		storeStyle.font = fontMedium;

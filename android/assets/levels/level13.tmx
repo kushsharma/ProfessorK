@@ -103,7 +103,7 @@
    eJzt1sEJACAMBMFUE+2/wgimhyDOwP7veREAAAAAAAAAAAAAAAAAcOVpdXt4CwDAS/woAAAAAAAAflclEQE5
   </data>
  </layer>
- <layer name="PowerUp" width="194" height="30" visible="0">
+ <layer name="PowerUp" width="194" height="30">
   <data encoding="base64" compression="zlib">
    eJzt06EBAAAIw7Bp/j8YjcOBSC6oaQIAAAAAAAAAAAAAAAAAMNV1ADzgAwAAAAAAAADYa+1+ABU=
   </data>
