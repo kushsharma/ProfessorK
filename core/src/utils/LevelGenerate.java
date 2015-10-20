@@ -148,13 +148,6 @@ public class LevelGenerate {
 	
 	private void loadSounds() {
 		
-//			coinSound = Gdx.audio.newSound(Gdx.files.internal("sound/Pickup_Coin.wav"));
-//			fireSound = Gdx.audio.newSound(Gdx.files.internal("sound/Laser_Shoot.wav"));
-//			playerHurtSound = Gdx.audio.newSound(Gdx.files.internal("sound/Player_Hit_Hurt.wav"));
-//			enemyHurtSound = Gdx.audio.newSound(Gdx.files.internal("sound/Enemy_Hit_Hurt.wav"));
-//			levelUpSound = Gdx.audio.newSound(Gdx.files.internal("sound/Level_Up.wav"));
-//			portalSound = Gdx.audio.newSound(Gdx.files.internal("sound/Portal.wav"));
-		
 			coinSound = Assets.manager.get(AssetLord.coin_sound, Sound.class);
 			fireSound = Assets.manager.get(AssetLord.fire_sound, Sound.class);
 			playerHurtSound = Assets.manager.get(AssetLord.player_hurt_sound, Sound.class);
@@ -257,8 +250,7 @@ public class LevelGenerate {
 		buildShapes(tileMap, world);		
 		tmRenderer.setMap(tileMap);
 		
-		LEVEL_LOADED = true;
-		
+		LEVEL_LOADED = true;		
 	}
 	
 	public void loadNextLevel() {
