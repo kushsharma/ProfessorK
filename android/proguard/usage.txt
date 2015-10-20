@@ -5044,7 +5044,6 @@ utils.LevelGenerate:
     public static final int MAX_LEVEL
     772:772:public void loadCinematic()
     1390:1394:public void playPlayerHitSound()
-    1411:1415:public void playPortalSound()
 utils.LevelGenerate$TaskQueue:
     public static final int GRAVITY_FLI
     public static final int GRAVITY_FIX
