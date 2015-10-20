@@ -160,7 +160,7 @@ public class LevelGenerate {
 			playerHurtSound = Assets.manager.get(AssetLord.player_hurt_sound, Sound.class);
 			enemyHurtSound = Assets.manager.get(AssetLord.enemy_hurt_sound, Sound.class);
 			levelUpSound = Assets.manager.get(AssetLord.levelup_sound, Sound.class);
-			portalSound = Assets.manager.get(AssetLord.portal_sound, Sound.class);
+			//portalSound = Assets.manager.get(AssetLord.portal_sound, Sound.class);
 			
 			
 			menuMusic = Assets.manager.get(AssetLord.menu_music, Music.class);
@@ -1407,12 +1407,12 @@ public class LevelGenerate {
 			levelUpSound.play();
 	}
 	
-	public void playPortalSound(){
-		if(!GameScreen.BACKGROUND_MUSIC) return;
-
-		if(portalSound != null)
-			portalSound.play();
-	}
+//	public void playPortalSound(){
+//		if(!GameScreen.BACKGROUND_MUSIC) return;
+//
+//		if(portalSound != null)
+//			portalSound.play();
+//	}
 	
 	public Switch getLevelSwitch(){
 		return levelSwitch;

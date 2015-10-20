@@ -79,11 +79,11 @@ public class AssetLord {
 //	public static final String tutorial3_tex = "final/tutorial/tutorial-3.png";
 //	public static final String tutorial4_tex = "final/tutorial/tutorial-4.png";
 	
-	public static final String fire_sound = "sound/Laser_Shoot.wav";
-	public static final String coin_sound = "sound/Pickup_Coin.wav";
-	public static final String player_hurt_sound = "sound/Player_Hit_Hurt.wav";
-	public static final String enemy_hurt_sound = "sound/Enemy_Hit_Hurt.wav";
-	public static final String levelup_sound = "sound/Level_Up.wav";
+	public static final String fire_sound = "sound/Laser_Shoot.mp3";
+	public static final String coin_sound = "sound/Pickup_Coin.mp3";
+	public static final String player_hurt_sound = "sound/Player_Hit_Hurt.mp3";
+	public static final String enemy_hurt_sound = "sound/Enemy_Hit_Hurt.mp3";
+	public static final String levelup_sound = "sound/Level_Up.mp3";
 	public static final String portal_sound = "sound/Portal.wav";
 	public static final String game_music = "sound/OnReality.mp3";
 	public static final String menu_music = "sound/EvilMenu.mp3";
@@ -195,7 +195,7 @@ public class AssetLord {
 		manager.load(player_hurt_sound, Sound.class);
 		manager.load(enemy_hurt_sound, Sound.class);
 		manager.load(levelup_sound, Sound.class);
-		manager.load(portal_sound, Sound.class);
+		//manager.load(portal_sound, Sound.class);
 		
 		
 		manager.load(game_music, Music.class);
