@@ -4813,6 +4813,7 @@ com.softnuke.biosleep.MyGame:
     27:28:public void MyGame()
     31:32:public void MyGame(com.softnuke.biosleep.PlatformSpecific)
     52:52:public static com.softnuke.biosleep.PlatformSpecific getPlatformResolver()
+    112:113:public static void sop(float)
 com.softnuke.biosleep.PlatformSpecific:
     public abstract java.lang.String getID()
     public abstract void signOut()
@@ -4841,9 +4842,16 @@ com.softnuke.biosleep.android.R$style
 objects.Background:
     private float vy
     com.badlogic.gdx.graphics.g2d.TextureRegion[] layers
-    260:263:public void dispose()
+    com.badlogic.gdx.graphics.OrthographicCamera camLayer1
+    com.badlogic.gdx.graphics.OrthographicCamera camLayer2
+    com.badlogic.gdx.graphics.g2d.Sprite cbuildLightSprite
+    com.badlogic.gdx.graphics.g2d.Sprite cbuildDarkSprite
+    com.badlogic.gdx.graphics.Texture layer1
+    com.badlogic.gdx.graphics.Texture layer2
+    com.badlogic.gdx.graphics.Texture layer3
+    287:293:public void dispose()
 objects.Background$ParallaxCamera:
-    271:273:public Background$ParallaxCamera(objects.Background,float,float)
+    301:303:public Background$ParallaxCamera(objects.Background,float,float)
 objects.BeamSpot:
     com.badlogic.gdx.graphics.g2d.Sprite glow
     com.badlogic.gdx.graphics.g2d.Sprite ray
@@ -4976,7 +4984,7 @@ screens.MainMenuScreen:
     com.badlogic.gdx.graphics.Mesh quadMesh
     com.badlogic.gdx.math.Vector2 playBound
     com.badlogic.gdx.math.Vector2 optionBound
-    1208:1209:public void showExitDialog()
+    1246:1247:public void showExitDialog()
 shaders.DiffuseShader
 shaders.Gaussian
 shaders.LightShader
@@ -5042,18 +5050,20 @@ utils.Cinema:
 utils.Constants
 utils.LevelGenerate:
     public static final int MAX_LEVEL
-    772:772:public void loadCinematic()
-    1390:1394:public void playPlayerHitSound()
+    764:764:public void loadCinematic()
+    1389:1393:public void playPlayerHitSound()
 utils.LevelGenerate$TaskQueue:
     public static final int GRAVITY_FLI
     public static final int GRAVITY_FIX
     public static final int CLEAR_LEVEL
 utils.ScoreManager:
     protected static final java.lang.String UTF8
+    public static final int STAR_MILK
+    public static final int STAR_ENEMY
     public static final int REVIVE_COST
-    160:183:public boolean getBoolean(java.lang.String,boolean)
-    200:210:private java.lang.String encBool(boolean)
-    248:253:public void reload()
-    273:274:public void applyScorePower()
-    374:375:public void increaseTimesJumped()
+    163:186:public boolean getBoolean(java.lang.String,boolean)
+    203:213:private java.lang.String encBool(boolean)
+    250:255:public void reload()
+    275:276:public void applyScorePower()
+    376:377:public void increaseTimesJumped()
 utils.TaskQueue

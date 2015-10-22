@@ -103,7 +103,10 @@ public class GameScreen implements Screen{
 	 * Complete cinema class 
 	 * make main menu same as intro screen
 	 * BUg: First level has odd background _fixed
-	 * increase jump button radius sensor
+	 * increase jump button radius sensor _ done
+	 * Optimize BACKGROUND!!
+	 * Add a ray sprite over portal
+	 * reduce particle count of beamspot
 	 * 
 	 */
 	
@@ -206,9 +209,9 @@ public class GameScreen implements Screen{
 		
 		prefs = Gdx.app.getPreferences(MainMenuScreen.PreferenceName);
 		GameScreen.BACKGROUND_MUSIC = prefs.getBoolean("music", true);
-		GameScreen.RENDER_LIGHTS = (prefs.getInteger("visuals", 1) > 0) ? true : false;
-		GameScreen.BACKGROUND_PARALLAX = (prefs.getInteger("visuals", 1) > 1) ? true : false;
-
+		GameScreen.RENDER_LIGHTS = (prefs.getInteger("visuals", 1) > 1) ? true : false;
+		GameScreen.BACKGROUND_PARALLAX = (prefs.getInteger("visuals", 1) > 0) ? true : false;
+		
 		/////////
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, bWIDTH, bHEIGHT);
@@ -498,21 +501,43 @@ public class GameScreen implements Screen{
 		
 		//update max level score
 		scoreManager.unlockLevel(LevelGenerate.CURRENT_LEVEL+1);
+		if(scoreManager.updateHighScore())
+		{
+			//highScoreHighLight.setVisible(true);
+			
+			//submit to leaderboard
+			//JumperGame.platform.submitLeaderboard(scoreManager.USER_SCORE);
+		}
+		else
+			//highScoreHighLight.setVisible(false);
+		
+		scoreManager.increaseDeath();
+		scoreManager.updateTotalScore();
 		
 		//update screen stats
 		coinsCollectedCount.setText(level.getCoinCollected() +"/"+ level.coinsPool.size);
 		enemyKilledCount.setText(level.getEnemyKilled() +"/"+ level.enemyPool.size);
 		if(level.getCoinCollected() == level.coinsPool.size)
-			coinStarImage.setVisible(true);
+			{//all coins collected
+				coinStarImage.setVisible(true);
+				scoreManager.unlockStars(LevelGenerate.CURRENT_LEVEL, ScoreManager.STAR_MILK);
+			}
 		else
 			coinStarImage.setVisible(false);
 		if(level.getEnemyKilled() == level.enemyPool.size)
-			enemyStarImage.setVisible(true);
+			{//all enemies killed
+				enemyStarImage.setVisible(true);
+				scoreManager.unlockStars(LevelGenerate.CURRENT_LEVEL, ScoreManager.STAR_ENEMY);
+			}
 		else
 			enemyStarImage.setVisible(false);
 		
 		pauseBack.setVisible(true);
 		levelClearScreen.setVisible(true);
+		
+		
+		//save !!
+		scoreManager.save(0);
 	}
 	
 	public void startloadingNextLevel(){
@@ -765,19 +790,7 @@ public class GameScreen implements Screen{
 			if(UpdateOnceGameOver){			
 				//Things that needs to be executed only once the game goes to Ready state
 				//if this is a high score
-				if(scoreManager.updateHighScore())
-				{
-					//highScoreHighLight.setVisible(true);
-					
-					//submit to leaderboard
-					//JumperGame.platform.submitLeaderboard(scoreManager.USER_SCORE);
-				}
-				else
-					;//highScoreHighLight.setVisible(false);
 				
-				scoreManager.increaseDeath();
-				scoreManager.updateTotalScore();
-				scoreManager.save(0); //2
 				
 				
 				

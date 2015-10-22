@@ -7,6 +7,7 @@ import com.softnuke.biosleep.MyGame;
 public class DesktopLauncher {
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
+		config.title = "ProfessorK";
 		//config.useGL30 = true;
 		config.width = 840;
 		config.height = 480;

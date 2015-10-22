@@ -228,8 +228,8 @@ public class LevelGenerate {
 			case 12:
 				tileMap = tileLoader.load("levels/level12.tmx");
 				break;
-			case 13:
-				tileMap = tileLoader.load("levels/level13.tmx");
+			case 420:
+				tileMap = tileLoader.load("levels/bonus.tmx");
 				break;
 			default:
 				tileMap = tileLoader.load("map1.tmx");
@@ -989,7 +989,14 @@ public class LevelGenerate {
 		}
 		
 		if(levelSwitch != null)
-		levelSwitch.reset();
+		{
+			levelSwitch.reset();
+			
+			for(Portal p:portalPool){
+				if(p.PORTAL_TYPE == Portal.EXIT)
+					p.ENABLED = false;
+			}
+		}
 			
 		Bullet.BULLET_POWER = false;
 		MACHINE_GUN = false;

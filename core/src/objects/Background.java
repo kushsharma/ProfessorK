@@ -3,9 +3,11 @@ package objects;
 import screens.GameScreen;
 import utils.AssetLord;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.Texture.TextureFilter;
+import com.badlogic.gdx.graphics.Texture.TextureWrap;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -37,6 +39,8 @@ public class Background {
 	Array<Sprite> paxLayer1 = new Array<Sprite>();
 	Array<Sprite> paxLayer2 = new Array<Sprite>();
 
+	Texture layer1,layer2,layer3;
+		
 	public Background(OrthographicCamera cam ){
 		//tmountain= new Texture("mountains-black-blur-extra.png");
 //		tmountain= new Texture("back/background-1.png");
@@ -49,17 +53,20 @@ public class Background {
 		HEIGHT = MyGame.HEIGHT;
 		
 		mainCam = cam;
-		camLayer1 = new OrthographicCamera();
-		camLayer1.setToOrtho(false, bWIDTH, bHEIGHT);
-		camLayer1.position.set(camLayer1.viewportWidth/2, camLayer1.viewportHeight/2, 0);
-		camLayer1.update();
 		
-		camLayer2 = new OrthographicCamera();
-		camLayer2.setToOrtho(false, bWIDTH, bHEIGHT);
-		camLayer2.position.set(camLayer2.viewportWidth/2, camLayer2.viewportHeight/2, 0);
-		camLayer2.update();
+		//no use
+//		camLayer1 = new OrthographicCamera();
+//		camLayer1.setToOrtho(false, bWIDTH, bHEIGHT);
+//		camLayer1.position.set(camLayer1.viewportWidth/2, camLayer1.viewportHeight/2, 0);
+//		camLayer1.update();		
+//		camLayer2 = new OrthographicCamera();
+//		camLayer2.setToOrtho(false, bWIDTH, bHEIGHT);
+//		camLayer2.position.set(camLayer2.viewportWidth/2, camLayer2.viewportHeight/2, 0);
+//		camLayer2.update();
 		
+		//paxCamera = new ParallaxCamera(false, bWIDTH*4, 4*bHEIGHT);
 		paxCamera = new ParallaxCamera(false, bWIDTH, bHEIGHT);
+		
 		//paxCamera = new ParallaxCamera(bWIDTH, bHEIGHT);
 		//paxCamera.setToOrtho(false, bWIDTH, bHEIGHT);
 		paxCamera.position.set(paxCamera.viewportWidth/2, paxCamera.viewportHeight/2, 0);
@@ -77,41 +84,45 @@ public class Background {
 		
 		//layers = new TextureRegion[3];
 		
-		//Texture layer1 = new Texture("back/background-1.png");
+		//layer1 = new Texture("back/background-1.png");
 		//layer1.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
 		//layers[0] = new TextureRegion(layer1);
 		
-		Texture layer2 = new Texture("back/background-2.png");
-		layer2.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
+		//layer2 = new Texture("back/background-2.png");
+		//layer2 = new Texture(GameScreen.getInstance().getAssetLord().manager.get(AssetLord.game_atlas, TextureAtlas.class).findRegion("pixel-back").getTexture().getTextureData());
+		//layer2.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
+		//layer2.setWrap(TextureWrap.Repeat, TextureWrap.ClampToEdge);
 		//layers[1] = new TextureRegion(layer2);
 		
-		Texture layer3 = new Texture("back/background-3.png");
-		layer3.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
+		//layer3 = new Texture("back/background-3.png");
+		//layer3.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
+		//layer3.setWrap(TextureWrap.Repeat, TextureWrap.ClampToEdge);
 		//layers[2] = new TextureRegion(layer3);
 		
 		
 		
 		backSprite = new Sprite(GameScreen.getInstance().getAssetLord().manager.get(AssetLord.game_atlas, TextureAtlas.class).findRegion("pixel-back"));
+		//backSprite = new Sprite(layer1);
 		backSprite.setPosition(0, 0);
 		//backSprite.setPosition(0, 0);
 		backSprite.setSize(WIDTH, HEIGHT);
 		
-		buildDarkSprite  = new Sprite(layer2);
+		buildDarkSprite  = new Sprite(GameScreen.getInstance().getAssetLord().manager.get(AssetLord.game_atlas, TextureAtlas.class).findRegion("back-small-front"));
 		buildDarkSprite.setPosition(-bWIDTH/2, -bHEIGHT*0.6f);
 		//buildDarkSprite.setPosition(-bWIDTH/2, 0);
 		buildDarkSprite.setSize(bHEIGHT * buildDarkSprite.getWidth()/buildDarkSprite.getHeight(), bHEIGHT);
 
-		buildLightSprite = new Sprite(layer3);
-		buildLightSprite.setPosition(-bWIDTH/2, -bHEIGHT/2);
+		buildLightSprite = new Sprite(GameScreen.getInstance().getAssetLord().manager.get(AssetLord.game_atlas, TextureAtlas.class).findRegion("back-small-mid"));
+		buildLightSprite.setPosition(-bWIDTH/2, -bHEIGHT*0.6f);
 		//buildDarkSprite.setPosition(-bWIDTH/2, 0);
 		buildLightSprite.setSize(bHEIGHT * buildLightSprite.getWidth()/buildLightSprite.getHeight(), bHEIGHT);
 		
 		
-		cbuildLightSprite = new Sprite(buildLightSprite);
-		cbuildDarkSprite = new Sprite(buildDarkSprite);
+		//cbuildLightSprite = new Sprite(buildLightSprite);
+		//cbuildDarkSprite = new Sprite(buildDarkSprite);
 		
-		cbuildLightSprite.setPosition(buildLightSprite.getX() + buildLightSprite.getWidth(), cbuildLightSprite.getY());
-		cbuildDarkSprite.setPosition(buildDarkSprite.getX() + buildDarkSprite.getWidth(), cbuildDarkSprite.getY());
+		//cbuildLightSprite.setPosition(buildLightSprite.getX() + buildLightSprite.getWidth(), cbuildLightSprite.getY());
+		//cbuildDarkSprite.setPosition(buildDarkSprite.getX() + buildDarkSprite.getWidth(), cbuildDarkSprite.getY());
 
 		for(int i = 0;i<TOTAL_SPRITES;i++){
 			buildDarkSprite.setPosition(-bWIDTH + (i * buildDarkSprite.getWidth()), buildDarkSprite.getY());
@@ -140,7 +151,9 @@ public class Background {
 	}
 	
 	Vector3 temp = new Vector3(0,0,0);
-	public void draw(SpriteBatch batch){	
+	float time = 0;
+	public void draw(SpriteBatch batch){
+		//time += Gdx.graphics.getDeltaTime();
 		//paxCamera.update();
 		
 		batch.disableBlending();		
@@ -148,9 +161,22 @@ public class Background {
 		batch.begin();
 		//batch.draw(layers[0], 0, 0);
 		backSprite.draw(batch);
+		//batch.end();
+		
+		//batch.setProjectionMatrix(GameScreen.getInstance().cameraui.combined);
+		//batch.begin();
+		//float layer3x = mainCam.position.x/55;
+		//float layer2x = mainCam.position.x/45;
+
+
+		//batch.draw(layer3, 0, 0, WIDTH, WIDTH * layer3.getHeight()/layer3.getWidth(), 0 + layer3x, 1, 1 + layer3x, 0);
+		//batch.draw(layer2, 0, 0, WIDTH, WIDTH * layer2.getHeight()/layer2.getWidth(), 0 + layer2x, 1, 1 + layer2x, 0);
+
+		//TODO
 		batch.end();
 		batch.enableBlending();
 
+		//batch.setColor(1f,1f,1f,1f);
 		if(GameScreen.BACKGROUND_PARALLAX){
 			batch.setProjectionMatrix(paxCamera.calculateParallaxMatrix(0.2f, 0f));
 			//batch.setProjectionMatrix(camLayer1.combined);
@@ -170,12 +196,11 @@ public class Background {
 				if(s.getX() - bWIDTH/2 < paxCamera.position.x*0.2 && s.getX() + s.getWidth() + bWIDTH/2 > paxCamera.position.x*0.2)
 					s.draw(batch);		
 			}
-			
-			batch.end();
+			//batch.end();
 			
 			batch.setProjectionMatrix(paxCamera.calculateParallaxMatrix(0.4f, 0f));
 			//batch.setProjectionMatrix(camLayer2.combined);
-			batch.begin();
+			//batch.begin();
 			//batch.draw(layers[2], 0, 0);
 			
 			for(Sprite s:paxLayer1)
@@ -244,14 +269,16 @@ public class Background {
 		}
 		*/
 		
-		paxCamera.position.set(mainCam.position.x, mainCam.position.y, 0);
 		
+		
+		paxCamera.position.set(mainCam.position.x, mainCam.position.y, 0);
+		/*
 		camLayer1.position.set(mainCam.position.x * 0.2f, camLayer1.position.y, 0);
 		camLayer1.update();
 
 		camLayer2.position.set(mainCam.position.x * 0.5f, camLayer2.position.y, 0);
 		camLayer2.update();
-		
+		*/
 		
 		
 	}
@@ -260,6 +287,9 @@ public class Background {
 		paxLayer1.clear();
 		paxLayer2.clear();
 		
+		//layer1.dispose();
+		//layer2.dispose();
+		//layer3.dispose();
 	}
 	
 	class ParallaxCamera extends OrthographicCamera {

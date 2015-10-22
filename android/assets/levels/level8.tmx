@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-up" width="290" height="55" tilewidth="32" tileheight="32" nextobjectid="691">
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="290" height="55" tilewidth="32" tileheight="32" nextobjectid="692">
  <tileset firstgid="1" name="tiles_128" tilewidth="32" tileheight="32" tilecount="16">
   <image source="../tiles_128.png" width="128" height="128"/>
  </tileset>
@@ -13,7 +13,7 @@
  </tileset>
  <layer name="Platform" width="290" height="55">
   <data encoding="base64" compression="zlib">
-   eJzt3dFKI1EQhOF5Fd8h1xpw9zII4qUK7r7/OzgDBiSgZsYz3VXd/wfNImEh5Z4uTCbunCYAyHP6GADIQg8ByEYPAchGDwHIRg8ByEYPAchGDwHIRg8ByEYPAchGDwHIRg8ByEYPAchGDwHIRg8ByEYPAchGDwHIRg8ByLZ00O08dwPnGBlghS45ATfnn4fu5/kzYP7O8xCa4HpdcgJuzj30OM/NgHmavt7Pw6f57vHvXPP3v3o8KieAdSJ7KFuXnIAbeqheTsANPVQvJ7D46T0OFcvzpIfq5QRGXxvee45Tn/3skhMYeW147zlfe+6yn11yAiPP+t5z3qXlOb/N82/A/J9097NLTsCxh57neRk4r7/+Lu6jS07AsYf4/TKgFnoI6Ounz/RHoYeA2rZ2TWRH0UMAstFDgIfs107X2vI86SEg3+Xrn8uvHT9vvAY9BOhT+bzxnvnoISDW2tcuKnu6F5V89JC2w8Wf2G7LNSiVPd2LSj56SNvI67cqXZbxPLZeC3fc0+r56KF4I38e6tpDh4keqpSPHorjdp3GZY4r/g0WjntaPR89FEflOk2l2XLvFMc9rZ6PHorjdD5cpsueVs+n3EMj33MY/f5F9c+5ukyXPa2er8t9ThVyOp0Pl+myp9XzdbnPqUJOp/PhMl32tHq+Lv9vs0JOp/PhMl32tHo+hf2MoJDT6Xy4TJc9rZ5PYT8jKOR0Oh8u02VPq+dT2M8ICjmdzofLdNnT6vkU9jOCQk6n8+EyXfa0ej6F/YygkNPpfLhMlz2tnk9hPyMo5HQ6Hy7TZU+r5+tyn1OFnE7nw2W67Gn1fF3uc6qQ0+l8uEyXPa2e7x2LCA8n
+   eJzt3dFKI1EQhOF5Fd8h1xrQvQwL4qUKuu//Ds7ABiRgzAxnuqu6/w+aRcJCyj1dmEzcOU0AkOf0fwAgCz0EIBs9BCAbPQQgGz0EIBs9BCAbPQQgGz0EIBs9BCAbPQQgGz0EIBs9BCAbPQQgGz0EIBs9BCAbPQQgGz0EINvSQffzPAycY2SAFbrkBNycfx56nOdpwPyZ529ogtt1yQm4OffQ8zx3A+Zl+nk/D9/m2uPX3PL3f3o8KieAdSJ7KFuXnIAbeqheTsANPVQvJ7D47T0OFcvzpIfq5QRGXxvee45Tn/3skhMYeW147zlfe+6yn11yAiPP+t5z3qXlOX/M8zlg/k26+9klJ3q49v6PYw+9zvM2cN5v/UYG65ITcOwhfr8MqIUeAvr67TP9UeghoLatXRPZUfQQgGz0EOAh+7XTrbY8T3oIyHf5+ufya8fPG69BDwH6VD5vvGc+egiItfa1i8qe7kUlHz2k7XDxJ7bbcg1KZU/3opKPHtI28vqtSpdlPI+t18Id97R6Pnoo3sifh7r20GGihyrlo4fiuF2ncZnjin+DheOeVs9HD8VRuU5TabbcO8VxT6vno4fiOJ0Pl+myp9XzKffQyPccRr9/Uf1zri7TZU+r5+tyn1OFnE7nw2W67Gn1fF3uc6qQ0+l8uEyXPa2er8v/26yQ0+l8uEyXPa2eT2E/IyjkdDofLtNlT6vnU9jPCAo5nc6Hy3TZ0+r5FPYzgkJOp/PhMl32tHo+hf2MoJDT6Xy4TJc9rZ5PYT8jKOR0Oh8u02VPq+dT2M8ICjmdzofLdNnT6vm63OdUIafT+XCZLntaPV+X+5wq5HQ6Hy7TZU+r5/sCkJ8PWw==
   </data>
  </layer>
  <layer name="Spikes" width="290" height="55">
@@ -71,6 +71,7 @@
   <object id="604" x="7072" y="1120" width="128" height="96"/>
   <object id="625" x="0" y="0" width="32" height="576"/>
   <object id="626" x="0" y="928" width="32" height="480"/>
+  <object id="691" x="7616" y="864" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="SpikesOb">
   <object id="606" x="6512.25" y="995.25" width="14.25" height="26.5"/>
@@ -212,7 +213,7 @@
     <property name="direction" value="v"/>
    </properties>
   </object>
-  <object id="533" x="7520" y="928" width="96" height="287.333">
+  <object id="533" x="7520" y="928" width="96" height="353">
    <properties>
     <property name="direction" value="v"/>
    </properties>

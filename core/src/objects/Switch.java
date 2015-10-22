@@ -96,8 +96,8 @@ public class Switch {
 		}
 		
 		//reset lights
-		lightE.enable();
-		lightD.disable();
+		lightE.disable();
+		lightD.enable();
 		
 		create();
 	}

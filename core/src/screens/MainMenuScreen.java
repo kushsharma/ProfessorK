@@ -66,7 +66,7 @@ public class MainMenuScreen implements Screen, ActionListener{
 	private int CURRENT_VIEW = 0;//-1 = store, 0 = home, 1 = options, 2 = credits, 3 = level select
 	private int LAST_VIEW = 0;//helpful in analytics
 	
-	private int TOTAL_SCORE = 0;
+	private int HIGH_SCORE = 0;
 	private int Easter_Count = 0;
 	
 	public static MainMenuScreen _menuScreen = null;
@@ -247,7 +247,7 @@ public class MainMenuScreen implements Screen, ActionListener{
 				{
 					MyGame.platform.showToast("You! Really deserves a trophy! Here is a bonus secret stage.", false);
 					
-					game.setScreen(new GameScreen(game, Assets, 13));
+					game.setScreen(new GameScreen(game, Assets, 420));
 				}
 			}
 		});
@@ -296,7 +296,7 @@ public class MainMenuScreen implements Screen, ActionListener{
 
 		if(DEBUG) GLProfiler.enable();
 		
-		TOTAL_SCORE = scoreManager.USER_TOTAL_SCORE;
+		HIGH_SCORE = scoreManager.USER_HIGH_SCORE;
 
 		//prepare music
 		menuMusic = Assets.manager.get(AssetLord.menu_music, Music.class);
@@ -374,8 +374,8 @@ public class MainMenuScreen implements Screen, ActionListener{
 		tscoreTextStyle.font = fontMedium;
 		tscoreTextStyle.fontColor = Color.WHITE;
 		
-		totalScoreLabel = new Label(""+TOTAL_SCORE, tscoreStyle);
-		Label totalTextScoreLabel = new Label("Total Score", tscoreTextStyle);
+		totalScoreLabel = new Label(""+HIGH_SCORE, tscoreStyle);
+		Label totalTextScoreLabel = new Label("High Score", tscoreTextStyle);
 		
 		totalScoreLabel.setAlignment(Align.right);
 		totalTextScoreLabel.setAlignment(Align.right);
@@ -608,13 +608,13 @@ public class MainMenuScreen implements Screen, ActionListener{
 		//skin.add("level-button-unlocked", atlas.findRegion("level-unlocked.png"));
 		//skin.add("level-button-locked", new Texture("level-select/level-locked.png"), Texture.class);
 
-		TextButtonStyle buttStyle = new TextButtonStyle();
-		buttStyle.font = fontMedium;
-		buttStyle.fontColor = Color.WHITE;
-		buttStyle.pressedOffsetX = 2;
-		buttStyle.pressedOffsetY = -2;
-		buttStyle.up = skin.getDrawable("level-locked"); 
-		buttStyle.down = skin.getDrawable("level-locked");	
+		TextButtonStyle buttStyleLocked = new TextButtonStyle();
+		buttStyleLocked.font = fontMedium;
+		buttStyleLocked.fontColor = Color.WHITE;
+		buttStyleLocked.pressedOffsetX = 2;
+		buttStyleLocked.pressedOffsetY = -2;
+		buttStyleLocked.up = skin.getDrawable("level-locked"); 
+		buttStyleLocked.down = skin.getDrawable("level-locked");	
 		
 		TextButtonStyle buttStyleUnlock = new TextButtonStyle();
 		buttStyleUnlock.font = fontMedium;
@@ -622,21 +622,59 @@ public class MainMenuScreen implements Screen, ActionListener{
 		buttStyleUnlock.pressedOffsetX = 2;
 		buttStyleUnlock.pressedOffsetY = -2;
 		buttStyleUnlock.up = skin.getDrawable("level-unlocked"); 
-		buttStyleUnlock.down = skin.getDrawable("level-unlocked");	
+		buttStyleUnlock.down = skin.getDrawable("level-unlocked");
+		
+		TextButtonStyle buttStyle1Star = new TextButtonStyle();
+		buttStyle1Star.font = fontMedium;
+		buttStyle1Star.fontColor = Color.WHITE;
+		buttStyle1Star.pressedOffsetX = 2;
+		buttStyle1Star.pressedOffsetY = -2;
+		buttStyle1Star.up = skin.getDrawable("level-1star"); 
+		buttStyle1Star.down = skin.getDrawable("level-1star");
+		
+		TextButtonStyle buttStyle2Star = new TextButtonStyle();
+		buttStyle2Star.font = fontMedium;
+		buttStyle2Star.fontColor = Color.WHITE;
+		buttStyle2Star.pressedOffsetX = 2;
+		buttStyle2Star.pressedOffsetY = -2;
+		buttStyle2Star.up = skin.getDrawable("level-2star"); 
+		buttStyle2Star.down = skin.getDrawable("level-2star");
+		
+		TextButtonStyle buttStyle3Star = new TextButtonStyle();
+		buttStyle3Star.font = fontMedium;
+		buttStyle3Star.fontColor = Color.WHITE;
+		buttStyle3Star.pressedOffsetX = 2;
+		buttStyle3Star.pressedOffsetY = -2;
+		buttStyle3Star.up = skin.getDrawable("level-3star"); 
+		buttStyle3Star.down = skin.getDrawable("level-3star");
 		
 		int l = 1;
 		for(int i=0;i<3;i++){
 			for(int j=0;j<5;j++)
 			{
-				final TextButton b = new TextButton(""+(l), buttStyle);
+				final TextButton b = new TextButton(""+(l), buttStyleLocked);
 
 				if(l <= scoreManager.MAX_LEVELS_UNLOCKED){
 					b.setStyle(buttStyleUnlock);
+					
+					int stars = scoreManager.getStars(l);
+					switch(stars){
+						case 1:
+							b.setStyle(buttStyle1Star);
+							break;
+						case 2:
+							b.setStyle(buttStyle2Star);
+							break;
+						case 3:
+							b.setStyle(buttStyle3Star);
+							break;
+					}
+					
 				}
 				else
 				{
 					b.setText("");
-					b.setStyle(buttStyle);
+					b.setStyle(buttStyleLocked);
 				}
 								
 				b.padBottom(b.getHeight()*0.6f);
@@ -1209,8 +1247,8 @@ public class MainMenuScreen implements Screen, ActionListener{
 	}
 	
 	private void updateTotalScoreText(){
-		TOTAL_SCORE = scoreManager.USER_TOTAL_SCORE;
-		totalScoreLabel.setText(TOTAL_SCORE+"");
+		HIGH_SCORE = scoreManager.USER_HIGH_SCORE;
+		totalScoreLabel.setText(HIGH_SCORE+"");
 		//totalScoreLabel.invalidate();
 	}
 

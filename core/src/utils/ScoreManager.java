@@ -24,6 +24,9 @@ public class ScoreManager {
 	public int USER_TOTAL_DEATHS;
 	public int MAX_LEVELS_UNLOCKED = 1;
 
+	public static final int STAR_MILK = 3;
+	public static final int STAR_ENEMY = 5;
+	
 //	public int SLOMO_DURATION;
 //	public int SHIELD_DURATION;
 	
@@ -214,7 +217,7 @@ public class ScoreManager {
 		USER_SCORE+= Math.abs(val);
 		
 		//TODO:
-		MyGame.sop(USER_SCORE);
+		//MyGame.sop(USER_SCORE);
 	}
 	
 	public void increaseDeath(){
@@ -233,8 +236,7 @@ public class ScoreManager {
 	}
 	
 	public void updateTotalScore(){
-		USER_TOTAL_SCORE += USER_SCORE;		
-		
+		USER_TOTAL_SCORE += USER_SCORE;				
 
 	}
 	
@@ -393,5 +395,59 @@ public class ScoreManager {
 		MAX_LEVELS_UNLOCKED = Math.max(l,MAX_LEVELS_UNLOCKED);
 		
 		save(0);
+	}
+	
+	/**used for unlocking more stars in a level
+	 * 
+	 * @param levelno level number of game
+	 * @param starno STAR_MILK, STAR_ENEMY [3, 5]
+	 * **/
+	public void unlockStars(int levelno, int starno){
+		/* mechanism work as follows
+		 * 
+		 * by default it has 1 as value that mean no stars earned
+		 * to unlock level one star, multiply by 2
+		 * unlock level two star, multiply by 3
+		 * unlock level three star, myltiply by 5
+		 * 
+		 */
+		
+		//give them one star by default for now
+		int defaultStar = 2;
+		
+		int val = prefs.getInteger("level_stat_"+levelno, 1);
+		
+		if(val == 1)
+			val *= defaultStar;
+		
+		if(val % starno != 0)
+			val *= starno;
+		
+		prefs.putInteger("level_stat_"+levelno, val);
+		
+		//prefs.flush();
+	}
+	
+	/**get number of stars of this level earned so far**/
+	public int getStars(int levelno){
+		/* mechanism work as follows
+		 * 
+		 * if 1 : no stars earned
+		 * 2/3/5 : one star
+		 * 6/15/10 : two stars
+		 * 30 : three stars earned
+		 * 
+		 */
+		
+		int val = prefs.getInteger("level_stat_"+levelno, 1);
+		
+		if(val == 2 || val == 3 || val == 5)
+			return 1;
+		else if(val == 6 || val == 10 || val == 15)
+			return 2;
+		else if(val == 30)
+			return 3;
+		
+		return 0;
 	}
 }

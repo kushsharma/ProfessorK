@@ -86,32 +86,17 @@
   <object id="717" x="8994.62" y="977.75" width="60.125" height="13.75"/>
  </objectgroup>
  <objectgroup name="EnemyOb">
-  <object id="756" x="1216" y="864" width="32" height="32"/>
   <object id="757" x="1344" y="864" width="32" height="32"/>
   <object id="758" x="1632" y="896" width="32" height="32"/>
   <object id="760" x="2592" y="800" width="32" height="32"/>
   <object id="761" x="2688" y="800" width="32" height="32"/>
-  <object id="762" x="2848" y="800" width="32" height="32"/>
-  <object id="763" x="3520" y="800" width="32" height="32"/>
-  <object id="764" x="3648" y="768" width="32" height="32"/>
   <object id="765" x="4288" y="864" width="32" height="32"/>
-  <object id="766" x="4608" y="896" width="32" height="32"/>
-  <object id="767" x="3168" y="800" width="32" height="32"/>
-  <object id="768" x="3424" y="768" width="32" height="32"/>
   <object id="770" x="4064" y="640" width="32" height="32"/>
-  <object id="771" x="4384" y="768" width="32" height="32"/>
-  <object id="773" x="4992" y="896" width="32" height="32"/>
-  <object id="774" x="5376" y="896" width="32" height="32"/>
-  <object id="775" x="5888" y="896" width="32" height="32"/>
   <object id="776" x="6272" y="896" width="32" height="32"/>
   <object id="777" x="6944" y="768" width="32" height="32"/>
   <object id="778" x="7264" y="768" width="32" height="32"/>
   <object id="779" x="7680" y="768" width="32" height="32"/>
   <object id="780" x="7072" y="928" width="32" height="32"/>
-  <object id="781" x="6656" y="960" width="32" height="32"/>
-  <object id="782" x="7808" y="928" width="32" height="32"/>
-  <object id="783" x="8096" y="832" width="32" height="32"/>
-  <object id="784" x="8384" y="896" width="32" height="32"/>
   <object id="785" x="8800" y="832" width="32" height="32"/>
   <object id="786" x="9152" y="896" width="32" height="32"/>
   <object id="787" x="9472" y="832" width="32" height="32"/>
