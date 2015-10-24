@@ -159,6 +159,8 @@ public class BeamSpot {
 	}
 	
 	public void renderParticles(SpriteBatch batch){
+		if(!visible) return;
+		
 		effect.draw(batch);	
 	}
 	

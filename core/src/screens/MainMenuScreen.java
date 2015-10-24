@@ -17,6 +17,8 @@ import com.badlogic.gdx.graphics.Mesh;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.Texture.TextureFilter;
+import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.NinePatch;
 import com.badlogic.gdx.graphics.g2d.ParticleEffect;
@@ -85,11 +87,12 @@ public class MainMenuScreen implements Screen, ActionListener{
 	Label totalScoreLabel,totalTextScoreLabel;
 	Label.LabelStyle tscoreStyle,tscoreTextStyle;
 	ParticleEffect introSmokeEffect;
-	Sprite introBack, introAlien, introPlayerSleep;
+	Sprite introBack, introAlien, introPlayerSleep, windFan;
 	NinePatch ninep;
 	NinePatchDrawable ninePatchDrawable;
 	TextureRegion topBack;
-	Texture logoBack;
+	Texture logoBack, intro1T;
+	Animation playerSleepAnime;
 	
 	Image logobackI;
 	TextButton visualButt, tutorialButt, musicButt, creditsButt, rabbitButton, squareButton, sensaiButton, coinsButton ;
@@ -270,7 +273,7 @@ public class MainMenuScreen implements Screen, ActionListener{
 		
 		
 		//create home
-		Texture intro1T = new Texture("back/intro.png");
+		intro1T = new Texture("back/intro.png");
 		intro1T.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
 		
 		introBack = new Sprite(intro1T);
@@ -282,12 +285,24 @@ public class MainMenuScreen implements Screen, ActionListener{
 		introSmokeEffect.setPosition(WIDTH - WIDTH*0.18f, HEIGHT*0.5f - HEIGHT*0.22f);
 		introSmokeEffect.setEmittersCleanUpBlendFunction(false);
 		
-		Texture intro6T = new Texture("back/intro-player-sleep.png");
-		intro6T.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
+		//Texture intro6T = new Texture("back/intro-player-sleep.png");
+		//intro6T.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
 		
-		introPlayerSleep = new Sprite(intro6T);
+		TextureRegion[] playerSleepSheet = new TextureRegion[2];
+		playerSleepSheet[0] = atlas.findRegion("intro-player-sleep");
+		playerSleepSheet[1] = atlas.findRegion("intro-player-sleep-2");
+		playerSleepAnime = new Animation(5f, playerSleepSheet);
+		playerSleepAnime.setPlayMode(PlayMode.LOOP);
+		
+		introPlayerSleep = new Sprite(atlas.findRegion("intro-player-sleep"));
 		introPlayerSleep.setSize(WIDTH/16, WIDTH/16 * introPlayerSleep.getHeight()/introPlayerSleep.getWidth());
 		introPlayerSleep.setPosition(WIDTH - WIDTH*0.3f, HEIGHT/9);		
+		
+		windFan = new Sprite(atlas.findRegion("intro-wind-mil-fan"));
+		windFan.setSize(WIDTH/24, WIDTH/24 * windFan.getHeight()/windFan.getWidth());
+		windFan.setOriginCenter();
+		windFan.setPosition( WIDTH*0.162f, HEIGHT*0.16f);	
+		
 	}
 	
 	@Override
@@ -1275,14 +1290,14 @@ public class MainMenuScreen implements Screen, ActionListener{
 	
 		//Gdx.app.log(""+ Gdx.graphics.getDensity(), "z");
 
-		
+		introPlayerSleep.setRegion(playerSleepAnime.getKeyFrame(time));
 
 		batch.setProjectionMatrix(camera.combined);
 		batch.begin();
 		//squareFloor.draw(batch, delta);
 		introBack.draw(batch);
 		introPlayerSleep.draw(batch);
-		
+		windFan.draw(batch);
 
 		//topback.draw(batch);
 		//logoback.draw(batch);
@@ -1329,6 +1344,8 @@ public class MainMenuScreen implements Screen, ActionListener{
 	}
 	
 	private void update(float delta){
+		windFan.setRotation(360 - (time*50)%360);
+		
 		//add culling to tables
 		if(menu.getX()< WIDTH && menu.getX()+menu.getWidth() > 0)
 			menu.setVisible(true);
@@ -1483,6 +1500,7 @@ public class MainMenuScreen implements Screen, ActionListener{
 		batch.dispose();
 		stage.dispose();	
 		introSmokeEffect.dispose();
+		intro1T.dispose();
 		
 		//unregister listener
 		MyGame.platform.unRegisterActionListener(this);

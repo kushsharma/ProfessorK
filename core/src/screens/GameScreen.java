@@ -105,8 +105,10 @@ public class GameScreen implements Screen{
 	 * BUg: First level has odd background _fixed
 	 * increase jump button radius sensor _ done
 	 * Optimize BACKGROUND!!
-	 * Add a ray sprite over portal
-	 * reduce particle count of beamspot
+	 * Add a ray sprite over portal _ done
+	 * add rotation on wind mill
+	 * Add scan lines
+	 * 
 	 * 
 	 */
 	

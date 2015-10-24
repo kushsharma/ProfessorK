@@ -7,7 +7,9 @@ import utils.LevelGenerate;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.Texture.TextureFilter;
 import com.badlogic.gdx.graphics.g2d.ParticleEffect;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.objects.PolygonMapObject;
 import com.badlogic.gdx.math.MathUtils;
@@ -37,7 +39,7 @@ public class Portal {
 	PolygonShape shape;
 	Fixture bodyFixture, sensorFixture;
 	
-	TextureRegion texRegion;
+	Sprite rays;
 	static final Vector2 Center = new Vector2(0,0);
 
 	float bHEIGHT = MyGame.bHEIGHT;
@@ -115,6 +117,10 @@ public class Portal {
 
 		}
 		
+		rays = new Sprite(GameScreen.getInstance().getAssetLord().manager.get(AssetLord.game_atlas, TextureAtlas.class).findRegion("portal-rays"));
+		rays.setSize(width * 3f, height*10);
+		rays.setPosition(position.x - rays.getWidth()*0.52f, position.y);
+		rays.setColor(0.5f, 0.5f, 0.3f,0.5f);
 		create();
 	}
 	
@@ -171,8 +177,13 @@ public class Portal {
 	}
 	
 	public void renderParticles(SpriteBatch batch){
+		if(!visible) return;
+		
 		if(ENABLED)
+		{
 			effect.draw(batch);
+			rays.draw(batch, 0.6f);
+		}
 		
 	}
 	

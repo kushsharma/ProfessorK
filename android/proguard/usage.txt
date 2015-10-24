@@ -1589,7 +1589,6 @@ com.badlogic.gdx.graphics.g2d.Sprite:
     224:233:public void translateX(float)
     238:247:public void translateY(float)
     311:316:public void setColor(float)
-    327:330:public void setOriginCenter()
     340:340:public float getRotation()
     346:349:public void rotate(float)
     403:406:public void scale(float)
@@ -1635,7 +1634,6 @@ com.badlogic.gdx.graphics.g2d.TextureAtlas:
 com.badlogic.gdx.graphics.g2d.TextureAtlas$AtlasSprite:
     579:580:public void setX(float)
     584:585:public void setY(float)
-    610:611:public void setOriginCenter()
     707:707:public com.badlogic.gdx.graphics.g2d.TextureAtlas$AtlasRegion getAtlasRegion()
 com.badlogic.gdx.graphics.g2d.TextureAtlas$TextureAtlasData:
     200:200:public com.badlogic.gdx.utils.Array getRegions()
@@ -4855,14 +4853,14 @@ objects.Background$ParallaxCamera:
 objects.BeamSpot:
     com.badlogic.gdx.graphics.g2d.Sprite glow
     com.badlogic.gdx.graphics.g2d.Sprite ray
-    196:202:public void reset()
-    208:208:public com.badlogic.gdx.physics.box2d.Fixture getFixture()
-    214:222:public void setOffScreen(boolean)
-    225:228:public void toggle()
-    245:245:public float getY()
-    249:249:public float getX()
-    253:253:public float getWidth()
-    257:257:public float getHeight()
+    198:204:public void reset()
+    210:210:public com.badlogic.gdx.physics.box2d.Fixture getFixture()
+    216:224:public void setOffScreen(boolean)
+    227:230:public void toggle()
+    247:247:public float getY()
+    251:251:public float getX()
+    255:255:public float getWidth()
+    259:259:public float getHeight()
 objects.Bullet:
     public static com.badlogic.gdx.graphics.g2d.TextureRegion wallTex
     com.badlogic.gdx.graphics.Texture wallTexx
@@ -4936,15 +4934,14 @@ objects.Player:
     608:608:public com.badlogic.gdx.physics.box2d.Body getBody()
     707:707:public com.badlogic.gdx.math.Vector2 startPoint()
 objects.Portal:
-    com.badlogic.gdx.graphics.g2d.TextureRegion texRegion
     objects.Light light
-    194:203:public void reset()
-    213:213:public com.badlogic.gdx.physics.box2d.Fixture getFixture()
-    219:227:public void setOffScreen(boolean)
-    240:240:public float getY()
-    244:244:public float getX()
-    248:248:public float getWidth()
-    252:252:public float getHeight()
+    205:214:public void reset()
+    224:224:public com.badlogic.gdx.physics.box2d.Fixture getFixture()
+    230:238:public void setOffScreen(boolean)
+    251:251:public float getY()
+    255:255:public float getX()
+    259:259:public float getWidth()
+    263:263:public float getHeight()
 objects.PowerUp:
     263:263:private float generateY()
     269:286:public void setOffScreen(boolean)
@@ -4952,6 +4949,7 @@ objects.PowerUp:
     303:303:public float getX()
     307:307:public float getWidth()
     311:311:public float getHeight()
+objects.ScanLines
 objects.Switch:
     com.badlogic.gdx.graphics.g2d.TextureRegion texRegion
     150:154:public void renderParticles(com.badlogic.gdx.graphics.g2d.SpriteBatch)
@@ -4984,7 +4982,7 @@ screens.MainMenuScreen:
     com.badlogic.gdx.graphics.Mesh quadMesh
     com.badlogic.gdx.math.Vector2 playBound
     com.badlogic.gdx.math.Vector2 optionBound
-    1246:1247:public void showExitDialog()
+    1261:1262:public void showExitDialog()
 shaders.DiffuseShader
 shaders.Gaussian
 shaders.LightShader
@@ -5045,8 +5043,8 @@ utils.Cinema:
     public static final int MOV_TUT_LEVEL_11
     public static final int MOV_TUT_LEVEL_12
     public static final int MOV_TUT_LEVEL_13
-    704:704:private void startLevel1()
-    708:708:public void dispose()
+    719:719:private void startLevel1()
+    722:724:public void dispose()
 utils.Constants
 utils.LevelGenerate:
     public static final int MAX_LEVEL

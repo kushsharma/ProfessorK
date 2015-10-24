@@ -60,9 +60,10 @@ public class Cinema {
 
 	int CINEMA_TYPE = 0;
 	
-	Image intro1, introAlien, introPlayerSleep, introPlayerFly, introStar, introAlienRays;
+	Image intro1, introAlien, introPlayerSleep, introPlayerFly, introStar, introAlienRays, introMillFan;
 	Sprite introLevelPods, introScientist;
 	ParticleEffect introSmokeEffect;
+	Texture intro1T;
 	
 	BitmapFont fontMedium;
 	
@@ -85,7 +86,8 @@ public class Cinema {
 	}
 	
 	private void loadIntroMovie() {
-		Texture intro1T = new Texture("back/intro.png");
+		//dispose this
+		intro1T = new Texture("back/intro.png");
 		intro1T.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
 		
 		intro1 = new Image(intro1T);
@@ -111,10 +113,9 @@ public class Cinema {
 		introSmokeEffect.scaleEffect(0.4f);
 		introSmokeEffect.setPosition(WIDTH - WIDTH*0.18f, HEIGHT*0.5f - HEIGHT*0.22f);
 		
+		//dispose this
 		Texture intro2T = new Texture("back/intro-player-fly.png");
 		intro2T.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
-		Texture intro6T = new Texture("back/intro-player-sleep.png");
-		intro6T.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
 		Texture intro3T = new Texture("back/intro-alien.png");
 		intro3T.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
 		Texture intro4T = new Texture("back/intro-alien-rays.png");
@@ -123,7 +124,7 @@ public class Cinema {
 		intro5T.setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
 
 				
-		introPlayerSleep = new Image(intro6T);
+		introPlayerSleep = new Image(atlas.findRegion("intro-player-sleep"));
 		introPlayerSleep.setSize(WIDTH/16, WIDTH/16 * introPlayerSleep.getHeight()/introPlayerSleep.getWidth());
 		introPlayerSleep.setPosition(WIDTH - WIDTH*0.3f, HEIGHT/9);		
 		introPlayerSleep.setVisible(false);		
@@ -152,6 +153,15 @@ public class Cinema {
 		introStar.setPosition(WIDTH- WIDTH/20, HEIGHT - HEIGHT/12);		
 		introStar.setVisible(false);		
 		stage.addActor(introStar);
+		
+		
+		introMillFan = new Image(atlas.findRegion("intro-wind-mil-fan"));
+		introMillFan.setSize(WIDTH/24, WIDTH/24 * introMillFan.getHeight()/introMillFan.getWidth());
+		introMillFan.setOrigin(Align.center);
+		introMillFan.setPosition( WIDTH*0.162f, HEIGHT*0.16f);	
+		introMillFan.setVisible(false);
+		stage.addActor(introMillFan);
+		
 	}
 	
 	private void loadIntroLevel(){
@@ -213,6 +223,8 @@ public class Cinema {
 				introSmokeEffect.start();
 				intro1.setVisible(true);
 				introPlayerSleep.setVisible(true);
+				introMillFan.setVisible(true);
+				
 				GameScreen.getInstance().hideControls();
 				
 				break;
@@ -319,6 +331,8 @@ public class Cinema {
 		switch(CINEMA_TYPE){
 			case MOV_INTRO:{
 				introSmokeEffect.update(delta);
+				introMillFan.setRotation(360 - (time*50)%360);
+
 				break;
 			}
 			case MOV_INTRO_LEVEL:{
@@ -680,7 +694,8 @@ public class Cinema {
 			introAlienRays.setVisible(false);
 			introStar.setVisible(false);
 			introSmokeEffect.allowCompletion();
-
+			introMillFan.setVisible(false);
+			
 			GameScreen.CURRENT_STATE = GameState.RUNNING;
 			
 			if(GameScreen.getInstance().getScoreManager().TUTORIAL_LEVEL != 0)
@@ -704,6 +719,7 @@ public class Cinema {
 	}
 
 	public void dispose(){
+		intro1T.dispose();
 		
 	}
 

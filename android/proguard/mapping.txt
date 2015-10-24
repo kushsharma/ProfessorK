@@ -2817,20 +2817,21 @@ com.badlogic.gdx.graphics.g2d.Sprite -> com.badlogic.gdx.graphics.g2d.ad:
     283:295:void setAlpha(float) -> a
     299:306:void setColor(float,float,float,float) -> b
     320:323:void setOrigin(float,float) -> d
+    327:330:void setOriginCenter() -> a
     334:336:void setRotation(float) -> b
     354:381:void rotate90(boolean) -> a
     386:389:void setScale(float) -> c
     394:397:void setScale(float,float) -> e
-    410:474:float[] getVertices() -> a
+    410:474:float[] getVertices() -> b
     515:516:void draw(com.badlogic.gdx.graphics.g2d.Batch) -> a
     519:523:void draw(com.badlogic.gdx.graphics.g2d.Batch,float) -> a
-    526:526:float getX() -> b
-    530:530:float getY() -> c
-    535:535:float getWidth() -> d
-    540:540:float getHeight() -> e
-    546:546:float getOriginX() -> f
-    552:552:float getOriginY() -> g
-    568:574:com.badlogic.gdx.graphics.Color getColor() -> h
+    526:526:float getX() -> c
+    530:530:float getY() -> d
+    535:535:float getWidth() -> e
+    540:540:float getHeight() -> f
+    546:546:float getOriginX() -> g
+    552:552:float getOriginY() -> h
+    568:574:com.badlogic.gdx.graphics.Color getColor() -> i
     578:592:void setRegion(float,float,float,float) -> c
     622:631:void setFlip(boolean,boolean) -> a
     637:655:void flip(boolean,boolean) -> b
@@ -2918,16 +2919,17 @@ com.badlogic.gdx.graphics.g2d.TextureAtlas$AtlasSprite -> com.badlogic.gdx.graph
     589:596:void setBounds(float,float,float,float) -> a
     600:601:void setSize(float,float) -> a
     605:606:void setOrigin(float,float) -> d
+    610:611:void setOriginCenter() -> a
     616:640:void flip(boolean,boolean) -> b
     645:666:void rotate90(boolean) -> a
-    670:670:float getX() -> b
-    675:675:float getY() -> c
-    680:680:float getOriginX() -> f
-    685:685:float getOriginY() -> g
-    690:690:float getWidth() -> d
-    695:695:float getHeight() -> e
-    699:699:float getWidthRatio() -> i
-    703:703:float getHeightRatio() -> j
+    670:670:float getX() -> c
+    675:675:float getY() -> d
+    680:680:float getOriginX() -> g
+    685:685:float getOriginY() -> h
+    690:690:float getWidth() -> e
+    695:695:float getHeight() -> f
+    699:699:float getWidthRatio() -> j
+    703:703:float getHeightRatio() -> k
     711:711:java.lang.String toString() -> toString
 com.badlogic.gdx.graphics.g2d.TextureAtlas$TextureAtlasData -> com.badlogic.gdx.graphics.g2d.aj:
     com.badlogic.gdx.utils.Array pages -> a
@@ -2972,19 +2974,19 @@ com.badlogic.gdx.graphics.g2d.TextureRegion -> com.badlogic.gdx.graphics.g2d.am:
     90:108:void setRegion(float,float,float,float) -> c
     112:114:void setRegion(com.badlogic.gdx.graphics.g2d.TextureRegion) -> a
     118:120:void setRegion(com.badlogic.gdx.graphics.g2d.TextureRegion,int,int,int,int) -> a
-    123:123:com.badlogic.gdx.graphics.Texture getTexture() -> k
+    123:123:com.badlogic.gdx.graphics.Texture getTexture() -> l
     127:128:void setTexture(com.badlogic.gdx.graphics.Texture) -> a
-    131:131:float getU() -> l
-    140:140:float getV() -> m
-    149:149:float getU2() -> n
-    158:158:float getV2() -> o
-    167:167:int getRegionX() -> p
-    175:175:int getRegionY() -> q
-    184:184:int getRegionWidth() -> r
-    197:197:int getRegionHeight() -> s
+    131:131:float getU() -> m
+    140:140:float getV() -> n
+    149:149:float getU2() -> o
+    158:158:float getV2() -> p
+    167:167:int getRegionX() -> q
+    175:175:int getRegionY() -> r
+    184:184:int getRegionWidth() -> s
+    197:197:int getRegionHeight() -> t
     209:219:void flip(boolean,boolean) -> b
-    222:222:boolean isFlipX() -> t
-    226:226:boolean isFlipY() -> u
+    222:222:boolean isFlipX() -> u
+    226:226:boolean isFlipY() -> v
 com.badlogic.gdx.graphics.g2d.freetype.FreeType -> com.badlogic.gdx.graphics.g2d.freetype.FreeType:
     int FT_PIXEL_MODE_NONE -> a
     int FT_PIXEL_MODE_MONO -> b
@@ -9012,10 +9014,10 @@ objects.BeamSpot -> b.c:
     72:107:void init(com.badlogic.gdx.physics.box2d.World) -> a
     110:140:void create() -> c
     145:159:void render(com.badlogic.gdx.graphics.g2d.SpriteBatch) -> a
-    162:163:void renderParticles(com.badlogic.gdx.graphics.g2d.SpriteBatch) -> b
-    166:192:void update(float,float) -> a
-    231:231:com.badlogic.gdx.physics.box2d.Fixture getFireSensor() -> a
-    261:266:void dispose() -> b
+    162:165:void renderParticles(com.badlogic.gdx.graphics.g2d.SpriteBatch) -> b
+    168:194:void update(float,float) -> a
+    233:233:com.badlogic.gdx.physics.box2d.Fixture getFireSensor() -> a
+    263:268:void dispose() -> b
 objects.Bullet -> b.d:
     objects.Bullet _bullet -> s
     float Speed -> a
@@ -9313,29 +9315,30 @@ objects.Player -> b.j:
 objects.Portal -> b.k:
     float width -> a
     float height -> b
-    com.badlogic.gdx.math.Vector2 previous -> q
-    com.badlogic.gdx.math.Vector2 position -> r
+    com.badlogic.gdx.math.Vector2 previous -> r
+    com.badlogic.gdx.math.Vector2 position -> s
     com.badlogic.gdx.physics.box2d.Body body -> c
     com.badlogic.gdx.physics.box2d.World world -> d
     com.badlogic.gdx.physics.box2d.PolygonShape shape -> e
     com.badlogic.gdx.physics.box2d.Fixture bodyFixture -> f
     com.badlogic.gdx.physics.box2d.Fixture sensorFixture -> g
-    com.badlogic.gdx.math.Vector2 Center -> h
-    float bHEIGHT -> i
-    float bWIDTH -> j
-    com.badlogic.gdx.graphics.g2d.ParticleEffect effect -> k
-    boolean visible -> l
-    boolean ENABLED -> m
-    int ENTRY -> n
-    int EXIT -> o
-    int PORTAL_TYPE -> p
-    94:119:void init(com.badlogic.gdx.physics.box2d.World) -> a
-    122:157:void create() -> c
-    161:171:void render(com.badlogic.gdx.graphics.g2d.SpriteBatch) -> a
-    174:177:void renderParticles(com.badlogic.gdx.graphics.g2d.SpriteBatch) -> b
-    180:190:void update(float,float) -> a
-    209:209:com.badlogic.gdx.physics.box2d.Fixture getSensorFixture() -> a
-    256:261:void dispose() -> b
+    com.badlogic.gdx.graphics.g2d.Sprite rays -> h
+    com.badlogic.gdx.math.Vector2 Center -> i
+    float bHEIGHT -> j
+    float bWIDTH -> k
+    com.badlogic.gdx.graphics.g2d.ParticleEffect effect -> l
+    boolean visible -> m
+    boolean ENABLED -> n
+    int ENTRY -> o
+    int EXIT -> p
+    int PORTAL_TYPE -> q
+    96:125:void init(com.badlogic.gdx.physics.box2d.World) -> a
+    128:163:void create() -> c
+    167:177:void render(com.badlogic.gdx.graphics.g2d.SpriteBatch) -> a
+    180:188:void renderParticles(com.badlogic.gdx.graphics.g2d.SpriteBatch) -> b
+    191:201:void update(float,float) -> a
+    220:220:com.badlogic.gdx.physics.box2d.Fixture getSensorFixture() -> a
+    267:272:void dispose() -> b
 objects.PowerUp -> b.l:
     float width -> a
     float height -> b
@@ -9466,77 +9469,77 @@ screens.GameScreen -> c.a:
     utils.ScoreManager scoreManager -> ah
     objects.Background background -> ai
     utils.Cinema cinema -> aj
-    277:299:void createObjects() -> t
-    304:407:void createUI() -> u
-    412:498:void createLevelClearScreen() -> v
-    503:541:void showLevelClear() -> e
-    545:553:void startloadingNextLevel() -> f
-    557:613:void createPauseScreen() -> g
-    616:620:void showPauseScreen() -> h
-    623:626:void hidePauseScreen() -> i
-    629:632:void resumeGame() -> j
-    638:641:void show() -> a
-    645:713:void render(float) -> a
-    716:757:void renderLights() -> w
-    760:778:void doPhysics(float) -> b
-    784:856:void update(float) -> c
-    861:882:void reset(boolean) -> a
-    885:912:void updateCameraMovement(float) -> d
-    915:916:void hideControls() -> k
-    919:920:void showControls() -> l
-    923:924:void shakeThatAss() -> m
-    927:932:void increaseScore(int) -> a
-    945:945:void focusScore(boolean) -> b
-    950:950:void resize(int,int) -> a
-    955:955:void pause() -> b
-    960:962:void resume() -> c
-    967:970:void hide() -> d
-    974:984:void dispose() -> n
-    987:987:screens.GameScreen getInstance() -> o
-    991:994:void returnToMainMenu() -> p
-    997:997:utils.ScoreManager getScoreManager() -> q
-    1001:1001:com.badlogic.gdx.graphics.OrthographicCamera getCamera() -> r
-    1005:1005:utils.AssetLord getAssetLord() -> s
+    279:301:void createObjects() -> t
+    306:409:void createUI() -> u
+    414:500:void createLevelClearScreen() -> v
+    505:543:void showLevelClear() -> e
+    547:555:void startloadingNextLevel() -> f
+    559:615:void createPauseScreen() -> g
+    618:622:void showPauseScreen() -> h
+    625:628:void hidePauseScreen() -> i
+    631:634:void resumeGame() -> j
+    640:643:void show() -> a
+    647:715:void render(float) -> a
+    718:759:void renderLights() -> w
+    762:780:void doPhysics(float) -> b
+    786:858:void update(float) -> c
+    863:884:void reset(boolean) -> a
+    887:914:void updateCameraMovement(float) -> d
+    917:918:void hideControls() -> k
+    921:922:void showControls() -> l
+    925:926:void shakeThatAss() -> m
+    929:934:void increaseScore(int) -> a
+    947:947:void focusScore(boolean) -> b
+    952:952:void resize(int,int) -> a
+    957:957:void pause() -> b
+    962:964:void resume() -> c
+    969:972:void hide() -> d
+    976:986:void dispose() -> n
+    989:989:screens.GameScreen getInstance() -> o
+    993:996:void returnToMainMenu() -> p
+    999:999:utils.ScoreManager getScoreManager() -> q
+    1003:1003:com.badlogic.gdx.graphics.OrthographicCamera getCamera() -> r
+    1007:1007:utils.AssetLord getAssetLord() -> s
 screens.GameScreen$1 -> c.b:
     screens.GameScreen this$0 -> a
     com.badlogic.gdx.scenes.scene2d.ui.Image val$moveLeftImage -> b
-    311:313:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
-    317:319:void touchUp(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchUp
+    313:315:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
+    319:321:void touchUp(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchUp
 screens.GameScreen$2 -> c.c:
     screens.GameScreen this$0 -> a
     com.badlogic.gdx.scenes.scene2d.ui.Image val$moveRightImage -> b
-    328:330:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
-    334:337:void touchUp(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchUp
+    330:332:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
+    336:339:void touchUp(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchUp
 screens.GameScreen$3 -> c.d:
     screens.GameScreen this$0 -> a
     com.badlogic.gdx.scenes.scene2d.ui.Image val$jumpImage -> b
-    346:348:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
-    352:354:void touchUp(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchUp
+    348:350:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
+    354:356:void touchUp(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchUp
 screens.GameScreen$4 -> c.e:
     screens.GameScreen this$0 -> a
-    369:373:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
-    378:381:void touchUp(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchUp
+    371:375:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
+    380:383:void touchUp(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchUp
 screens.GameScreen$5 -> c.f:
     screens.GameScreen this$0 -> a
-    431:433:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
+    433:435:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
 screens.GameScreen$6 -> c.g:
     screens.GameScreen this$0 -> a
-    447:449:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
+    449:451:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
 screens.GameScreen$7 -> c.h:
     screens.GameScreen this$0 -> a
-    586:588:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
+    588:590:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
 screens.GameScreen$8 -> c.i:
     screens.GameScreen this$0 -> a
-    602:604:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
+    604:606:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
 screens.MainMenuScreen -> c.j:
     com.softnuke.biosleep.MyGame game -> a
     utils.AssetLord Assets -> b
     boolean BACKGROUND_SOUND -> c
-    boolean DEBUG -> W
-    int CURRENT_VIEW -> X
-    int LAST_VIEW -> Y
-    int HIGH_SCORE -> Z
-    int Easter_Count -> aa
+    boolean DEBUG -> Z
+    int CURRENT_VIEW -> aa
+    int LAST_VIEW -> ab
+    int HIGH_SCORE -> ac
+    int Easter_Count -> ad
     screens.MainMenuScreen _menuScreen -> d
     int WIDTH -> e
     int HEIGHT -> f
@@ -9544,7 +9547,7 @@ screens.MainMenuScreen -> c.j:
     int bHEIGHT -> h
     float PTP -> i
     com.badlogic.gdx.graphics.OrthographicCamera camera -> j
-    com.badlogic.gdx.scenes.scene2d.Stage stage -> ab
+    com.badlogic.gdx.scenes.scene2d.Stage stage -> ae
     float time -> k
     int levelNo -> l
     com.badlogic.gdx.graphics.g2d.SpriteBatch batch -> m
@@ -9557,144 +9560,147 @@ screens.MainMenuScreen -> c.j:
     com.badlogic.gdx.graphics.g2d.ParticleEffect introSmokeEffect -> t
     com.badlogic.gdx.graphics.g2d.Sprite introBack -> u
     com.badlogic.gdx.graphics.g2d.Sprite introPlayerSleep -> v
-    com.badlogic.gdx.graphics.g2d.NinePatch ninep -> w
-    com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable ninePatchDrawable -> x
-    com.badlogic.gdx.graphics.g2d.TextureRegion topBack -> y
-    com.badlogic.gdx.scenes.scene2d.ui.Image logobackI -> z
-    com.badlogic.gdx.scenes.scene2d.ui.TextButton visualButt -> A
-    com.badlogic.gdx.scenes.scene2d.ui.TextButton tutorialButt -> B
-    com.badlogic.gdx.scenes.scene2d.ui.TextButton musicButt -> C
-    com.badlogic.gdx.scenes.scene2d.ui.TextButton creditsButt -> D
-    com.badlogic.gdx.scenes.scene2d.ui.TextButton coinsButton -> E
-    com.badlogic.gdx.scenes.scene2d.ui.Table table -> F
-    com.badlogic.gdx.scenes.scene2d.ui.Table optionsTable -> G
-    com.badlogic.gdx.scenes.scene2d.ui.Table store -> H
-    com.badlogic.gdx.scenes.scene2d.ui.Table credits -> I
-    com.badlogic.gdx.scenes.scene2d.ui.Table levelTable -> J
-    com.badlogic.gdx.scenes.scene2d.Group menu -> K
-    com.badlogic.gdx.graphics.g2d.TextureAtlas atlas -> L
-    com.badlogic.gdx.scenes.scene2d.ui.Skin skin -> M
-    com.badlogic.gdx.graphics.g2d.ParticleEffect squareFloor -> N
-    com.badlogic.gdx.scenes.scene2d.ui.Dialog dialog -> O
-    com.badlogic.gdx.Preferences prefs -> P
-    com.badlogic.gdx.audio.Music menuMusic -> Q
-    com.badlogic.gdx.graphics.Color color -> R
-    utils.ScoreManager scoreManager -> S
-    boolean ScreenFinished -> T
-    float Fade -> U
-    com.badlogic.gdx.graphics.g2d.Sprite blackFade -> V
-    142:291:void init() -> j
-    295:350:void show() -> a
-    354:354:float getImageRatio(com.badlogic.gdx.scenes.scene2d.ui.Image) -> a
-    358:579:void createMenu() -> k
-    584:746:void createLevelSelect() -> l
-    755:960:void createOptions() -> m
-    965:1126:void createStore() -> n
-    1130:1224:void createCredits() -> o
-    1228:1243:void createExitDialog() -> p
-    1250:1253:void updateTotalScoreText() -> q
-    1257:1329:void render(float) -> a
-    1333:1357:void update(float) -> b
-    1361:1390:void checkForScreenChange() -> r
-    1394:1397:boolean isHome() -> e
-    1403:1415:void setHome() -> f
-    1434:1434:void resize(int,int) -> a
-    1440:1442:void pause() -> b
-    1465:1468:void resume() -> c
-    1473:1477:void hide() -> d
-    1481:1490:void dispose() -> g
-    1493:1493:screens.MainMenuScreen getInstance() -> h
-    1497:1497:com.badlogic.gdx.graphics.OrthographicCamera getCamera() -> i
-    1503:1517:void handleEvent(int,java.lang.Object) -> a
-    70:70:int access$0(screens.MainMenuScreen) -> a
-    70:70:void access$1(screens.MainMenuScreen,int) -> a
-    66:66:void access$2(screens.MainMenuScreen,int) -> b
-    65:65:boolean access$3(screens.MainMenuScreen) -> b
+    com.badlogic.gdx.graphics.g2d.Sprite windFan -> w
+    com.badlogic.gdx.graphics.g2d.NinePatch ninep -> x
+    com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable ninePatchDrawable -> y
+    com.badlogic.gdx.graphics.g2d.TextureRegion topBack -> z
+    com.badlogic.gdx.graphics.Texture intro1T -> A
+    com.badlogic.gdx.graphics.g2d.Animation playerSleepAnime -> B
+    com.badlogic.gdx.scenes.scene2d.ui.Image logobackI -> C
+    com.badlogic.gdx.scenes.scene2d.ui.TextButton visualButt -> D
+    com.badlogic.gdx.scenes.scene2d.ui.TextButton tutorialButt -> E
+    com.badlogic.gdx.scenes.scene2d.ui.TextButton musicButt -> F
+    com.badlogic.gdx.scenes.scene2d.ui.TextButton creditsButt -> G
+    com.badlogic.gdx.scenes.scene2d.ui.TextButton coinsButton -> H
+    com.badlogic.gdx.scenes.scene2d.ui.Table table -> I
+    com.badlogic.gdx.scenes.scene2d.ui.Table optionsTable -> J
+    com.badlogic.gdx.scenes.scene2d.ui.Table store -> K
+    com.badlogic.gdx.scenes.scene2d.ui.Table credits -> L
+    com.badlogic.gdx.scenes.scene2d.ui.Table levelTable -> M
+    com.badlogic.gdx.scenes.scene2d.Group menu -> N
+    com.badlogic.gdx.graphics.g2d.TextureAtlas atlas -> O
+    com.badlogic.gdx.scenes.scene2d.ui.Skin skin -> P
+    com.badlogic.gdx.graphics.g2d.ParticleEffect squareFloor -> Q
+    com.badlogic.gdx.scenes.scene2d.ui.Dialog dialog -> R
+    com.badlogic.gdx.Preferences prefs -> S
+    com.badlogic.gdx.audio.Music menuMusic -> T
+    com.badlogic.gdx.graphics.Color color -> U
+    utils.ScoreManager scoreManager -> V
+    boolean ScreenFinished -> W
+    float Fade -> X
+    com.badlogic.gdx.graphics.g2d.Sprite blackFade -> Y
+    145:306:void init() -> j
+    310:365:void show() -> a
+    369:369:float getImageRatio(com.badlogic.gdx.scenes.scene2d.ui.Image) -> a
+    373:594:void createMenu() -> k
+    599:761:void createLevelSelect() -> l
+    770:975:void createOptions() -> m
+    980:1141:void createStore() -> n
+    1145:1239:void createCredits() -> o
+    1243:1258:void createExitDialog() -> p
+    1265:1268:void updateTotalScoreText() -> q
+    1272:1344:void render(float) -> a
+    1347:1374:void update(float) -> b
+    1378:1407:void checkForScreenChange() -> r
+    1411:1414:boolean isHome() -> e
+    1420:1432:void setHome() -> f
+    1451:1451:void resize(int,int) -> a
+    1457:1459:void pause() -> b
+    1482:1485:void resume() -> c
+    1490:1494:void hide() -> d
+    1498:1508:void dispose() -> g
+    1511:1511:screens.MainMenuScreen getInstance() -> h
+    1515:1515:com.badlogic.gdx.graphics.OrthographicCamera getCamera() -> i
+    1521:1535:void handleEvent(int,java.lang.Object) -> a
+    72:72:int access$0(screens.MainMenuScreen) -> a
+    72:72:void access$1(screens.MainMenuScreen,int) -> a
+    68:68:void access$2(screens.MainMenuScreen,int) -> b
+    67:67:boolean access$3(screens.MainMenuScreen) -> b
 screens.MainMenuScreen$1 -> c.k:
     screens.MainMenuScreen this$0 -> a
-    226:228:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
-    231:252:void touchUp(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchUp
+    229:231:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
+    234:255:void touchUp(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchUp
 screens.MainMenuScreen$10 -> c.l:
     screens.MainMenuScreen this$0 -> a
-    717:732:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
-    735:736:void touchUp(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchUp
+    732:747:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
+    750:751:void touchUp(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchUp
 screens.MainMenuScreen$11 -> c.m:
     screens.MainMenuScreen this$0 -> a
-    784:807:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
-    810:811:void touchUp(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchUp
+    799:822:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
+    825:826:void touchUp(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchUp
 screens.MainMenuScreen$12 -> c.n:
     screens.MainMenuScreen this$0 -> a
-    827:840:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
-    843:844:void touchUp(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchUp
+    842:855:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
+    858:859:void touchUp(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchUp
 screens.MainMenuScreen$13 -> c.o:
     screens.MainMenuScreen this$0 -> a
-    860:883:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
-    886:887:void touchUp(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchUp
+    875:898:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
+    901:902:void touchUp(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchUp
 screens.MainMenuScreen$14 -> c.p:
     screens.MainMenuScreen this$0 -> a
-    900:918:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
-    922:923:void touchUp(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchUp
+    915:933:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
+    937:938:void touchUp(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchUp
 screens.MainMenuScreen$15 -> c.q:
     screens.MainMenuScreen this$0 -> a
-    931:948:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
-    951:952:void touchUp(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchUp
+    946:963:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
+    966:967:void touchUp(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchUp
 screens.MainMenuScreen$16 -> c.r:
     screens.MainMenuScreen this$0 -> a
-    1020:1029:void clicked(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float) -> clicked
+    1035:1044:void clicked(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float) -> clicked
 screens.MainMenuScreen$17 -> c.s:
     screens.MainMenuScreen this$0 -> a
-    1098:1114:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
-    1117:1118:void touchUp(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchUp
+    1113:1129:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
+    1132:1133:void touchUp(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchUp
 screens.MainMenuScreen$18 -> c.t:
     screens.MainMenuScreen this$0 -> a
-    1159:1161:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
+    1174:1176:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
 screens.MainMenuScreen$19 -> c.u:
     screens.MainMenuScreen this$0 -> a
-    1199:1213:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
-    1216:1217:void touchUp(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchUp
+    1214:1228:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
+    1231:1232:void touchUp(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchUp
 screens.MainMenuScreen$2 -> c.v:
     screens.MainMenuScreen this$0 -> a
-    404:420:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
-    423:424:void touchUp(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchUp
+    419:435:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
+    438:439:void touchUp(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchUp
 screens.MainMenuScreen$20 -> c.w:
     screens.MainMenuScreen this$0 -> a
-    1230:1234:void result(java.lang.Object) -> result
+    1245:1249:void result(java.lang.Object) -> result
 screens.MainMenuScreen$3 -> c.x:
     screens.MainMenuScreen this$0 -> a
-    441:456:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
-    459:460:void touchUp(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchUp
+    456:471:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
+    474:475:void touchUp(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchUp
 screens.MainMenuScreen$4 -> c.y:
     screens.MainMenuScreen this$0 -> a
-    477:492:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
-    495:496:void touchUp(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchUp
+    492:507:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
+    510:511:void touchUp(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchUp
 screens.MainMenuScreen$5 -> c.z:
     screens.MainMenuScreen this$0 -> a
-    512:514:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
-    517:518:void touchUp(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchUp
+    527:529:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
+    532:533:void touchUp(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchUp
 screens.MainMenuScreen$6 -> c.aa:
     screens.MainMenuScreen this$0 -> a
-    534:537:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
+    549:552:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
 screens.MainMenuScreen$7 -> c.ab:
     screens.MainMenuScreen this$0 -> a
-    551:553:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
+    566:568:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
 screens.MainMenuScreen$8 -> c.ac:
     screens.MainMenuScreen this$0 -> a
-    569:571:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
+    584:586:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
 screens.MainMenuScreen$9 -> c.ad:
     screens.MainMenuScreen this$0 -> a
     com.badlogic.gdx.scenes.scene2d.ui.TextButton val$b -> b
-    686:690:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
+    701:705:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
 screens.MainMenuScreen$MenuInputProcessor -> c.ae:
     com.badlogic.gdx.math.Vector3 tempTouchVec -> b
     screens.MainMenuScreen this$0 -> a
-    1526:1548:boolean keyDown(int) -> a
-    1554:1570:boolean keyUp(int) -> b
-    1575:1575:boolean keyTyped(char) -> a
-    1582:1582:boolean touchDown(int,int,int,int) -> a
-    1589:1589:boolean touchUp(int,int,int,int) -> b
-    1594:1594:boolean touchDragged(int,int,int) -> a
-    1599:1599:boolean mouseMoved(int,int) -> a
-    1604:1604:boolean scrolled(int) -> c
+    1544:1566:boolean keyDown(int) -> a
+    1572:1588:boolean keyUp(int) -> b
+    1593:1593:boolean keyTyped(char) -> a
+    1600:1600:boolean touchDown(int,int,int,int) -> a
+    1607:1607:boolean touchUp(int,int,int,int) -> b
+    1612:1612:boolean touchDragged(int,int,int) -> a
+    1617:1617:boolean mouseMoved(int,int) -> a
+    1622:1622:boolean scrolled(int) -> c
 screens.SplashScreen -> c.af:
     com.softnuke.biosleep.MyGame game -> a
     screens.SplashScreen _splashScreen -> b
@@ -9753,29 +9759,31 @@ utils.Cinema -> d.c:
     com.badlogic.gdx.scenes.scene2d.ui.Image introPlayerFly -> p
     com.badlogic.gdx.scenes.scene2d.ui.Image introStar -> q
     com.badlogic.gdx.scenes.scene2d.ui.Image introAlienRays -> r
-    com.badlogic.gdx.graphics.g2d.Sprite introLevelPods -> s
-    com.badlogic.gdx.graphics.g2d.Sprite introScientist -> t
-    com.badlogic.gdx.graphics.g2d.ParticleEffect introSmokeEffect -> u
-    com.badlogic.gdx.graphics.g2d.BitmapFont fontMedium -> v
-    com.badlogic.gdx.scenes.scene2d.ui.TextButton introText1 -> w
-    com.badlogic.gdx.graphics.g2d.TextureAtlas atlas -> x
-    80:85:void init() -> b
-    88:155:void loadIntroMovie() -> c
-    162:202:void loadIntroLevel() -> d
-    205:281:void start(int) -> a
-    284:292:void render(com.badlogic.gdx.graphics.g2d.SpriteBatch) -> a
-    295:302:void renderUI(com.badlogic.gdx.graphics.g2d.SpriteBatch) -> b
-    305:600:void update(float) -> a
-    604:642:void handleIntroLevel() -> e
-    645:700:void handleMovIntro() -> f
-    711:713:void clearCinema() -> a
-    717:763:void levelUpdate(int) -> b
+    com.badlogic.gdx.scenes.scene2d.ui.Image introMillFan -> s
+    com.badlogic.gdx.graphics.g2d.Sprite introLevelPods -> t
+    com.badlogic.gdx.graphics.g2d.Sprite introScientist -> u
+    com.badlogic.gdx.graphics.g2d.ParticleEffect introSmokeEffect -> v
+    com.badlogic.gdx.graphics.Texture intro1T -> w
+    com.badlogic.gdx.graphics.g2d.BitmapFont fontMedium -> x
+    com.badlogic.gdx.scenes.scene2d.ui.TextButton introText1 -> y
+    com.badlogic.gdx.graphics.g2d.TextureAtlas atlas -> z
+    81:86:void init() -> b
+    90:165:void loadIntroMovie() -> c
+    172:212:void loadIntroLevel() -> d
+    215:293:void start(int) -> a
+    296:304:void render(com.badlogic.gdx.graphics.g2d.SpriteBatch) -> a
+    307:314:void renderUI(com.badlogic.gdx.graphics.g2d.SpriteBatch) -> b
+    317:614:void update(float) -> a
+    618:656:void handleIntroLevel() -> e
+    659:715:void handleMovIntro() -> f
+    727:729:void clearCinema() -> a
+    733:779:void levelUpdate(int) -> b
 utils.Cinema$1 -> d.d:
     utils.Cinema this$0 -> a
-    99:103:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
+    101:105:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
 utils.Cinema$2 -> d.e:
     utils.Cinema this$0 -> a
-    188:192:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
+    198:202:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
 utils.GameState -> d.f:
     utils.GameState READY -> a
     utils.GameState RUNNING -> b
