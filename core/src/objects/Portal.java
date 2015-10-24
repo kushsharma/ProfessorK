@@ -119,7 +119,7 @@ public class Portal {
 		
 		rays = new Sprite(GameScreen.getInstance().getAssetLord().manager.get(AssetLord.game_atlas, TextureAtlas.class).findRegion("portal-rays"));
 		rays.setSize(width * 3f, height*10);
-		rays.setPosition(position.x - rays.getWidth()*0.52f, position.y);
+		rays.setPosition(position.x - rays.getWidth()*0.52f, position.y - height/4);
 		rays.setColor(0.5f, 0.5f, 0.3f,0.5f);
 		create();
 	}
