@@ -421,7 +421,7 @@ public class Player {
 			playerSprite.setFlip(playerSprite.isFlipX(), true);
 		
 		
-		if(PLAYER_DRAW)
+		if(PLAYER_DRAW && !GOT_HIT && !DEAD)
 			playerSprite.draw(batch);
 				
 		//for hit animation
@@ -483,8 +483,6 @@ public class Player {
 
 			deathClock += delta;
 			if(deathClock > DEATH_CAM){
-				GOT_HIT = false;
-				deathClock = 0;
 				DEAD = true;
 			}
 		}
@@ -510,7 +508,7 @@ public class Player {
 		if(checkDeath())
 		{
 			DEAD = true;
-			CONTROLS  =false;
+			CONTROLS = false;
 		}
 				
 		if(GameScreen.PLAYER_PARTICLES)
@@ -518,12 +516,14 @@ public class Player {
 	}
 	
 	public void reset(){
-		position = startPos;
-		
+		MyGame.sop("RESETTT");
+		position.set(startPos);
+		GameScreen.SLOW_MOTION = false;
+
 		body.setTransform(position, 0);
 		body.setLinearVelocity(0, 0);
 		
-		GOT_HIT = LEFT_DIRECTION = DEAD = TELEPORTING_OUT= false;
+		GOT_HIT = LEFT_DIRECTION = DEAD = TELEPORTING_OUT = false;
 		TELEPORTING_IN = true;
 		
 		CONTROLS = true;
@@ -581,8 +581,13 @@ public class Player {
 
 
 	public void setDeath() {
+		//check time to avoid instant death after respawning
+		if(GOT_HIT || DEAD || time < 0.5f) return;
+				
 		CONTROLS = false;
 		GOT_HIT = true;
+		
+		GameScreen.SLOW_MOTION = true;
 		
 		if(GameScreen.BACKGROUND_MUSIC)
 			Gdx.input.vibrate(50);

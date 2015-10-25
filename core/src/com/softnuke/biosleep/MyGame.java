@@ -1,5 +1,6 @@
 package com.softnuke.biosleep;
 
+import screens.GameScreen;
 import screens.SplashScreen;
 import utils.AssetLord;
 
@@ -105,10 +106,12 @@ public static PlatformSpecific platform = null;
 	
 	//for debug
 	public static void sop(String s){
-		System.out.println(s);
+		if(GameScreen.SOFT_DEBUG)
+			System.out.println(s);
 	}
 	//for debug
 	public static void sop(float f){
-		System.out.println(String.valueOf(f));
+		if(GameScreen.SOFT_DEBUG)
+			System.out.println(String.valueOf(f));
 	}
 }

@@ -4808,10 +4808,10 @@ com.softnuke.biosleep.ActionListener:
     public static final int APP_INVITE
     public static final int SCORE_SHARED
 com.softnuke.biosleep.MyGame:
-    27:28:public void MyGame()
-    31:32:public void MyGame(com.softnuke.biosleep.PlatformSpecific)
-    52:52:public static com.softnuke.biosleep.PlatformSpecific getPlatformResolver()
-    112:113:public static void sop(float)
+    28:29:public void MyGame()
+    32:33:public void MyGame(com.softnuke.biosleep.PlatformSpecific)
+    53:53:public static com.softnuke.biosleep.PlatformSpecific getPlatformResolver()
+    114:116:public static void sop(float)
 com.softnuke.biosleep.PlatformSpecific:
     public abstract java.lang.String getID()
     public abstract void signOut()
@@ -4931,8 +4931,8 @@ objects.Player:
     com.badlogic.gdx.graphics.Texture playerTex
     com.badlogic.gdx.graphics.g2d.Sprite glow
     364:367:public void render(com.badlogic.gdx.graphics.glutils.ShapeRenderer)
-    608:608:public com.badlogic.gdx.physics.box2d.Body getBody()
-    707:707:public com.badlogic.gdx.math.Vector2 startPoint()
+    613:613:public com.badlogic.gdx.physics.box2d.Body getBody()
+    712:712:public com.badlogic.gdx.math.Vector2 startPoint()
 objects.Portal:
     objects.Light light
     205:214:public void reset()
@@ -5049,7 +5049,7 @@ utils.Constants
 utils.LevelGenerate:
     public static final int MAX_LEVEL
     764:764:public void loadCinematic()
-    1389:1393:public void playPlayerHitSound()
+    1391:1395:public void playPlayerHitSound()
 utils.LevelGenerate$TaskQueue:
     public static final int GRAVITY_FLI
     public static final int GRAVITY_FIX

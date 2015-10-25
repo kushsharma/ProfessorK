@@ -108,12 +108,12 @@ public class GameScreen implements Screen{
 	 * Add a ray sprite over portal _ done
 	 * add rotation on wind mill
 	 * Add scan lines
-	 * 
+	 * Add slomo when die & fix player dying twice
 	 * 
 	 */
 	
 	public static boolean DEBUG = false;
-	public static boolean SOFT_DEBUG = true;
+	public static boolean SOFT_DEBUG = false;
 	public static boolean DISABLE_ADS = true;
 		
 	public static boolean RENDER_LIGHTS = false;
@@ -656,7 +656,8 @@ public class GameScreen implements Screen{
 			
 			if(CURRENT_STATE == GameState.RUNNING){
 				//all the physics should step now
-				doPhysics(delta);			
+				doPhysics(delta);
+				
 			}
 					
 			camera.update();		
@@ -759,6 +760,12 @@ public class GameScreen implements Screen{
 	}
 
 	private void doPhysics(float delta) {
+		
+		if(!SLOW_MOTION)
+			TIME_STEP = 1/60f;
+		else
+			TIME_STEP = delta = 1/180f;
+		
 		float frameTime = Math.min(delta, 0.25f);	    
 	    stepAccumulator += frameTime;   
 	    
@@ -859,9 +866,11 @@ public class GameScreen implements Screen{
 	
 	/** @param newLevel is reseting to set new level?**/
 	public void reset(boolean newLevel){
+		SLOW_MOTION = false;
+		
 		//reset player attributes
 		player.reset();
-
+		
 		//reseting camera
 		//camera.position.set(bWIDTH/2, camera.position.y, 0);
 		camera.update();

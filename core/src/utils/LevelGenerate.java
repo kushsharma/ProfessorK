@@ -185,7 +185,7 @@ public class LevelGenerate {
 	}
 	
 	public void levelTiled(){
-		System.out.println("Generating Tiled Map of Level..."+CURRENT_LEVEL);
+		MyGame.sop("Generating Tiled Map of Level..."+CURRENT_LEVEL);
 		
 		try {
 			switch(CURRENT_LEVEL){
@@ -238,7 +238,7 @@ public class LevelGenerate {
 		}
 		catch(Exception e) {
 			e.printStackTrace();
-			System.out.println("Cannot find file: map files .tmx");
+			MyGame.sop("Cannot find file: map files .tmx");
 			Gdx.app.exit();
 		}		
 		
@@ -604,7 +604,7 @@ public class LevelGenerate {
 	            	color = Integer.parseInt(object.getProperties().get("color").toString());
 	            }catch(Exception e){
 	            	e.printStackTrace();
-	            	System.out.println("No color baby");
+	            	MyGame.sop("No color baby");
 	            	color = 1;
 	            }
 	            
@@ -654,7 +654,7 @@ public class LevelGenerate {
 	            		
 	            }catch(Exception e){
 	            	e.printStackTrace();
-	            	System.out.println("No direction baby");
+	            	MyGame.sop("No direction baby");
 	            	dir = Movers.HOR;
 	            }
 	            
@@ -700,7 +700,7 @@ public class LevelGenerate {
                 	type = (object.getProperties().get("type").toString().equals("flipper")) ? GravityReverser.FLIPED : GravityReverser.FIXED;
                 }catch(Exception e){
                 	e.printStackTrace();
-                	System.out.println("No type baby, gravity reverser");
+                	MyGame.sop("No type baby, gravity reverser");
                 	type = GravityReverser.FLIPED;
                 }
         		
@@ -959,7 +959,7 @@ public class LevelGenerate {
 			}
 		}
 		
-		//System.out.println("Bullets:"+activeBulletPool.size);
+		//MyGame.sop("Bullets:"+activeBulletPool.size);
 	}
 
 	public void reset() {
@@ -1126,6 +1126,8 @@ public class LevelGenerate {
 	}
 
 	public void test() {
+		if(!GameScreen.SOFT_DEBUG) return;
+		
 		if(CURRENT_LEVEL < MAX_LEVEL)
 			loadNextLevel();
 		
@@ -1186,7 +1188,7 @@ public class LevelGenerate {
 	}
 
 	public void enemyPlayerCollide(Fixture fixtureE, Fixture fixtureP) {
-		//System.out.println("CHECK DEAD");
+		//MyGame.sop("CHECK DEAD");
 
 		for(Enemy e:enemyPool){
 			if(e.getHeadFixture().equals(fixtureE)){
@@ -1198,7 +1200,7 @@ public class LevelGenerate {
 				
 				//e.hitBullet(Player.getInstance().JUMP_DAMAGE);
 				Player.getInstance().makeMiniJump();
-				//System.out.println("ENEMY DEAD");
+				//MyGame.sop("ENEMY DEAD");
 				
 				break;
 			} else if(e.getSensorFixture().equals(fixtureE) && Player.getInstance().getSensorFixture().equals(fixtureP)){
@@ -1530,7 +1532,7 @@ public class LevelGenerate {
         float[] worldVertices = new float[vertices.length];
 
         for (int i = 0; i < vertices.length; ++i) {
-            //System.out.println(vertices[i]* PTP);
+            //MyGame.sop(vertices[i]* PTP);
             worldVertices[i] = vertices[i] * PTP;
         }
 

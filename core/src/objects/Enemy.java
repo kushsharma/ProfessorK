@@ -217,7 +217,7 @@ public class Enemy {
         canvas.setColor(1f, 1f, 0f, 1.0f);	
 		canvas.rect(position.x-width/2, position.y-height/2, width/2 , height/2, width, height, 1, 1, body.getAngle());
 		
-		//System.out.println("Can jump:"+CAN_JUMP);
+		//MyGame.sop("Can jump:"+CAN_JUMP);
 	}
 	
 	public void render(SpriteBatch batch){
