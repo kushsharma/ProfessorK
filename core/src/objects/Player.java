@@ -45,13 +45,15 @@ public class Player {
 	private float height = 1.0f, width = 0.5f;
 	private Vector2 position = new Vector2();
 	Vector2 startPos = new Vector2();
-	private float Speed = 4.6f;
+	private float Speed = 4.6f; // 4.6f
 	private float Jump = 1.8f;
 	private float gravityScale = 0f;
 	
 	private boolean GLOWING = false;
 	private boolean FLYING = false; // disable player gravity effect
 	private float flightTime = 0f;
+	private final float FLYING_TIME = 1.0f;
+
 	private boolean visible = true;
 	public boolean Revived = false;
 	public int JUMP_DAMAGE = 2;
@@ -356,6 +358,13 @@ public class Player {
 		
 		teleportIn = new Animation(0.1f, teleportInSheet);
 		teleportIn.setPlayMode(PlayMode.NORMAL);
+		
+		
+		glow = new Sprite(gameAtlas.findRegion("playerglow"));
+		glow.setSize(width*8, width*8 * glow.getHeight()/glow.getWidth());
+		glow.setPosition(body.getPosition().x - glow.getWidth()/2, body.getPosition().y - glow.getHeight()/2);
+		glow.setColor(1f,1f,1f, 0.5f);
+		glow.setOrigin(glow.getWidth()/2, glow.getHeight()/2);
 	}
 	
 	public void render(ShapeRenderer canvas){
@@ -371,6 +380,13 @@ public class Player {
 		
 		playerSprite.setPosition(position.x - playerSprite.getWidth()/2, position.y - playerSprite.getHeight()*0.4f);
 
+		//make em flyy!!!
+		if(FLYING){
+			glow.setPosition(body.getPosition().x - glow.getWidth()/2, body.getPosition().y - glow.getHeight()/2);
+			glow.draw(batch);			
+		}
+		
+		
 		if(PLAYER_EVOLUTION == PowerUp.LEVEL_ZERO)
 			playerSprite.setRegion(idleAnime.getKeyFrame(time, true));
 		else if(PLAYER_EVOLUTION == PowerUp.LEVEL_ONE)
@@ -513,6 +529,23 @@ public class Player {
 				
 		if(GameScreen.PLAYER_PARTICLES)
 			jumpParticle.update(delta);
+		
+		
+		
+		if(FLYING)
+		{
+			flightTime += delta;
+			
+			if(flightTime > FLYING_TIME)
+				disableFlying();
+			
+			if(GLOWING){
+				gameScreen.shakeThatAss();	
+			}
+			
+			glow.setRotation((time*100)%360);
+
+		}
 	}
 	
 	public void reset(){
@@ -535,6 +568,33 @@ public class Player {
 		PLAYER_EVOLUTION = PowerUp.LEVEL_ZERO;
 		
 		fixBodyAngle();
+	}
+	
+	/** disable gravity for body
+	 * @param time negative values extends flight duration
+	 * **/
+	public void enableFlying(float time){
+		FLYING = true;
+		flightTime = time;
+		body.setGravityScale(0);
+	}
+	
+	public void disableFlying(){		
+		FLYING = false;
+		GLOWING = false;
+		body.setGravityScale(gravityScale);
+		body.setLinearVelocity(0, 0);
+
+		gameScreen.showControls();
+	}
+	
+	/** starts an cinematic sequence of player flying  **/
+	public void makeItGlow(){
+		enableFlying(-2);
+		body.setLinearVelocity(0, 0.5f);
+		
+		gameScreen.hideControls();
+		GLOWING = true;		
 	}
 	
 	public void flipBodyAngle(){

@@ -667,6 +667,9 @@ public class MainMenuScreen implements Screen, ActionListener{
 		for(int i=0;i<3;i++){
 			for(int j=0;j<5;j++)
 			{
+				if(l > scoreManager.MAX_LEVELS)
+					continue;
+				
 				final TextButton b = new TextButton(""+(l), buttStyleLocked);
 
 				if(l <= scoreManager.MAX_LEVELS_UNLOCKED){

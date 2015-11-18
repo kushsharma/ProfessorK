@@ -1,9 +1,11 @@
 package screens;
 
 import objects.Background;
+import objects.CBackground;
 import objects.PaxBackground;
 import objects.Player;
 import objects.PowerUp;
+import parallax.Parallax;
 import utils.AssetLord;
 import utils.CameraShake;
 import utils.Cinema;
@@ -95,7 +97,7 @@ public class GameScreen implements Screen{
 	 * Reverse Gravity _ done
 	 * Falling rocks
 	 * buttons to make level portal active
-	 * Create BeamSpot that throws a big laser from ground that can kill instantly with particles 
+	 * Create BeamSpot that throws a big laser from ground that can kill instantly with particles _ done
 	 * Parallax background _ done
 	 * Game time to complete within
 	 * Make different layers that needs to be rendered over player and below _ done
@@ -106,9 +108,10 @@ public class GameScreen implements Screen{
 	 * increase jump button radius sensor _ done
 	 * Optimize BACKGROUND!!
 	 * Add a ray sprite over portal _ done
-	 * add rotation on wind mill
+	 * add rotation on wind mill _ done
 	 * Add scan lines
-	 * Add slomo when die & fix player dying twice
+	 * Add slomo when die & fix player dying twice _done
+	 * Add boss _ done
 	 * 
 	 */
 	
@@ -116,8 +119,8 @@ public class GameScreen implements Screen{
 	public static boolean SOFT_DEBUG = false;
 	public static boolean DISABLE_ADS = true;
 		
-	public static boolean RENDER_LIGHTS = false;
-	public static boolean BACKGROUND_SHADER = true;
+	public static boolean RENDER_LIGHTS = true;
+	public static boolean BACKGROUND_SHADER = false; //noe use right now
 	public static boolean BACKGROUND_PARALLAX = true;
 	public static boolean BACKGROUND_MUSIC = true;
 	
@@ -162,7 +165,9 @@ public class GameScreen implements Screen{
 	
 	public static GameState CURRENT_STATE = GameState.RUNNING;
 	public static float CAMERA_ANGLE = 0;
-
+	public static boolean CAMERA_LOCKED = false;
+	public Vector2 cameraLockPosition = new Vector2();
+	
 	public static Vector2 WorldGravity = new Vector2(0,-19f); //-80,0
 	public static Vector2 WorldGravityFlipped = new Vector2(0, 19f); //-80,0
 
@@ -192,6 +197,8 @@ public class GameScreen implements Screen{
 	LevelGenerate level;
 	MyInputProcessor inputProcessor;
 	ScoreManager scoreManager;
+	//TODO
+	//Parallax background;
 	Background background;
 	public Cinema cinema;
 	
@@ -211,7 +218,7 @@ public class GameScreen implements Screen{
 		
 		prefs = Gdx.app.getPreferences(MainMenuScreen.PreferenceName);
 		GameScreen.BACKGROUND_MUSIC = prefs.getBoolean("music", true);
-		GameScreen.RENDER_LIGHTS = (prefs.getInteger("visuals", 1) > 1) ? true : false;
+		GameScreen.RENDER_LIGHTS = (prefs.getInteger("visuals", 1) > 1 && GameScreen.RENDER_LIGHTS) ? true : false;
 		GameScreen.BACKGROUND_PARALLAX = (prefs.getInteger("visuals", 1) > 0) ? true : false;
 		
 		/////////
@@ -288,16 +295,17 @@ public class GameScreen implements Screen{
 		
 		if(SOFT_DEBUG) fpsLogger = new FPSLogger();
 		
-		lightBuffer = new FrameBuffer(Format.RGBA8888, WIDTH, HEIGHT, false);
-		lightBuffer.getColorBufferTexture().setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
+		lightBuffer = new FrameBuffer(Format.RGBA8888, WIDTH/5, HEIGHT/5, false);
+		//lightBuffer.getColorBufferTexture().setFilter(TextureFilter.Nearest, TextureFilter.Nearest);
 		
-		lightBufferRegion = new TextureRegion(lightBuffer.getColorBufferTexture(), 0, lightBuffer.getHeight()-HEIGHT, WIDTH, HEIGHT);
+		lightBufferRegion = new TextureRegion(lightBuffer.getColorBufferTexture(), 0, lightBuffer.getHeight()-HEIGHT/5, WIDTH/5, HEIGHT/5);
 		lightBufferRegion.flip(false, true);
 		
 		
+		//background = new Parallax(cameraui);
 		background = new Background(camera);
-		
-		
+
+		pCounter = new PerformanceCounter("back");
 	}
 
 	private void createUI() {
@@ -644,8 +652,10 @@ public class GameScreen implements Screen{
 
 	@Override
 	public void render(float delta) {
-		Gdx.gl.glClearColor(0.0f, 0.0f, 0.0f, 1);
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+		pCounter.start();
+		
+		//Gdx.gl.glClearColor(0.0f, 0.0f, 0.0f, 1);
+		//Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
 		
 		if(CURRENT_STATE != GameState.STOPPED)
@@ -662,8 +672,13 @@ public class GameScreen implements Screen{
 					
 			camera.update();		
 			
+			//pCounter.start();
 			//resume developing this
 			background.draw(batch);
+			
+			//background.render();
+			//pCounter.stop();
+			
 			
 			level.render(batch, canvas);
 			
@@ -713,15 +728,20 @@ public class GameScreen implements Screen{
 		
 		if(SOFT_DEBUG)
 		fpsLogger.log();
+		
+		pCounter.stop();
+		//System.out.println(pCounter.current+" <- time");		
+		pCounter.reset();
 	}
 
 	private void renderLights() {
 		lightBuffer.begin();
 
 		// setup the right blending
-		Gdx.gl.glBlendFunc(GL20.GL_SRC_ALPHA, GL20.GL_ONE);
 		//Gdx.gl.glBlendFunc(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
-		Gdx.gl.glEnable(GL20.GL_BLEND);
+
+		//Gdx.gl.glBlendFunc(GL20.GL_SRC_ALPHA, GL20.GL_ONE);
+		//Gdx.gl.glEnable(GL20.GL_BLEND);
 				        
 		// set the ambient color values, this is the "global" light of your scene
 		// imagine it being the sun.  Usually the alpha value is just 1, and you change the darkness/brightness with the Red, Green and Blue values for best effect
@@ -836,7 +856,9 @@ public class GameScreen implements Screen{
 			updateCameraMovement(delta);
 			
 			//update background effect
+			//background.update(delta, camera.position.x);
 			background.update(delta);
+
 		}
 		
 		//update score text
@@ -866,7 +888,7 @@ public class GameScreen implements Screen{
 	
 	/** @param newLevel is reseting to set new level?**/
 	public void reset(boolean newLevel){
-		SLOW_MOTION = false;
+		SLOW_MOTION = CAMERA_LOCKED = false;
 		
 		//reset player attributes
 		player.reset();
@@ -905,11 +927,23 @@ public class GameScreen implements Screen{
 			float y = Interpolation.linear.apply(position.y, Math.max(player.getPosition().y, 6), delta*lerp);
 			position.y = y;
 
-			//max right bound			
-			float plX = Math.min(level.MAP_RIGHT_BOUND - 10, player.getPosition().x + offsetX);
-			//max left bound
-			float x = Interpolation.linear.apply(position.x, Math.max(plX, 10), delta*lerp);
-			position.x = x;
+			if(CAMERA_LOCKED){//doesn't work------------
+				//move only inside locked position
+				
+				//max right bound			
+				float plX = Math.min(cameraLockPosition.x, player.getPosition().x + offsetX);
+				//max left bound
+				float x = Interpolation.linear.apply(position.x, Math.max(plX, 10), delta*lerp);
+				position.x = x;				
+			}
+			else
+			{
+				//max right bound			
+				float plX = Math.min(level.MAP_RIGHT_BOUND - 10, player.getPosition().x + offsetX);
+				//max left bound
+				float x = Interpolation.linear.apply(position.x, Math.max(plX, 10), delta*lerp);
+				position.x = x;
+			}
 			
 			//else
 			//	camera.position.set(player.getPosition().x + offset, camera.position.y, 0);
@@ -920,6 +954,15 @@ public class GameScreen implements Screen{
 			
 		
 		camera.update();
+	}
+	
+	public void cameraLock(boolean lock){
+		if(lock){
+			CAMERA_LOCKED = true;
+			cameraLockPosition.set(camera.position.x, camera.position.y);
+		}
+		else
+			CAMERA_LOCKED = false;
 	}
 	
 	public void hideControls(){
@@ -991,7 +1034,8 @@ public class GameScreen implements Screen{
 		player.dispose();
 		if(DEBUG) debugRenderer.dispose();
 		lightBuffer.dispose();
-		
+	
+		background.dispose();
 	}
 	
 	public static GameScreen getInstance(){

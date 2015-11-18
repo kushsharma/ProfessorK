@@ -1,5 +1,7 @@
 package utils;
 
+import screens.GameScreen;
+
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;

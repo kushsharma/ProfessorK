@@ -3,6 +3,7 @@ package utils;
 import java.util.HashMap;
 
 import objects.BeamSpot;
+import objects.Boss;
 import objects.Bullet;
 import objects.Coin;
 import objects.Enemy;
@@ -97,6 +98,7 @@ public class LevelGenerate {
 	Array<GravityReverser> gravityPool = new Array<GravityReverser>();
 	Array<BeamSpot> beamPool = new Array<BeamSpot>();
 
+	Boss boss = null;
 	Switch levelSwitch = null;
 	
 	private float gametime = 0;
@@ -106,8 +108,9 @@ public class LevelGenerate {
 	
 	public static boolean CURRENT_LEVEL_CLEARED = false;
 	public static int CURRENT_LEVEL = 1;
-	public static final int MAX_LEVEL = 12;
+	public static final int MAX_LEVEL = 13;
 	public static boolean LEVEL_LOADED = false;
+	public static boolean BOSS_LEVEL = false;
 	
 	public int MAP_RIGHT_BOUND = 50;
 	
@@ -227,6 +230,9 @@ public class LevelGenerate {
 				break;
 			case 12:
 				tileMap = tileLoader.load("levels/level12.tmx");
+				break;
+			case 13:
+				tileMap = tileLoader.load("levels/boss1.tmx");
 				break;
 			case 420:
 				tileMap = tileLoader.load("levels/bonus.tmx");
@@ -718,22 +724,7 @@ public class LevelGenerate {
 	                continue;
 	            }
 	
-	            Shape shape;
-	
-	            if (object instanceof RectangleMapObject) {
-	                Rectangle rectangle = ((RectangleMapObject)object).getRectangle();
-	                
-	                shape = new PolygonShape();
-	                ((PolygonShape) shape).setAsBox(rectangle.width * 0.5f * PTP,
-	                                 rectangle.height * 0.5f * PTP,
-	                                 Enemy.CENTER_VECTOR,
-	                                 0.0f);        
-	                
-	            }
-	            else {
-	                continue;
-	            }
-	            
+	            	            
 	            Rectangle r = ((RectangleMapObject)object).getRectangle();
 	            Vector2 pos = new Vector2((r.x + r.width * 0.5f) * PTP,
 	                    (r.y + r.height * 0.5f ) * PTP);
@@ -752,6 +743,40 @@ public class LevelGenerate {
 	            //int level = Integer.parseInt(object.getProperties().get("level").toString());
 	            BeamSpot p = new BeamSpot(world, pos, light);
 	            beamPool.add(p);
+	        }
+        }
+        
+        BOSS_LEVEL = false;
+        //check if this is boss level
+        if(map.getLayers().get("BossOb") != null){
+	        MapObjects beams = map.getLayers().get("BossOb").getObjects();
+	        for(MapObject object : beams) {
+	
+	            if (object instanceof TextureMapObject) {
+	                continue;
+	            }	           
+	            
+	            Rectangle r = ((RectangleMapObject)object).getRectangle();
+	            Vector2 pos = new Vector2((r.x + r.width * 0.5f) * PTP,
+	                    (r.y + r.height * 0.5f ) * PTP);
+	            
+	            //calculating light size
+	            float len1x = (r.x - r.width/2) * PTP;
+	            float len1y = (r.y - r.height/2) * PTP;            
+	            float len2x = (r.x + r.width/2) * PTP;
+	            float len2y = (r.y + r.height/2) * PTP;            
+	            double size = Math.pow(len1x - len2x, 2) +  Math.pow(len1y - len2y, 2);
+	            size = Math.sqrt(size);
+	            
+	            Light light = new Light(pos, (float)size*2, Light.BLUE_COLOR);
+	            pushLight(light);
+	            
+	            //int level = Integer.parseInt(object.getProperties().get("level").toString());
+	            boss = new Boss(world, pos, light);
+	            BOSS_LEVEL = true;
+	            
+	            //disable exit portal
+	            toggleExitPortalSwitch(false);
 	        }
         }
 
@@ -821,7 +846,9 @@ public class LevelGenerate {
 		if(levelSwitch != null)
 			levelSwitch.render(batch);
 		
-				
+		if(boss != null)
+			boss.render(batch);
+		
 		//reset blend function
 		//batch.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
 		
@@ -847,6 +874,11 @@ public class LevelGenerate {
 			gr.renderParticles(batch);			
 		for(BeamSpot bs: beamPool)
 			bs.renderParticles(batch);
+		
+		if(boss != null && BOSS_LEVEL)
+		{
+			boss.renderParticles(batch);
+		}
 		
 	}
 	
@@ -912,6 +944,10 @@ public class LevelGenerate {
 		if(levelSwitch != null)
 			levelSwitch.update(delta, camera.position.x);
 		
+		if(boss != null)
+			boss.update(delta, camera.position.x);
+		
+		
 		//check for dead bullets and recycle
 		int size = activeBulletPool.size;
 		while(--size >= 0){
@@ -959,6 +995,12 @@ public class LevelGenerate {
 			}
 		}
 		
+		if(BOSS_LEVEL && boss != null)
+		{
+			if(boss.DEAD)
+				boss.setOffScreen();
+		}
+		
 		//MyGame.sop("Bullets:"+activeBulletPool.size);
 	}
 
@@ -996,6 +1038,10 @@ public class LevelGenerate {
 				if(p.PORTAL_TYPE == Portal.EXIT)
 					p.ENABLED = false;
 			}
+		}
+		
+		if(BOSS_LEVEL && boss!= null){
+			boss.reset();
 		}
 			
 		Bullet.BULLET_POWER = false;
@@ -1127,15 +1173,15 @@ public class LevelGenerate {
 
 	public void test() {
 		if(!GameScreen.SOFT_DEBUG) return;
-		
-		if(CURRENT_LEVEL < MAX_LEVEL)
-			loadNextLevel();
-		
-		if(CURRENT_LEVEL == MAX_LEVEL)
-		if(WORLD_FLIPPED)
-			fixGravity();
-		else
-			flipGravity();
+				
+//		if(CURRENT_LEVEL < MAX_LEVEL)
+//			loadNextLevel();
+//		
+//		if(CURRENT_LEVEL == MAX_LEVEL)
+//		if(WORLD_FLIPPED)
+//			fixGravity();
+//		else
+//			flipGravity();
 		
 	}
 	
@@ -1241,6 +1287,41 @@ public class LevelGenerate {
 		}
 	}
 	
+	/** instant death because of messing with boss **/
+	public void bossPlayerCollide(Fixture bossFix, boolean inside){
+		
+		if(boss.getBodyFixture().equals(bossFix)){
+			//player died
+			Player.getInstance().setDeath();
+			
+			if(GameScreen.BACKGROUND_MUSIC)
+				Gdx.input.vibrate(50);
+		}
+		else if(boss.getSensorFixture().equals(bossFix)){
+			boss.PLAYER_INSIDE = inside;
+		}
+		
+	}
+	
+	public void bossBulletCollide(Fixture bossFix, Fixture bullet){
+		int damage = 0;
+		
+		for(Bullet b: activeBulletPool){
+			if(b.getBodyFixture().equals(bullet)){
+				//bullet got disappeared
+				b.makeDead();
+				
+				damage = b.getDamage();
+				break;
+			}
+		}
+		
+		if(boss.getBodyFixture().equals(bossFix))
+		{
+			boss.hitBullet(damage);	
+		}
+	}
+	
 	/** burn player when collide with beam**/
 	public void beamPlayerCollide(Fixture beamSensor, boolean enter) {
 		for(BeamSpot bs:beamPool){
@@ -1289,7 +1370,18 @@ public class LevelGenerate {
 			if(p.getFixture() == powerUp && p.consumed == false){
 				
 				if(p.consume() > 0)
+				{
 					Player.getInstance().evolvePlayer();
+					
+					if(CURRENT_LEVEL == 4){
+						//leveling up gunner first time
+						GameScreen.getInstance().cinema.start(Cinema.MOV_TUT_FIRST_EVOL);
+					}
+					else if(CURRENT_LEVEL == 10 && Player.getInstance().PLAYER_EVOLUTION == PowerUp.LEVEL_TWO){
+						//leveling up golden first time
+						GameScreen.getInstance().cinema.start(Cinema.MOV_TUT_SECOND_EVOL);
+					}
+				}
 				
 				break;
 			}			
@@ -1336,25 +1428,30 @@ public class LevelGenerate {
 		
 	}
 	
+	/** pass false to disable exit portal **/
+	public void toggleExitPortalSwitch(boolean enable){
+		for(Portal p :portalPool){
+			if(p.PORTAL_TYPE == Portal.EXIT)
+			{
+				p.ENABLED = enable;				
+			}
+		}
+	}
+	
 	/** level portal switch **/
 	public void switchPlayerCollide(Fixture lSwitch) {
 		if(levelSwitch!= null && lSwitch.equals(levelSwitch.getFixture())){
 			levelSwitch.toggle();
 			
-			for(Portal p :portalPool){
-				if(p.PORTAL_TYPE == Portal.EXIT)
-				{
-					if(levelSwitch.STATE_ENABLED)
-					{//enable protal
-						p.ENABLED = true;
-					}
-					else{
-						//disable portal
-						p.ENABLED = false;
-					}
-					
-				}
+			if(levelSwitch.STATE_ENABLED)
+			{//enable protal
+				toggleExitPortalSwitch(true);
 			}
+			else{
+				//disable portal
+				toggleExitPortalSwitch(false);
+			}
+					
 		}
 	}
 	
@@ -1414,7 +1511,7 @@ public class LevelGenerate {
 //		if(portalSound != null)
 //			portalSound.play();
 //	}
-	
+		
 	public Switch getLevelSwitch(){
 		return levelSwitch;
 	}
@@ -1446,6 +1543,12 @@ public class LevelGenerate {
 			levelSwitch.dispose();
 		}
 		levelSwitch = null;
+		
+		if(boss != null)
+		{
+			boss.dispose();
+		}
+		boss = null;
 		
 		for(Body b:platformPool){
 			world.destroyBody(b);

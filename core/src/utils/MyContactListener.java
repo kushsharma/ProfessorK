@@ -48,6 +48,25 @@ public class MyContactListener implements ContactListener{
 			
 		}
 		
+		if((A.getUserData().equals("boss1") == true && B.getUserData().equals("player") == true) || (A.getUserData().equals("player") == true && B.getUserData().equals("boss1") == true))
+		{//handle boss kills
+			
+			if(A.getUserData().equals("player") == true)
+				LevelGenerate.getInstance().bossPlayerCollide(contact.getFixtureB(), true);
+			else
+				LevelGenerate.getInstance().bossPlayerCollide(contact.getFixtureA(), true);
+		}
+		
+		//handle bullet and boss
+		if((A.getUserData().equals("boss1") == true && B.getUserData().equals("bullet") == true) || (A.getUserData().equals("bullet") == true && B.getUserData().equals("boss1") == true))
+		{
+			if(A.getUserData().equals("boss1") == true)
+				LevelGenerate.getInstance().bossBulletCollide(contact.getFixtureA(), contact.getFixtureB());
+			else
+				LevelGenerate.getInstance().bossBulletCollide(contact.getFixtureB(), contact.getFixtureA());
+			
+		}
+		
 		if((A.getUserData().equals("spikes") == true && contact.getFixtureB().equals(pl.getBodyFixture()) == true) || (contact.getFixtureA().equals(pl.getBodyFixture()) == true && B.getUserData().equals("spikes") == true))
 		{//handle spikes kills
 			
@@ -176,6 +195,15 @@ public class MyContactListener implements ContactListener{
 				LevelGenerate.getInstance().beamPlayerCollide(contact.getFixtureB(), false);
 			else
 				LevelGenerate.getInstance().beamPlayerCollide(contact.getFixtureA(), false);
+		}
+		
+		if((A.getUserData().equals("boss1") == true && contact.getFixtureB().equals(pl.getBodyFixture()) == true) || (contact.getFixtureA().equals(pl.getBodyFixture()) == true && B.getUserData().equals("boss1") == true))
+		{//handle spikes kills
+			
+			if(A.getUserData().equals("player") == true)
+				LevelGenerate.getInstance().bossPlayerCollide(contact.getFixtureB(), false);
+			else
+				LevelGenerate.getInstance().bossPlayerCollide(contact.getFixtureA(), false);
 		}
 	}
 

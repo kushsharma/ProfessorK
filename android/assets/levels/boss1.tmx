@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="234" height="35" tilewidth="32" tileheight="32" nextobjectid="28">
+ <tileset firstgid="1" name="tileset-new" tilewidth="32" tileheight="32" spacing="2" margin="1" tilecount="225">
+  <image source="../tileset-new.png" width="512" height="512"/>
+  <tile id="35">
+   <properties>
+    <property name="type" value="3"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Platform" width="234" height="35">
+  <data encoding="base64" compression="zlib">
+   eJztm9FqwkAQRecX/Ic+t0LrYwkUX9sH+8N+mpsUwQSTjTLh7kzPgfNSJbqTPWik6czOx+IOccayP6wzUNIZneKydKqHTrEmneqhU6xJp2NeBNIp1qTTMXSKLUqnY+gUW5ROx3h0N3ecub/TKdak0zFen5HTYy0du+/0UPzAMJ7KebvV67lz/hqd3uL5fdas3mjvvpyHNwzjdzlnVz2fW/Nns10fD68+Hz0+AKzHq9Fpe9PH6BTgebb6HK29DgCsx+t6dOn4914HANaz5e9GS48DwHo8fkeau071+s4M8N/x6nTLa1uAZ8i03+gUoH3oFDLwyL6KuAfpFKB96BSgfRSNvtrwv5+I2Kj74mfx3Yb7KBCxMQ/2d69S3+lXcRfbLe+/VLxXZomDR0vT6b394Kni/Wadp3JdIaVTOhXMU7mukNIpnQrmqVxXSOmUTgXzVK4rpHRKp4J5KtcVUjqlU8E8lesKKZ3K9pXiNTPPM7V0SqdJ5plaOqXTJPNMLZ3SaZJ5ppZO6TTJPFN77fQCUCjUrw==
+  </data>
+ </layer>
+ <objectgroup name="PlatformOb">
+  <object id="2" x="0" y="672" width="7490.67" height="447.5"/>
+  <object id="14" x="0" y="320" width="32" height="352"/>
+  <object id="17" x="3776" y="16" width="672" height="304"/>
+  <object id="19" x="6560" y="32" width="32" height="640"/>
+  <object id="23" x="4928" y="512" width="96" height="32"/>
+  <object id="25" x="4768" y="576" width="64" height="32"/>
+  <object id="26" x="5120" y="576" width="64" height="32"/>
+ </objectgroup>
+ <objectgroup name="PortalOb">
+  <object id="4" x="242.417" y="649.878" width="93.3334" height="18">
+   <properties>
+    <property name="place" value="entry"/>
+    <property name="type" value="sensor"/>
+   </properties>
+  </object>
+  <object id="5" x="224.657" y="672.461">
+   <properties>
+    <property name="place" value="entry"/>
+    <property name="type" value="body"/>
+   </properties>
+   <polygon points="0,0 16,-16.25 113.25,-16 128,0.25"/>
+  </object>
+  <object id="7" x="5714.95" y="649.955" width="93.3334" height="18">
+   <properties>
+    <property name="place" value="exit"/>
+    <property name="type" value="sensor"/>
+   </properties>
+  </object>
+  <object id="8" x="5697.19" y="672.538">
+   <properties>
+    <property name="place" value="exit"/>
+    <property name="type" value="body"/>
+   </properties>
+   <polygon points="0,0 16,-16.25 113.25,-16 128,0.25"/>
+  </object>
+ </objectgroup>
+ <layer name="Portal" width="234" height="35">
+  <data encoding="base64" compression="zlib">
+   eJzt0rENADAIA0GmCNl/0qSgpkVId9L3LhwBAAAAAAAAAAAAAAAAAAAAAACwx/lldYe3QMdXAQAAAAAAAAAAAAAAYI8H3xoAuQ==
+  </data>
+ </layer>
+ <objectgroup name="LightsOb">
+  <object id="12" x="5719.52" y="646.015" width="82.1818" height="21.6515">
+   <properties>
+    <property name="color" value="4"/>
+   </properties>
+  </object>
+  <object id="13" x="247.826" y="645.878" width="82.1818" height="20.7045">
+   <properties>
+    <property name="color" value="4"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="BossOb">
+  <object id="18" x="5344" y="544" width="64" height="64"/>
+ </objectgroup>
+ <objectgroup name="PowerUpOb">
+  <object id="21" x="1856" y="576" width="32" height="64">
+   <properties>
+    <property name="level" value="1"/>
+   </properties>
+  </object>
+  <object id="22" x="2688" y="576" width="32" height="64">
+   <properties>
+    <property name="level" value="2"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

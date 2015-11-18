@@ -182,7 +182,8 @@ public class PowerUp {
 	public void update(float delta, float viewportWidth){
 		posx = body.getPosition().x;
 		posy = body.getPosition().y;
-		
+		light.setPosition(posx, posy);
+
 		if(!consumed && (posx > viewportWidth-bWIDTH/2 && posx < viewportWidth+bWIDTH/2))
 			visible = true;
 		else

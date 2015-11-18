@@ -45,6 +45,7 @@ public class Cinema {
 	public static final int MOV_INTRO = 1;
 	public static final int MOV_INTRO_LEVEL = 2;
 	public static final int MOV_TUT1 = 3;
+	
 	public static final int MOV_TUT_LEVEL_2 = 4;
 	public static final int MOV_TUT_LEVEL_3 = 5;
 	public static final int MOV_TUT_LEVEL_4 = 6;
@@ -57,7 +58,13 @@ public class Cinema {
 	public static final int MOV_TUT_LEVEL_11 = 13;
 	public static final int MOV_TUT_LEVEL_12 = 14;
 	public static final int MOV_TUT_LEVEL_13 = 15;
-
+	public static final int MOV_TUT_LEVEL_14 = 16;
+	public static final int MOV_TUT_LEVEL_15 = 17;
+	
+	public static final int MOV_TUT_LEVEL_420 = 420;
+	public static final int MOV_TUT_FIRST_EVOL = 9211;
+	public static final int MOV_TUT_SECOND_EVOL = 9212;
+	
 	int CINEMA_TYPE = 0;
 	
 	Image intro1, introAlien, introPlayerSleep, introPlayerFly, introStar, introAlienRays, introMillFan;
@@ -286,6 +293,38 @@ public class Cinema {
 			}
 			case MOV_TUT_LEVEL_13:{
 				introText1.clearActions();
+				anime_delay = 8f;				
+			break;
+			}
+			case MOV_TUT_LEVEL_14:{
+				introText1.clearActions();
+				anime_delay = 5f;				
+			break;
+			}
+			case MOV_TUT_LEVEL_15:{
+				introText1.clearActions();
+				anime_delay = 5f;				
+			break;
+			}
+			
+			
+			
+			case MOV_TUT_LEVEL_420:{
+				introText1.clearActions();
+				anime_delay = 5f;				
+			break;
+			}
+			case MOV_TUT_FIRST_EVOL:{
+				Player.getInstance().enableFlying(1);
+				Player.getInstance().makeItGlow();
+				
+				anime_delay = 5f;				
+			break;
+			}
+			case MOV_TUT_SECOND_EVOL:{
+				Player.getInstance().enableFlying(1);
+				Player.getInstance().makeItGlow();
+				
 				anime_delay = 5f;				
 			break;
 			}
@@ -463,6 +502,12 @@ public class Cinema {
 						break;
 					}
 					case 2:{
+						introText1.setText("Prof K: They may look beautiful\nbut can put your pants on fire!");
+						introText1.setVisible(true);
+						introText1.addAction(Actions.moveTo(introText1.getX(), HEIGHT - introText1.getHeight()*3, 1f));
+						break;
+					}
+					case 3:{
 						introText1.addAction(Actions.moveTo(introText1.getX(), HEIGHT*2, 1f));
 						
 						MOV_STAGE = 0;
@@ -589,6 +634,42 @@ public class Cinema {
 				case MOV_TUT_LEVEL_13:{
 					switch(MOV_STAGE){
 					case 1:{
+						introText1.setText("Prof K: Finally the boss faceoff!\nJust don't cry like a baby when it appears.");
+						introText1.setVisible(true);
+						introText1.addAction(Actions.moveTo(introText1.getX(), HEIGHT - introText1.getHeight()*3, 1f));
+						break;
+					}
+					case 2:{
+						introText1.setText("Unknown: You filthy human.\nIt's going to be fun killing you.");
+						introText1.setVisible(true);
+						introText1.addAction(Actions.moveTo(introText1.getX(), HEIGHT - introText1.getHeight()*3, 1f));
+						break;
+					}
+					case 3:{
+						introText1.setText("Unknown: Hahahahahah!!! *cough* Haha *cough*");
+						introText1.setVisible(true);
+						introText1.addAction(Actions.moveTo(introText1.getX(), HEIGHT - introText1.getHeight()*3, 1f));
+						break;
+					}
+					case 4:{
+						introText1.setText("Unknown: I am getting to old for this sh*t.");
+						introText1.setVisible(true);
+						introText1.addAction(Actions.moveTo(introText1.getX(), HEIGHT - introText1.getHeight()*3, 1f));
+						break;
+					}
+					case 5:{
+						introText1.addAction(Actions.moveTo(introText1.getX(), HEIGHT*2, 1f));
+						
+						MOV_STAGE = 0;
+						CINEMA_TYPE = MOV_NONE;
+						break;
+					}		
+					}
+					break;
+				}
+				case MOV_TUT_LEVEL_420:{
+					switch(MOV_STAGE){
+					case 1:{
 						introText1.setText("Prof K: How could you find this private area you stupid kid!");
 						introText1.setVisible(true);
 						introText1.addAction(Actions.moveTo(introText1.getX(), HEIGHT - introText1.getHeight()*3, 1f));
@@ -603,6 +684,43 @@ public class Cinema {
 					}		
 					}
 					break;
+				}
+
+				case MOV_TUT_FIRST_EVOL:{
+					switch(MOV_STAGE){
+					case 1:{
+						
+						
+						break;
+					}
+					case 2:{
+						//introText1.addAction(Actions.moveTo(introText1.getX(), HEIGHT*2, 1f));
+						
+						MOV_STAGE = 0;
+						CINEMA_TYPE = MOV_NONE;
+						break;
+					}		
+					}
+				break;				
+				}
+				case MOV_TUT_SECOND_EVOL:{
+					switch(MOV_STAGE){
+					case 1:{
+						introText1.setText("Prof K: Try holding fire key.");
+						introText1.setVisible(true);
+						introText1.addAction(Actions.moveTo(introText1.getX(), HEIGHT - introText1.getHeight()*3, 1f));
+						
+						break;
+					}
+					case 2:{
+						introText1.addAction(Actions.moveTo(introText1.getX(), HEIGHT*2, 1f));
+						
+						MOV_STAGE = 0;
+						CINEMA_TYPE = MOV_NONE;
+						break;
+					}		
+					}
+				break;
 				}
 			}
 			
@@ -775,6 +893,14 @@ public class Cinema {
 			start(MOV_TUT_LEVEL_13);
 			break;
 		}
+		case 14:{
+			start(MOV_TUT_LEVEL_14);
+			break;
+		}
+		case 15:{
+			start(MOV_TUT_LEVEL_15);
+			break;
+		}		
 		}
 	}
 	

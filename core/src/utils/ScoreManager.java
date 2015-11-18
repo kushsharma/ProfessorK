@@ -23,6 +23,7 @@ public class ScoreManager {
 	public int USER_TOTAL_SCORE;
 	public int USER_TOTAL_DEATHS;
 	public int MAX_LEVELS_UNLOCKED = 1;
+	public int MAX_LEVELS = LevelGenerate.MAX_LEVEL;
 
 	public static final int STAR_MILK = 3;
 	public static final int STAR_ENEMY = 5;

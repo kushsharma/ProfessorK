@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-up" width="300" height="40" tilewidth="32" tileheight="32" nextobjectid="9">
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="300" height="40" tilewidth="32" tileheight="32" nextobjectid="11">
  <tileset firstgid="1" name="tileset-new" tilewidth="32" tileheight="32" spacing="2" margin="1" tilecount="225">
   <image source="../tileset-new.png" width="512" height="512"/>
   <tile id="35">
@@ -10,20 +10,20 @@
  </tileset>
  <layer name="Platform" width="300" height="40">
   <data encoding="base64" compression="zlib">
-   eJzt3DFOAzEUBmFfIRcJSIEyQopoaTgxR4sThIRoMGLXz8/+RpouhWd383e7pczBoZSPPZ25L7rtxux92IaXej9fd/6vk+R/vFTPVXtFcnTtFcks2iuSWbRXJLNor0hm0V6RzKK9IplFe0Uyi/aKZBbtFcks2iuSWfy+V8/Vp0l9L6X8NPpMPVqjz6Jvm87fWld5tk/lc68eqw+T+1bvY/QZdGps7ftyy9/O4LH41gYAAAAAAAAAAAAAAAAAAAAAAADwF47l/u4RSQ7vuXoq9/e6SXJob3t1qR7yuef3dpx5rZbVm9N02atuz86e593rzDNdf80TdNkrezVgT++W1ZvTdNkrezVgT++W1ZvTdNkrezVgT++W1ZvTdNkrezVgT++W1ZvTdNkre7V4i+ZEXfZqir2a6dpH9EQ3a2vUXtmrwVoieqKbtTVqr+zVYC0RPdHN2hq1V/ZqsJaInuhmbY3aK3s1WEtET3Sztkav0Qxe0w==
+   eJzt3D1OA0EQBeG5gi8ClsAhQkJOIcAX5miMbTkhWYLd6e7Zr6TKHHT552Xe1ubg0NrPls7cF912ZfY+rMN7/zzPG//WSeb1fN+BEtgrct/aK5JVtFckq2ivSFbRXpGsor0iWUV7RbKK9opkFe0VySraK5JVtFckq1htr07d10n97o1/jb5pRGv0LfrW6VxqXeO7fWl19urY732e3M/eGX2DTo3/7Xu45muX/ApbIAAAAAAAAAAAAAAAAAAAAAAAAABb8dRu/z0iydQeu2/dl3b7XzdJpvTU7s+QuO7VR/dQzy2fCeTmfbXsvTl91+MZXfZq2Hdny3u3unmm919z4S57Za8S94xu2Xtz+i57Za8S94xu2Xtz+i57Za8S94xu2Xtz+i57Za8S94xu2Xtz+i57Za+0aB7QtsqN9mqqvZrpvY/oiW7WtqC9sldJWyJ6opu1LWiv7FXSloie6GZtC9ore5W0JaInulnbgvbKXiVtieiJbta24GOvfgED4HB5
   </data>
  </layer>
  <objectgroup name="PlatformOb">
   <object id="2" x="0" y="832" width="9600" height="448"/>
  </objectgroup>
  <objectgroup name="PortalOb">
-  <object id="4" x="120" y="810.045" width="93.3334" height="18">
+  <object id="4" x="114" y="810.045" width="93.3334" height="18">
    <properties>
     <property name="place" value="entry"/>
     <property name="type" value="sensor"/>
    </properties>
   </object>
-  <object id="5" x="102.24" y="832.628">
+  <object id="5" x="96.24" y="832.628">
    <properties>
     <property name="place" value="entry"/>
     <property name="type" value="body"/>
@@ -44,4 +44,9 @@
    <polygon points="0,0 16,-16.25 113.25,-16 128,0.25"/>
   </object>
  </objectgroup>
+ <layer name="Platform" width="300" height="40">
+  <data encoding="base64" compression="zlib">
+   eJzt1LEJACAMRNFMEd1/0li4QCBg4Xvw+6suAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgXp7WbT/eAvzNHwEAAAAAAAAAAAAAAAAAAAD0FZcXALk=
+  </data>
+ </layer>
 </map>

@@ -4483,7 +4483,10 @@ com.badlogic.gdx.utils.OrderedSet:
     44:47:public OrderedSet(com.badlogic.gdx.utils.OrderedSet)
     70:70:public com.badlogic.gdx.utils.Array orderedItems()
 com.badlogic.gdx.utils.PauseableThread
-com.badlogic.gdx.utils.PerformanceCounter
+com.badlogic.gdx.utils.PerformanceCounter:
+    private static final float nano2seconds
+    58:61:public void tick()
+    66:78:public void tick(float)
 com.badlogic.gdx.utils.PerformanceCounters
 com.badlogic.gdx.utils.PooledLinkedList
 com.badlogic.gdx.utils.PooledLinkedList$1
@@ -4847,7 +4850,6 @@ objects.Background:
     com.badlogic.gdx.graphics.Texture layer1
     com.badlogic.gdx.graphics.Texture layer2
     com.badlogic.gdx.graphics.Texture layer3
-    287:293:public void dispose()
 objects.Background$ParallaxCamera:
     301:303:public Background$ParallaxCamera(objects.Background,float,float)
 objects.BeamSpot:
@@ -4861,6 +4863,8 @@ objects.BeamSpot:
     251:251:public float getX()
     255:255:public float getWidth()
     259:259:public float getHeight()
+objects.Boss:
+    274:275:public void shoot()
 objects.Bullet:
     public static com.badlogic.gdx.graphics.g2d.TextureRegion wallTex
     com.badlogic.gdx.graphics.Texture wallTexx
@@ -4870,6 +4874,8 @@ objects.Bullet:
     252:252:public com.badlogic.gdx.math.Vector2 getPosition()
     256:256:public float getWidth()
     260:260:public float getHeight()
+objects.CBackground
+objects.CBackground$ParallaxCamera
 objects.Coin:
     226:233:public void setOffScreen(boolean)
     246:246:public float getY()
@@ -4891,6 +4897,17 @@ objects.Enemy:
     347:348:public void makeJump()
     364:365:public void stopMove()
 objects.FallingPlatform
+objects.GameObject:
+    com.badlogic.gdx.physics.box2d.Fixture headFixture
+    com.badlogic.gdx.physics.box2d.Fixture legFixture
+    com.badlogic.gdx.graphics.g2d.Animation moveAnime
+    com.badlogic.gdx.graphics.g2d.Animation jumpAnime
+    com.badlogic.gdx.graphics.g2d.Animation fireAnime
+    60:60:public com.badlogic.gdx.math.Vector2 getPosition()
+    64:64:public com.badlogic.gdx.math.Vector2 getStartPosition()
+    68:68:public com.badlogic.gdx.physics.box2d.Body getBody()
+    76:76:public com.badlogic.gdx.physics.box2d.Fixture getLegFixture()
+    80:80:public com.badlogic.gdx.physics.box2d.Fixture getHeadFixture()
 objects.GravityReverser:
     com.badlogic.gdx.graphics.g2d.TextureRegion texRegion
     public static final int FLIPED
@@ -4910,7 +4927,6 @@ objects.Light:
     108:109:public void setColor(com.badlogic.gdx.graphics.Color)
     112:112:public com.badlogic.gdx.graphics.Color getColor()
     129:130:public void disbaleOscillate()
-    133:134:public void setPosition(float,float)
     137:137:public com.badlogic.gdx.math.Vector2 getPosition()
 objects.Movers:
     155:159:public void renderParticles(com.badlogic.gdx.graphics.g2d.SpriteBatch)
@@ -4929,10 +4945,9 @@ objects.Player:
     public static final float DEATH_CAM
     com.badlogic.gdx.graphics.g2d.TextureRegion playerTexR
     com.badlogic.gdx.graphics.Texture playerTex
-    com.badlogic.gdx.graphics.g2d.Sprite glow
-    364:367:public void render(com.badlogic.gdx.graphics.glutils.ShapeRenderer)
-    613:613:public com.badlogic.gdx.physics.box2d.Body getBody()
-    712:712:public com.badlogic.gdx.math.Vector2 startPoint()
+    373:376:public void render(com.badlogic.gdx.graphics.glutils.ShapeRenderer)
+    673:673:public com.badlogic.gdx.physics.box2d.Body getBody()
+    772:772:public com.badlogic.gdx.math.Vector2 startPoint()
 objects.Portal:
     objects.Light light
     205:214:public void reset()
@@ -4943,12 +4958,12 @@ objects.Portal:
     259:259:public float getWidth()
     263:263:public float getHeight()
 objects.PowerUp:
-    263:263:private float generateY()
-    269:286:public void setOffScreen(boolean)
-    299:299:public float getY()
-    303:303:public float getX()
-    307:307:public float getWidth()
-    311:311:public float getHeight()
+    264:264:private float generateY()
+    270:287:public void setOffScreen(boolean)
+    300:300:public float getY()
+    304:304:public float getX()
+    308:308:public float getWidth()
+    312:312:public float getHeight()
 objects.ScanLines
 objects.Switch:
     com.badlogic.gdx.graphics.g2d.TextureRegion texRegion
@@ -4958,8 +4973,8 @@ objects.Switch:
     228:228:public float getX()
     232:232:public float getWidth()
     236:236:public float getHeight()
+parallax.Parallax
 screens.GameScreen:
-    com.badlogic.gdx.utils.PerformanceCounter pCounter
     private com.badlogic.gdx.scenes.scene2d.ui.Table table
     com.badlogic.gdx.scenes.scene2d.ui.TextButton readyButt
     com.badlogic.gdx.scenes.scene2d.ui.TextButton scoreBoard
@@ -4982,7 +4997,7 @@ screens.MainMenuScreen:
     com.badlogic.gdx.graphics.Mesh quadMesh
     com.badlogic.gdx.math.Vector2 playBound
     com.badlogic.gdx.math.Vector2 optionBound
-    1261:1262:public void showExitDialog()
+    1264:1265:public void showExitDialog()
 shaders.DiffuseShader
 shaders.Gaussian
 shaders.LightShader
@@ -5025,7 +5040,7 @@ utils.AssetLord:
 utils.CameraShake:
     float nH
     float nW
-    71:71:public boolean getShake()
+    73:73:public boolean getShake()
 utils.Cinema:
     public static final int MOV_NONE
     public static final int MOV_INTRO
@@ -5043,13 +5058,18 @@ utils.Cinema:
     public static final int MOV_TUT_LEVEL_11
     public static final int MOV_TUT_LEVEL_12
     public static final int MOV_TUT_LEVEL_13
-    719:719:private void startLevel1()
-    722:724:public void dispose()
+    public static final int MOV_TUT_LEVEL_14
+    public static final int MOV_TUT_LEVEL_15
+    public static final int MOV_TUT_LEVEL_420
+    public static final int MOV_TUT_FIRST_EVOL
+    public static final int MOV_TUT_SECOND_EVOL
+    837:837:private void startLevel1()
+    840:842:public void dispose()
 utils.Constants
 utils.LevelGenerate:
     public static final int MAX_LEVEL
-    764:764:public void loadCinematic()
-    1391:1395:public void playPlayerHitSound()
+    789:789:public void loadCinematic()
+    1488:1492:public void playPlayerHitSound()
 utils.LevelGenerate$TaskQueue:
     public static final int GRAVITY_FLI
     public static final int GRAVITY_FIX
@@ -5059,9 +5079,9 @@ utils.ScoreManager:
     public static final int STAR_MILK
     public static final int STAR_ENEMY
     public static final int REVIVE_COST
-    163:186:public boolean getBoolean(java.lang.String,boolean)
-    203:213:private java.lang.String encBool(boolean)
-    250:255:public void reload()
-    275:276:public void applyScorePower()
-    376:377:public void increaseTimesJumped()
+    164:187:public boolean getBoolean(java.lang.String,boolean)
+    204:214:private java.lang.String encBool(boolean)
+    251:256:public void reload()
+    276:277:public void applyScorePower()
+    377:378:public void increaseTimesJumped()
 utils.TaskQueue
