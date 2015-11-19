@@ -5068,8 +5068,8 @@ utils.Cinema:
 utils.Constants
 utils.LevelGenerate:
     public static final int MAX_LEVEL
-    789:789:public void loadCinematic()
-    1488:1492:public void playPlayerHitSound()
+    790:790:public void loadCinematic()
+    1494:1498:public void playPlayerHitSound()
 utils.LevelGenerate$TaskQueue:
     public static final int GRAVITY_FLI
     public static final int GRAVITY_FIX

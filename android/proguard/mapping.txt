@@ -9297,64 +9297,64 @@ objects.Movers -> b.k:
     253:258:void dispose() -> a
 objects.Player -> b.l:
     objects.Player _player -> a
-    boolean IMMORTAL -> S
-    boolean PLAYER_DRAW -> T
-    float height -> U
-    float width -> V
-    com.badlogic.gdx.math.Vector2 position -> W
+    boolean IMMORTAL -> T
+    boolean PLAYER_DRAW -> U
+    float height -> V
+    float width -> W
+    com.badlogic.gdx.math.Vector2 position -> X
     com.badlogic.gdx.math.Vector2 startPos -> b
-    float Speed -> X
-    float Jump -> Y
-    float gravityScale -> Z
-    boolean GLOWING -> aa
+    float Speed -> Y
+    float Jump -> Z
+    float gravityScale -> aa
+    boolean GLOWING -> c
     boolean FLYING -> ab
     float flightTime -> ac
     float FLYING_TIME -> ad
     boolean visible -> ae
-    boolean Revived -> c
-    int JUMP_DAMAGE -> d
+    boolean Revived -> d
+    int JUMP_DAMAGE -> e
     boolean DEAD -> af
-    boolean CONTROLS -> e
-    boolean GOT_HIT -> f
-    boolean TELEPORTING_OUT -> g
-    boolean TELEPORTING_IN -> h
-    boolean CAN_JUMP -> i
-    boolean CAN_FIRE -> j
-    boolean LEFT_DIRECTION -> k
-    int PLAYER_EVOLUTION -> l
-    screens.GameScreen gameScreen -> m
-    com.badlogic.gdx.physics.box2d.Body body -> n
-    com.badlogic.gdx.physics.box2d.World world -> o
-    com.badlogic.gdx.physics.box2d.PolygonShape shape -> p
-    com.badlogic.gdx.physics.box2d.BodyDef bodyDef -> q
-    com.badlogic.gdx.physics.box2d.Fixture bodyFixture -> r
-    com.badlogic.gdx.physics.box2d.Fixture sensorFixture -> s
-    com.badlogic.gdx.graphics.g2d.Sprite playerSprite -> t
-    com.badlogic.gdx.graphics.g2d.Sprite hitSprite -> u
-    com.badlogic.gdx.graphics.g2d.Sprite glow -> v
-    com.badlogic.gdx.graphics.g2d.ParticleEffect jumpParticle -> w
+    boolean CONTROLS -> f
+    boolean GOT_HIT -> g
+    boolean TELEPORTING_OUT -> h
+    boolean TELEPORTING_IN -> i
+    boolean CAN_JUMP -> j
+    boolean CAN_FIRE -> k
+    boolean LEFT_DIRECTION -> l
+    int PLAYER_EVOLUTION -> m
+    screens.GameScreen gameScreen -> n
+    com.badlogic.gdx.physics.box2d.Body body -> o
+    com.badlogic.gdx.physics.box2d.World world -> p
+    com.badlogic.gdx.physics.box2d.PolygonShape shape -> q
+    com.badlogic.gdx.physics.box2d.BodyDef bodyDef -> r
+    com.badlogic.gdx.physics.box2d.Fixture bodyFixture -> s
+    com.badlogic.gdx.physics.box2d.Fixture sensorFixture -> t
+    com.badlogic.gdx.graphics.g2d.Sprite playerSprite -> u
+    com.badlogic.gdx.graphics.g2d.Sprite hitSprite -> v
+    com.badlogic.gdx.graphics.g2d.Sprite glow -> w
+    com.badlogic.gdx.graphics.g2d.ParticleEffect jumpParticle -> x
     com.badlogic.gdx.math.Vector2 WorldGravityNegative -> ag
-    boolean ASIDE -> x
-    float bHEIGHT -> y
-    float bWIDTH -> z
-    float time -> A
-    float lastJumpTime -> B
-    float deathClock -> C
-    float winClock -> D
-    com.badlogic.gdx.graphics.g2d.Animation idleAnime -> E
-    com.badlogic.gdx.graphics.g2d.Animation moveAnime -> F
-    com.badlogic.gdx.graphics.g2d.Animation jumpAnime -> G
-    com.badlogic.gdx.graphics.g2d.Animation fireAnime -> H
-    com.badlogic.gdx.graphics.g2d.Animation fireIdleAnime -> I
-    com.badlogic.gdx.graphics.g2d.Animation fireMoveAnime -> J
-    com.badlogic.gdx.graphics.g2d.Animation megaIdleAnime -> K
-    com.badlogic.gdx.graphics.g2d.Animation megaMoveAnime -> L
-    com.badlogic.gdx.graphics.g2d.Animation hitAnime -> M
-    com.badlogic.gdx.graphics.g2d.Animation teleportOut -> N
-    com.badlogic.gdx.graphics.g2d.Animation teleportIn -> O
-    utils.AssetLord Assets -> P
-    com.badlogic.gdx.graphics.g2d.TextureAtlas gameAtlas -> Q
-    java.util.HashMap pKeys -> R
+    boolean ASIDE -> y
+    float bHEIGHT -> z
+    float bWIDTH -> A
+    float time -> B
+    float lastJumpTime -> C
+    float deathClock -> D
+    float winClock -> E
+    com.badlogic.gdx.graphics.g2d.Animation idleAnime -> F
+    com.badlogic.gdx.graphics.g2d.Animation moveAnime -> G
+    com.badlogic.gdx.graphics.g2d.Animation jumpAnime -> H
+    com.badlogic.gdx.graphics.g2d.Animation fireAnime -> I
+    com.badlogic.gdx.graphics.g2d.Animation fireIdleAnime -> J
+    com.badlogic.gdx.graphics.g2d.Animation fireMoveAnime -> K
+    com.badlogic.gdx.graphics.g2d.Animation megaIdleAnime -> L
+    com.badlogic.gdx.graphics.g2d.Animation megaMoveAnime -> M
+    com.badlogic.gdx.graphics.g2d.Animation hitAnime -> N
+    com.badlogic.gdx.graphics.g2d.Animation teleportOut -> O
+    com.badlogic.gdx.graphics.g2d.Animation teleportIn -> P
+    utils.AssetLord Assets -> Q
+    com.badlogic.gdx.graphics.g2d.TextureAtlas gameAtlas -> R
+    java.util.HashMap pKeys -> S
     116:206:void init() -> a
     210:213:void setStartingPoint(float,float) -> a
     217:368:void getSkinTexture() -> x
@@ -9926,65 +9926,65 @@ utils.LevelGenerate -> d.g:
     com.badlogic.gdx.audio.Music gameMusic -> Y
     com.badlogic.gdx.audio.Music menuMusic -> Z
     com.badlogic.gdx.utils.Array tileImageLayers -> aa
-    154:177:void loadSounds() -> x
-    182:188:void prepareBullets() -> a
-    191:260:void levelTiled() -> b
-    263:287:void loadNextLevel() -> c
-    292:296:void clearOldLevel() -> y
-    300:783:void buildShapes(com.badlogic.gdx.maps.tiled.TiledMap,com.badlogic.gdx.physics.box2d.World) -> a
-    793:858:void render(com.badlogic.gdx.graphics.g2d.SpriteBatch,com.badlogic.gdx.graphics.glutils.ShapeRenderer) -> a
-    861:883:void renderParticles(com.badlogic.gdx.graphics.g2d.SpriteBatch) -> a
-    891:895:void renderOverlayed(com.badlogic.gdx.graphics.g2d.SpriteBatch) -> b
-    899:906:void renderLights(com.badlogic.gdx.graphics.g2d.SpriteBatch) -> c
-    909:973:void update(float) -> a
-    977:978:void pushLight(objects.Light) -> a
-    982:1005:void cleanUpLevel() -> d
-    1008:1052:void reset() -> e
-    1055:1059:void pauseMusic() -> f
-    1062:1064:void pauseEverything() -> g
-    1067:1076:void resumeEverything() -> h
-    1080:1080:void dimMusic() -> i
-    1083:1087:void playMenuMusic() -> j
-    1091:1101:void flipGravity() -> k
-    1105:1115:void fixGravity() -> l
-    1119:1134:void enemyWallBounce(com.badlogic.gdx.physics.box2d.Fixture) -> a
-    1139:1172:void fireBullet() -> m
-    1175:1186:void test() -> n
-    1190:1196:int getCoinCollected() -> o
-    1201:1206:int getEnemyKilled() -> p
-    1212:1221:void coinPlayerCollide(com.badlogic.gdx.physics.box2d.Fixture) -> b
-    1225:1234:void enemyFlying(com.badlogic.gdx.physics.box2d.Fixture) -> c
-    1239:1265:void enemyPlayerCollide(com.badlogic.gdx.physics.box2d.Fixture,com.badlogic.gdx.physics.box2d.Fixture) -> a
-    1269:1288:void enemyBulletCollide(com.badlogic.gdx.physics.box2d.Fixture,com.badlogic.gdx.physics.box2d.Fixture) -> b
-    1293:1304:void bossPlayerCollide(com.badlogic.gdx.physics.box2d.Fixture,boolean) -> a
-    1307:1323:void bossBulletCollide(com.badlogic.gdx.physics.box2d.Fixture,com.badlogic.gdx.physics.box2d.Fixture) -> c
-    1327:1337:void beamPlayerCollide(com.badlogic.gdx.physics.box2d.Fixture,boolean) -> b
-    1341:1349:void bulletPlatformCollide(com.badlogic.gdx.physics.box2d.Fixture) -> d
-    1353:1365:void updateMove(java.util.HashMap) -> a
-    1369:1390:void powerUpPlayer(com.badlogic.gdx.physics.box2d.Fixture) -> e
-    1394:1410:void levelClearPortal(com.badlogic.gdx.physics.box2d.Fixture) -> f
-    1417:1429:void levelClear() -> z
-    1433:1439:void toggleExitPortalSwitch(boolean) -> a
-    1443:1456:void switchPlayerCollide(com.badlogic.gdx.physics.box2d.Fixture) -> g
-    1460:1470:void gravityPlayerCollide(com.badlogic.gdx.physics.box2d.Fixture) -> h
-    1473:1478:void playCoinSound() -> q
-    1481:1485:void playFireSound() -> r
-    1495:1499:void playEnemyHitSound() -> s
-    1502:1506:void playLevelUpSound() -> t
-    1516:1516:objects.Switch getLevelSwitch() -> u
-    1520:1522:void dispose() -> v
-    1525:1606:void dispose(boolean) -> b
-    1611:1620:com.badlogic.gdx.physics.box2d.PolygonShape getRectangle(com.badlogic.gdx.maps.objects.RectangleMapObject) -> a
-    1624:1628:com.badlogic.gdx.physics.box2d.CircleShape getCircle(com.badlogic.gdx.maps.objects.CircleMapObject) -> a
-    1632:1643:com.badlogic.gdx.physics.box2d.PolygonShape getPolygon(com.badlogic.gdx.maps.objects.PolygonMapObject) -> a
-    1647:1658:com.badlogic.gdx.physics.box2d.ChainShape getPolyline(com.badlogic.gdx.maps.objects.PolylineMapObject) -> a
-    1662:1662:utils.LevelGenerate getInstance() -> w
+    155:178:void loadSounds() -> x
+    183:189:void prepareBullets() -> a
+    192:261:void levelTiled() -> b
+    264:288:void loadNextLevel() -> c
+    293:297:void clearOldLevel() -> y
+    301:784:void buildShapes(com.badlogic.gdx.maps.tiled.TiledMap,com.badlogic.gdx.physics.box2d.World) -> a
+    794:864:void render(com.badlogic.gdx.graphics.g2d.SpriteBatch,com.badlogic.gdx.graphics.glutils.ShapeRenderer) -> a
+    867:889:void renderParticles(com.badlogic.gdx.graphics.g2d.SpriteBatch) -> a
+    897:901:void renderOverlayed(com.badlogic.gdx.graphics.g2d.SpriteBatch) -> b
+    905:912:void renderLights(com.badlogic.gdx.graphics.g2d.SpriteBatch) -> c
+    915:979:void update(float) -> a
+    983:984:void pushLight(objects.Light) -> a
+    988:1011:void cleanUpLevel() -> d
+    1014:1058:void reset() -> e
+    1061:1065:void pauseMusic() -> f
+    1068:1070:void pauseEverything() -> g
+    1073:1082:void resumeEverything() -> h
+    1086:1086:void dimMusic() -> i
+    1089:1093:void playMenuMusic() -> j
+    1097:1107:void flipGravity() -> k
+    1111:1121:void fixGravity() -> l
+    1125:1140:void enemyWallBounce(com.badlogic.gdx.physics.box2d.Fixture) -> a
+    1145:1178:void fireBullet() -> m
+    1181:1192:void test() -> n
+    1196:1202:int getCoinCollected() -> o
+    1207:1212:int getEnemyKilled() -> p
+    1218:1227:void coinPlayerCollide(com.badlogic.gdx.physics.box2d.Fixture) -> b
+    1231:1240:void enemyFlying(com.badlogic.gdx.physics.box2d.Fixture) -> c
+    1245:1271:void enemyPlayerCollide(com.badlogic.gdx.physics.box2d.Fixture,com.badlogic.gdx.physics.box2d.Fixture) -> a
+    1275:1294:void enemyBulletCollide(com.badlogic.gdx.physics.box2d.Fixture,com.badlogic.gdx.physics.box2d.Fixture) -> b
+    1299:1310:void bossPlayerCollide(com.badlogic.gdx.physics.box2d.Fixture,boolean) -> a
+    1313:1329:void bossBulletCollide(com.badlogic.gdx.physics.box2d.Fixture,com.badlogic.gdx.physics.box2d.Fixture) -> c
+    1333:1343:void beamPlayerCollide(com.badlogic.gdx.physics.box2d.Fixture,boolean) -> b
+    1347:1355:void bulletPlatformCollide(com.badlogic.gdx.physics.box2d.Fixture) -> d
+    1359:1371:void updateMove(java.util.HashMap) -> a
+    1375:1396:void powerUpPlayer(com.badlogic.gdx.physics.box2d.Fixture) -> e
+    1400:1416:void levelClearPortal(com.badlogic.gdx.physics.box2d.Fixture) -> f
+    1423:1435:void levelClear() -> z
+    1439:1445:void toggleExitPortalSwitch(boolean) -> a
+    1449:1462:void switchPlayerCollide(com.badlogic.gdx.physics.box2d.Fixture) -> g
+    1466:1476:void gravityPlayerCollide(com.badlogic.gdx.physics.box2d.Fixture) -> h
+    1479:1484:void playCoinSound() -> q
+    1487:1491:void playFireSound() -> r
+    1501:1505:void playEnemyHitSound() -> s
+    1508:1512:void playLevelUpSound() -> t
+    1522:1522:objects.Switch getLevelSwitch() -> u
+    1526:1528:void dispose() -> v
+    1531:1612:void dispose(boolean) -> b
+    1617:1626:com.badlogic.gdx.physics.box2d.PolygonShape getRectangle(com.badlogic.gdx.maps.objects.RectangleMapObject) -> a
+    1630:1634:com.badlogic.gdx.physics.box2d.CircleShape getCircle(com.badlogic.gdx.maps.objects.CircleMapObject) -> a
+    1638:1649:com.badlogic.gdx.physics.box2d.PolygonShape getPolygon(com.badlogic.gdx.maps.objects.PolygonMapObject) -> a
+    1653:1664:com.badlogic.gdx.physics.box2d.ChainShape getPolyline(com.badlogic.gdx.maps.objects.PolylineMapObject) -> a
+    1668:1668:utils.LevelGenerate getInstance() -> w
 utils.LevelGenerate$TaskQueue -> d.h:
     com.badlogic.gdx.utils.Array tasks -> a
     utils.LevelGenerate this$0 -> b
-    1680:1699:void execute() -> a
-    1702:1703:void push(int) -> a
-    1706:1707:void clear() -> b
+    1686:1705:void execute() -> a
+    1708:1709:void push(int) -> a
+    1712:1713:void clear() -> b
 utils.MyContactListener -> d.i:
     21:165:void beginContact(com.badlogic.gdx.physics.box2d.Contact) -> a
     170:208:void endContact(com.badlogic.gdx.physics.box2d.Contact) -> b

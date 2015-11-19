@@ -20,6 +20,7 @@ import utils.MyInputProcessor.CONTROL;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -802,6 +803,9 @@ public class LevelGenerate {
 		for(TiledMapImageLayer l:tileImageLayers)
 			tmRenderer.renderImageLayer(l);
 		
+		if(BOSS_LEVEL || Player.getInstance().GLOWING)
+			batch.setColor(Color.BLACK);
+		
 		if(tileMap.getLayers().get("Platform") != null)
 			tmRenderer.renderTileLayer((TiledMapTileLayer) tileMap.getLayers().get("Platform"));
 		if(tileMap.getLayers().get("Spikes") != null)
@@ -809,6 +813,8 @@ public class LevelGenerate {
 		if(tileMap.getLayers().get("Portal") != null)
 			tmRenderer.renderTileLayer((TiledMapTileLayer) tileMap.getLayers().get("Portal"));
 		
+		if(BOSS_LEVEL || Player.getInstance().GLOWING)
+			batch.setColor(Color.WHITE);
 		
 		//tmRenderer.render();
 		batch.end();

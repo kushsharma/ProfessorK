@@ -49,7 +49,7 @@ public class Player {
 	private float Jump = 1.8f;
 	private float gravityScale = 0f;
 	
-	private boolean GLOWING = false;
+	public boolean GLOWING = false;
 	private boolean FLYING = false; // disable player gravity effect
 	private float flightTime = 0f;
 	private final float FLYING_TIME = 1.0f;
@@ -591,7 +591,7 @@ public class Player {
 	/** starts an cinematic sequence of player flying  **/
 	public void makeItGlow(){
 		enableFlying(-2);
-		body.setLinearVelocity(0, 0.5f);
+		body.setLinearVelocity(0, 0.2f);
 		
 		gameScreen.hideControls();
 		GLOWING = true;		
