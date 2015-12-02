@@ -1,29 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-up" width="195" height="50" tilewidth="32" tileheight="32" nextobjectid="220">
- <tileset firstgid="1" name="tiles_128" tilewidth="32" tileheight="32" tilecount="16">
-  <image source="../tiles_128.png" width="128" height="128"/>
- </tileset>
- <tileset firstgid="17" name="tileset-new" tilewidth="32" tileheight="32" spacing="2" margin="1" tilecount="225">
-  <image source="../tileset-new.png" width="512" height="512"/>
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="195" height="50" tilewidth="32" tileheight="32" nextobjectid="222">
+ <tileset firstgid="1" name="tileset" tilewidth="32" tileheight="32" spacing="2" margin="1" tilecount="256">
+  <image source="../tileset.png" width="544" height="544"/>
  </tileset>
  <layer name="Platform" width="195" height="50">
   <data encoding="base64" compression="zlib">
-   eJzt2kFKw0AUgOG5indwrQXtUgrSpQrV+9/BhkepSFtoOtPJS74P3raJCX+TGbspwGDT+wRgIrQAQQsQtABBCxC0AEELUMpb0QIMtABBCxC0AEELELQAQQsQtABBCxC0AEELELQAQQsQhhaeb5jV3c8Y2hhaeB056+KZwnwMLTyMnG3RAvOhBQhagNCihcfK51j78+CUFi08ldv2puxV0UOLFobPfCnj96d67lV5Bi1Xqxbeb/hcaxJ60MLR459heTK30GKNXruFFm1NsdVr14irLmd5WeYWaq/Rs8zqzPWYu0vfKzW+czK3UHONnmX87qWd7C3UOk6Wmcpewhzf+7SQa+71P51rZ4ze75r/p1ULu/18V5ifM8c4HEcLx2vR833xmntx+Bum9H67Lm1a+NjPZ8X5OnGMcuX1n8vc41k8Zsa0MKV7ty25f5vX+/73umdaaHNdtZBrtNDuumoh12ih3XXN3sKu1FmjZ5lzewlaWHYLtdfoWebUXoIWlt0CR1rQAkELWiBoQQsELWiBoAUtELSgBYIW6rTwC3g05M8=
+   eJztm02O1DAQRmsBF0BwhZk1IMFs0UiILSDxt+oNCzjBDGumgTlFL+AGsIcjcCNsuaMJVtku2+W20/meVGI6rU7cnXopuxLOCQBgOe89AAAGAS4A4IALADjgAgAOuACAAy4A4IALABA9IbgAgAUuAOCACwA44AIADrgAgAMuAOCACwA44AIADrgAgAMuAOCACwA44AIADrgAgMO68KAiHh5+yAA0wbrwuDDOCDUFHA/WhTuF8YzgAjgepC5cMNvgwnHxt/cAOuO7wOW8H1uCC8fGKRNrg3PhG8lqRciFE+Uxau8P8Pwh2p26fze9x9KD2ByJqxFbSrtwn+p6U+hV9QEu/J/rnynshv9eyAW7z0dU3p/q2au6OuCxRmSNc6MJm7efCiPmwlMq601dksw30Ia1u2DXB7dM3KabHPRfc9tKXHi/j5AL0mO04Ps+fhzoeCOydhdszt01cY9uctB/zW2TuOBf51O9qekY0+diLmivqX/u45fiPk9oWb2EUhdy14gjrgFHmyNJe1UW7TX6UqJlHo1cF64ovJ6LvSeF6yNtmW05eSp1gZuH5biguUZfSrTuJYzsQmtaPIPhu/DWxDvvs9Y3f851OXtP6oJW/ZniWnl/tXHo9ZPUhSXN+6T4LkhqQuq+s5+jH0x8FOy3pC74LoTWJ9z34urStWBfOfGV6PcXEzmfmY9VukbrPV+MsQ1s7zleLlrVhVcmXivEm8AxpuPU1AWuPzB3gatn89BwxXhifVH5zXvOF/1z4T+7ML2+mH2Hkea3Z9TGhecmXijGS+YYxPz+sZDm7dwFv56ZvN2ZvN2EPsvVAL/21PpziH5FKGJzBunx5y60Hm/u7xpzIfVcUs3cVeM5sNgcKXbeYvkYWy+YXN+ZXN/k5DNXe2rPmcSF0DOWW+896bNnqdyYji95tjPkQqwOh/YbG39OzU25UHpepNQ+D6nRr/KdKVk7c26kemSx8xS7H6lVFyQ5m8o1zgVJbodcKFlXSnueqe+2Fhdyrs1afSTtepD6zXNy0Y+UF5LeN3f8UG63nCPN83ttdUFrjb6UCPUScnKxhdep65K9fk95muPCPLdDc1ONHsbSXdBeoy8luF5Cydp5yiH/eYKSXAgdP/b/IXPHm5oP1cyXlu5C7/23oHTMEhds7nO5afJ/M82nzN+7Ghck+RhyIbe/rBlwYTxauhAK68I0n4q5EFt/pO4vSFzQjpy+FFwYD00X5uc7dr2WzpFi648cF2vqgrT/lRqv7ytcGI9WLpRG6Poeur8gzbtUXSi971GTy3BhLHrMkaaQ9E5DoVEX5pHTG9LwBi6MR2sXYrWi5p6ItguHDrgwHj3rQk0ciwv/ALTetdw=
   </data>
  </layer>
  <layer name="Spikes" width="195" height="50">
   <data encoding="base64" compression="zlib">
-   eJzt1sEKgDAIAFB/IPf/f7tL0KBGMYhC3gNhqAf1tAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgEPuUV3GedenOeprw3v7bIr3tfuWS5VvAgD8W8b8j75aAwAAAAAAAAAAAACAFR3m1gF7
+   eJzt1lEGwDAMANAcdWfKCXrU7WOsTOlqVeo9QiVCIj+NAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB45B27y3jv2ptjf9e9j+pd1k0yV73nx77y7yQAAH0y2n/00RoAAAAAAAAAAAAAAIw4ATwfEWc=
   </data>
  </layer>
  <layer name="Portal" width="195" height="50">
   <data encoding="base64" compression="zlib">
-   eJzt2kENADAIBEHUFPwrpA880CYzyf5PwEUAAAAAAAAAAAAAAAAAAAC84dxyquUtAAAAAAAAAAAAAAA/8MMGAAAAAAAAAAAAANjRKjwBOQ==
+   eJzt2kENADAIBEFcFPwbpQ880CYzyf5PwEUAAAAAAAAAAAAAAAAAAAC84dxyquUtAAAAAAAAAAAAAAA/8MMGAAAAAAAAAAAAANjRBcwAwQ==
   </data>
  </layer>
  <layer name="Overlay" width="195" height="50">
   <data encoding="base64" compression="zlib">
-   eJzt0zEKgDAQRNG9Ss5iUoog3v8s2WAtpAmCvge/n2YiAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4N/2bMvqRC073pkJy40vnFmZ6Apf4Lt8AW6+AAAAAAAAAAAAAADPOo7SCso=
+   eJzt0zEKgDAQRNE9Qw5j0oog3v9E2WAtpAmCvge/n2YiAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4N/2bMvqRC073pkJy40vnFmZ6Apf4Lt8AW6+AAAAAAAAAAAAAADPOs2gB/4=
   </data>
  </layer>
  <objectgroup name="PlatformOb">
@@ -113,6 +110,16 @@
    </properties>
   </object>
   <object id="113" x="153.091" y="645.273" width="77.2423" height="16">
+   <properties>
+    <property name="color" value="4"/>
+   </properties>
+  </object>
+  <object id="220" x="4160" y="832" width="32" height="65.3333">
+   <properties>
+    <property name="color" value="4"/>
+   </properties>
+  </object>
+  <object id="221" x="4224" y="832" width="32" height="63.3333">
    <properties>
     <property name="color" value="4"/>
    </properties>

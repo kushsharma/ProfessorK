@@ -242,7 +242,7 @@ public class LevelGenerate {
 				tileMap = tileLoader.load("levels/bonus.tmx");
 				break;
 			default:
-				tileMap = tileLoader.load("map1.tmx");
+				tileMap = tileLoader.load("levels/bonus.tmx");
 				break;
 			}
 		}

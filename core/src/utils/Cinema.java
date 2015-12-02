@@ -584,6 +584,10 @@ public class Cinema {
 						break;
 					}
 					case 2:{
+						showDialogue("Prof K: Your gun has recoil!\nUse it smart for speed.");
+						break;
+					}
+					case 3:{
 						hideDialogue();
 						
 						MOV_STAGE = 0;

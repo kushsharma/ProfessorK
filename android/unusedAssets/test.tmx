@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="250" height="30" tilewidth="32" tileheight="32" nextobjectid="114">
+ <tileset firstgid="1" name="tiles_128" tilewidth="32" tileheight="32" tilecount="16">
+  <image source="tiles_128.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="17" name="tileset" tilewidth="32" tileheight="32" tilecount="54">
+  <image source="tileset.png" width="288" height="192"/>
+ </tileset>
+ <imagelayer name="bg">
+  <image source="background.png"/>
+ </imagelayer>
+ <imagelayer name="bg2" x="1912">
+  <image source="background.png"/>
+ </imagelayer>
+ <imagelayer name="bg3" x="5751" y="-1">
+  <image source="background.png"/>
+ </imagelayer>
+ <imagelayer name="bg4" x="3832" y="-1">
+  <image source="background.png"/>
+ </imagelayer>
+ <layer name="Sky" width="250" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztw7EJAAAIAKCm+v/jboiGCBSMAAAAAAAAtupZYC6fBQAAAAAAAAAAAAAAAAAAAAAAAAAAALjSMssCPQ==
+  </data>
+ </layer>
+ <layer name="Platform" width="250" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztnEluAyEQRblCbK+cxJskynD/A8YoQWq3mGtq4D/p72woivoM7cE5AAAAAAAAwAg8Q1CDwJjUzu93w2vD6znV05+1JyBbfd71TpRv5+zGpzZnJQ9p+KxlHYDn15b3+Iejc73rhaEda3py2LvnUvuyrh3oT9Q9UkMcHves7PMWf1rXJMSrGWq+hRl8nru/fLn4PKfeE3t9aS+m3J9i/XHcx1pykVNLLF+d7+OKFT5PM4PPc/G/uce6CfWXOg9dnW7NxPqTmg/psflc+zxz3Cl7YoXP08zu80Dwe6n+tH0e4pK4k+3RGJsfD9dzI/icj1V8XkvMd6XzqJQvudFewyhw+Fzj+dYowOdltt4fuT5W8vnoNc0NfL4OI51VYrFafB41C/D52sxyVgF54HMA5gc+5+NmHQAACeBzHp7cHL8TAHMCn9PxHn8txHGLCAAt4HMaweP+efXlrtO/LPZ2rB8gBXzez9bjWp/f4n5gv5b5OTg52zW9Ffi8nv38pjxO8XmuhsO64s8NVrVlef/Y599K+3m/KPffG/PoPpfK895LLd/Rqo1p30eulrf11ds+hVskvrPT87r0d96Poh8BzfAdQal87/MiUWelPmrnsLZ96p4Y28uC1yUknf+VNJPPqb6g+DzVfssam+qjZSzb38prrFVHPE9B5XoejZaxUvbCWg9Scp+r5RafU9u3rsna2CXOuBx7BEec8PkjXPmmeFCylrV8vn0/539laZ2noLZ8jgZnLnrO1DW1nap1iVrmar80BspaULOWcObGch89iuBz+TrTrmXNMcT6z3mn9ryA/Vy21kZDKy9H97nVGEbO/0oa3ee/23lD7g==
+  </data>
+ </layer>
+ <objectgroup name="PlatformOb">
+  <object id="1" x="0.666667" y="707" width="734.667" height="251.667"/>
+  <object id="3" x="832" y="706" width="703.333" height="253"/>
+  <object id="10" x="1058.33" y="546" width="31.3333" height="128"/>
+  <object id="11" x="1026.33" y="578.333" width="31.6667" height="95.3333"/>
+  <object id="12" x="994.333" y="610.333" width="31.3333" height="63.6667"/>
+  <object id="13" x="961.667" y="642.667" width="32" height="31"/>
+  <object id="15" x="1313.17" y="577.242" width="158.167" height="29.5"/>
+  <object id="16" x="1633" y="673" width="29" height="288.333"/>
+  <object id="19" x="1664.67" y="706.182" width="637.333" height="252.485"/>
+  <object id="20" x="1857.27" y="673.273" width="126.227" height="30.2273"/>
+  <object id="21" x="1888.5" y="640.773" width="63" height="31"/>
+  <object id="22" x="2113.33" y="609.697" width="62.0909" height="28.8864"/>
+  <object id="23" x="2401.33" y="738.182" width="1405.33" height="220.485"/>
+  <object id="31" x="1" y="257" width="30" height="450"/>
+  <object id="46" x="2912.91" y="674" width="158.545" height="29"/>
+  <object id="48" x="832.091" y="673.5" width="257.455" height="31.0455"/>
+  <object id="50" x="1120" y="609.5" width="95.3333" height="94.5"/>
+  <object id="51" x="1089" y="513.333" width="29.6667" height="192"/>
+  <object id="52" x="2880.86" y="704.932" width="222.75" height="31.25"/>
+  <object id="57" x="3905.5" y="674" width="2589.5" height="285"/>
+  <object id="58" x="4993.27" y="641.273" width="157.818" height="30.9091"/>
+  <object id="59" x="3969.09" y="641.091" width="30" height="30.7273"/>
+  <object id="60" x="6433.67" y="129.667" width="60.3333" height="542.667"/>
+ </objectgroup>
+ <objectgroup name="SpikesOb">
+  <object id="27" x="2978.09" y="659.091" width="92.535" height="14.1818"/>
+ </objectgroup>
+ <layer name="Spikes" width="250" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztwzENAAAIA7ApwL9c3gngo02aAAAAAAAAAAAAAAAAAAAAAAAAAMBPUwEAAAAAAAAAALixoHoAKw==
+  </data>
+ </layer>
+ <objectgroup name="EnemyOb">
+  <object id="34" x="3424" y="641" width="32.3333" height="31.3333"/>
+  <object id="36" x="1888.33" y="543" width="30.6667" height="32"/>
+  <object id="37" x="705" y="613.666" width="28" height="26.6667"/>
+  <object id="53" x="4672" y="578" width="32" height="30"/>
+  <object id="54" x="4801" y="578" width="30" height="29"/>
+  <object id="55" x="5344" y="611" width="32" height="32"/>
+  <object id="56" x="5632" y="611" width="31" height="31"/>
+  <object id="94" x="5796" y="609.333" width="28" height="30.6667"/>
+  <object id="95" x="5988" y="580" width="30.6667" height="32"/>
+  <object id="96" x="4449.33" y="581.333" width="29.3333" height="28"/>
+ </objectgroup>
+ <objectgroup name="PortalOb">
+  <object id="39" x="6257.31" y="653.667" width="94.6667" height="18">
+   <properties>
+    <property name="place" value="exit"/>
+    <property name="type" value="sensor"/>
+   </properties>
+  </object>
+  <object id="97" x="6240.55" y="674.25">
+   <properties>
+    <property name="place" value="exit"/>
+    <property name="type" value="body"/>
+   </properties>
+   <polygon points="0,0 16,-16.25 113.25,-16 128,0.25"/>
+  </object>
+  <object id="110" x="178.167" y="684.03" width="93.3334" height="18">
+   <properties>
+    <property name="place" value="entry"/>
+    <property name="type" value="sensor"/>
+   </properties>
+  </object>
+  <object id="112" x="160.407" y="706.613">
+   <properties>
+    <property name="place" value="entry"/>
+    <property name="type" value="body"/>
+   </properties>
+   <polygon points="0,0 16,-16.25 113.25,-16 128,0.25"/>
+  </object>
+ </objectgroup>
+ <layer name="Portal" width="250" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztz8ERABAUQ8GU8um/SA5qwLA78+5JAgAAAAAAAAAAAAAAAAAAAAAAAABwj5q1VT87ZYvKX38BAAAAAAAAAHjfABlzAQk=
+  </data>
+ </layer>
+ <layer name="PowerUp" width="250" height="30" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJzt07ENADAIAzBm/j+YGzoAlbAvSCIlAgAAAAAAAAAAAAAAAAAAAADm5XYAoN2Vn2/1vLIv/MDPAQAAAAAAAAAAAN4U+9YAPQ==
+  </data>
+ </layer>
+ <objectgroup name="PowerUpOb">
+  <object id="62" x="3009.66" y="558" width="30.3333" height="60.3333">
+   <properties>
+    <property name="level" value="2"/>
+   </properties>
+  </object>
+  <object id="63" x="1154.33" y="519.666" width="30" height="60">
+   <properties>
+    <property name="level" value="1"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="LightOb">
+  <object id="65" x="6258.15" y="651" width="93.2727" height="11.5452">
+   <properties>
+    <property name="color" value="4"/>
+   </properties>
+  </object>
+  <object id="77" x="324" y="322.667" width="25.3333" height="26.6667">
+   <properties>
+    <property name="color" value="7"/>
+   </properties>
+  </object>
+  <object id="78" x="786.667" y="297.333" width="85.3333" height="94.6667">
+   <properties>
+    <property name="color" value="7"/>
+   </properties>
+  </object>
+  <object id="79" x="1586.67" y="322.667" width="28" height="24">
+   <properties>
+    <property name="color" value="4"/>
+   </properties>
+  </object>
+  <object id="80" x="2573.33" y="322.667" width="37.3333" height="20">
+   <properties>
+    <property name="color" value="4"/>
+   </properties>
+  </object>
+  <object id="81" x="3192" y="325.333" width="16" height="17.3333">
+   <properties>
+    <property name="color" value="3"/>
+   </properties>
+  </object>
+  <object id="82" x="4220" y="404" width="22.6667" height="18.6667">
+   <properties>
+    <property name="color" value="7"/>
+   </properties>
+  </object>
+  <object id="83" x="3833.33" y="400" width="22.6667" height="20">
+   <properties>
+    <property name="color" value="7"/>
+   </properties>
+  </object>
+  <object id="84" x="4504" y="348" width="20" height="20">
+   <properties>
+    <property name="color" value="7"/>
+   </properties>
+  </object>
+  <object id="113" x="179.091" y="679.273" width="91.4545" height="16">
+   <properties>
+    <property name="color" value="4"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

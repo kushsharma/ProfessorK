@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-up" width="50" height="40" tilewidth="32" tileheight="32" nextobjectid="51">
- <tileset firstgid="1" name="tileset-new" tilewidth="32" tileheight="32" spacing="2" margin="1" tilecount="225">
-  <image source="../tileset-new.png" width="512" height="512"/>
- </tileset>
- <tileset firstgid="226" name="tiles_128" tilewidth="32" tileheight="32" tilecount="16">
-  <image source="../tiles_128.png" width="128" height="128"/>
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="50" height="40" tilewidth="32" tileheight="32" nextobjectid="56">
+ <tileset firstgid="1" name="tileset" tilewidth="32" tileheight="32" spacing="2" margin="1" tilecount="225">
+  <image source="../tileset.png" width="512" height="512"/>
+  <tile id="181">
+   <properties>
+    <property name="color" value="4"/>
+   </properties>
+  </tile>
  </tileset>
  <imagelayer name="Image Layer 2">
   <image source="../backgroundO.png"/>
  </imagelayer>
  <layer name="Platform" width="50" height="40">
   <data encoding="base64" compression="zlib">
-   eJztzCEOgDAQRcE6ajHQg/T+Z6OiooYNqVsykzyzyf5SAAAAAAAAcrpG96wt9yOoBkV/O3tfe9vuP+mUpCQ9fJcf5w==
+   eJztzDEOQEAQhtHpaDU4yJ5dvUejILGFiaiQ95KvmswfAQAAAAAA0Foi6pt3j51xa9qbT/cuqU/K/p7s3e1qu/ykQZI+0gq7OiRJ
   </data>
  </layer>
  <objectgroup name="PlatformOb">
@@ -51,6 +53,21 @@
   <object id="21" x="1431.12" y="1000.72" width="82.1818" height="15.9091">
    <properties>
     <property name="color" value="4"/>
+   </properties>
+  </object>
+  <object id="53" x="63" y="1011" width="31" height="19">
+   <properties>
+    <property name="color" value="1"/>
+   </properties>
+  </object>
+  <object id="54" x="767.5" y="1009.5" width="31" height="19">
+   <properties>
+    <property name="color" value="1"/>
+   </properties>
+  </object>
+  <object id="55" x="1346.5" y="1009.5" width="31" height="19">
+   <properties>
+    <property name="color" value="1"/>
    </properties>
   </object>
  </objectgroup>

@@ -208,6 +208,8 @@ public class Switch {
 			lightE.disable();
 			lightD.enable();
 		}
+		
+		LevelGenerate.getInstance().playFireSound();
 	}
 	
 //	public void updatePreviousPos() {

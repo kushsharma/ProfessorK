@@ -4813,8 +4813,8 @@ com.softnuke.biosleep.ActionListener:
 com.softnuke.biosleep.MyGame:
     28:29:public void MyGame()
     32:33:public void MyGame(com.softnuke.biosleep.PlatformSpecific)
-    53:53:public static com.softnuke.biosleep.PlatformSpecific getPlatformResolver()
-    114:116:public static void sop(float)
+    52:52:public static com.softnuke.biosleep.PlatformSpecific getPlatformResolver()
+    113:115:public static void sop(float)
 com.softnuke.biosleep.PlatformSpecific:
     public abstract java.lang.String getID()
     public abstract void signOut()
@@ -4970,10 +4970,10 @@ objects.Switch:
     com.badlogic.gdx.graphics.g2d.TextureRegion texRegion
     150:154:public void renderParticles(com.badlogic.gdx.graphics.g2d.SpriteBatch)
     190:198:public void setOffScreen(boolean)
-    224:224:public float getY()
-    228:228:public float getX()
-    232:232:public float getWidth()
-    236:236:public float getHeight()
+    226:226:public float getY()
+    230:230:public float getX()
+    234:234:public float getWidth()
+    238:238:public float getHeight()
 parallax.Parallax
 screens.GameScreen:
     private com.badlogic.gdx.scenes.scene2d.ui.Table table
@@ -5069,8 +5069,8 @@ utils.Cinema:
     public static final int MOV_TUT_LEVEL_420
     public static final int MOV_TUT_FIRST_EVOL
     public static final int MOV_TUT_SECOND_EVOL
-    876:876:private void startLevel1()
-    924:927:public void dispose()
+    880:880:private void startLevel1()
+    928:931:public void dispose()
 utils.Constants
 utils.LevelGenerate:
     public static final int MAX_LEVEL

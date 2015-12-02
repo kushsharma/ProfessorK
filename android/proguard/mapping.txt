@@ -8904,14 +8904,14 @@ com.softnuke.biosleep.MyGame -> com.softnuke.biosleep.b:
     float ASPECT_RATIO -> g
     float PTP -> h
     utils.AssetLord Assets -> i
-    38:50:void create() -> a
-    57:58:void setPlatformSpecific(com.softnuke.biosleep.PlatformSpecific) -> a
-    62:63:void render() -> b
-    67:68:void pause() -> c
-    72:78:void resume() -> d
-    82:86:void dispose() -> e
-    90:105:void resize(int,int) -> a
-    109:111:void sop(java.lang.String) -> a
+    38:49:void create() -> a
+    56:57:void setPlatformSpecific(com.softnuke.biosleep.PlatformSpecific) -> a
+    61:62:void render() -> b
+    66:67:void pause() -> c
+    71:77:void resume() -> d
+    81:85:void dispose() -> e
+    89:104:void resize(int,int) -> a
+    108:110:void sop(java.lang.String) -> a
 com.softnuke.biosleep.PlatformSpecific -> com.softnuke.biosleep.c:
     void signIn() -> a
     void rateGame() -> b
@@ -9468,8 +9468,8 @@ objects.Switch -> b.o:
     157:167:void update(float,float) -> a
     171:178:void reset() -> a
     184:184:com.badlogic.gdx.physics.box2d.Fixture getFixture() -> b
-    201:211:void toggle() -> c
-    240:245:void dispose() -> d
+    201:213:void toggle() -> c
+    242:247:void dispose() -> d
 screens.GameScreen -> c.a:
     boolean DEBUG -> a
     boolean SOFT_DEBUG -> b
@@ -9852,16 +9852,16 @@ utils.Cinema -> d.c:
     260:383:void start(int) -> a
     386:394:void render(com.badlogic.gdx.graphics.g2d.SpriteBatch) -> a
     397:404:void renderUI(com.badlogic.gdx.graphics.g2d.SpriteBatch) -> b
-    407:755:void update(float) -> a
-    759:799:void handleIntroLevel() -> f
-    802:872:void handleMovIntro() -> g
-    879:882:void showDialogue(java.lang.String) -> a
-    885:896:void hideDialogue() -> h
-    899:909:void showNotify(java.lang.String) -> b
-    912:921:void hideNotify() -> i
-    930:932:void clearCinema() -> a
-    936:990:void levelUpdate(int) -> b
-    994:995:void addDialogue() -> b
+    407:759:void update(float) -> a
+    763:803:void handleIntroLevel() -> f
+    806:876:void handleMovIntro() -> g
+    883:886:void showDialogue(java.lang.String) -> a
+    889:900:void hideDialogue() -> h
+    903:913:void showNotify(java.lang.String) -> b
+    916:925:void hideNotify() -> i
+    934:936:void clearCinema() -> a
+    940:994:void levelUpdate(int) -> b
+    998:999:void addDialogue() -> b
 utils.Cinema$1 -> d.d:
     utils.Cinema this$0 -> a
     130:134:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
@@ -9870,10 +9870,10 @@ utils.Cinema$2 -> d.e:
     159:163:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
 utils.Cinema$3 -> d.f:
     utils.Cinema this$0 -> a
-    846:847:void run() -> run
+    850:851:void run() -> run
 utils.Cinema$4 -> d.g:
     utils.Cinema this$0 -> a
-    888:889:void run() -> run
+    892:893:void run() -> run
 utils.GameState -> d.h:
     utils.GameState READY -> a
     utils.GameState RUNNING -> b

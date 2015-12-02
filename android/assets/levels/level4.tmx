@@ -1,24 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-up" width="134" height="30" tilewidth="32" tileheight="32" nextobjectid="149">
- <tileset firstgid="1" name="tiles_128" tilewidth="32" tileheight="32" tilecount="16">
-  <image source="../tiles_128.png" width="128" height="128"/>
- </tileset>
- <tileset firstgid="17" name="tileset-new" tilewidth="32" tileheight="32" spacing="2" margin="1" tilecount="225">
-  <image source="../tileset-new.png" width="512" height="512"/>
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="134" height="30" tilewidth="32" tileheight="32" nextobjectid="161">
+ <tileset firstgid="1" name="tileset" tilewidth="32" tileheight="32" spacing="2" margin="1" tilecount="256">
+  <image source="../tileset.png" width="544" height="544"/>
  </tileset>
  <layer name="Platform" width="134" height="30">
   <data encoding="base64" compression="zlib">
-   eJzt2k1qwzAQBeC5Su9gb1tD22UxlC7bQtP736EORGBUW56/jGTxHgxZJfKMP4kEZyai96UeKtfHUjPt501xnZr3RPXDTVQP6+udbwUXcAEXbfTDDVzAhVffcAEXcAEXcOEzH7iAC4uLyx3q96AfbuDi2MUPye4Nd6Zp7S/n+i70ww1c/HcxruqT5PdF6qLFaPaD9XxLLiLW5V7XmJUlPbjQ7Afr+ZZcRK0bce6u04MLTvL9Y91PyUWv4Z7BXt8Ra2bMXi3p3YXkDPY+q2rEw8Q1vbtIKc3La5YtBC5kgQtZ4II/y8elnjZqMl2Zb+BCFg8X1++wz0u9rOqV2pofXMji5SL/zdva79teXeyd1aWaGJ9rcTHcKsLFVv+T4P29utg6q0vFPce1LgaKdZH3n/qT7hVrTc59WSN9RsS9LxoXA/FdeJ1v+Rrp87n7xKNqWSzN6GwutDPfy56LGs8vIy0ezUjrIsKwx/Nu6X9MarqIXPNoRloXEY7h4nwuIq4XLuACLuACLuACLtqaKVycz8UfaHHQMQ==
+   eJztmkuOEzEQhn2GWcwRyBpGArYoEmILSLxWbOEEHQ6QYXIKVsAJgCXDBrazguPglmJNqaaq/LvsuHuiLulXlH64Hv5c6ai9DiE8jjqZWE+i1kG3R444Pff0yge1XjnQeNd7LVwsXCxc3NTgjHlTkQ9qCxd+LrT5aVFTa+5r8kENycHLdQ0XiM8W13i4kOaMHrNqKsWzzYwtXTcHLlpoqn6RW3c9fkdyHHmZHoRxDsmFFLMUo3RMy/cYfkfQ+T3m584x39dRb/bfkR7Ga0S5QbnYCPfm/KAc13KBCr3n5QH0KpMPaloOY13fRb0nxzbsvJfjqfrFRogb4eJFKJsbXlOp31PfzxrruZEPaofsebTHzIGLHK/JVkRPQ/m8pJrSfov6not51kNtf0tc9PCLxrViqrHEBe234xop7VVTmmc91Pa3xEUvv2hcrQztwXPmgtsv4RhfP/z7VQg/0bFGS1yU2GXh9bX31Rjag1s9I05pK/ZZYx4ubpOV9OCxV8V19WmSQBtZCyZGO3YukqV60Z51yc4dgy1clJlVr4WLm7ZwgdfybtQ9QWd1oTW1hYsya8HF+Ax7P+oB0cMwr/otXJRZKy74f965/b89Vi60Xm0J6eM1XPyO+hOuuTiP+rhXay6k/Et+p24TF5+jvkR9Ba6VerUltI97ubgT9TfqX+jDBc8/5Ve6Vmp11jgvyb5FfY/6AVxb+o4InRcPF6lP8H4h+W/V35KP9D4rjY+ukxaaikWrRnPhgvYJ3i+of2/NNeM+Un5oPXbGudy7Q+6zJ4u5GvG6pJ49kO/0vZdnvXqFMFvz3vYqhLfUx0XAuUj12AV9fw7fq5GLUTp3GmNEGc2JjqW970/m7Rc9OOaxSfXP1b5k79E2yHNk7c3T+oVnP582l3ys83C9fqV7NE41xiwuTkGh68nqr9Y5qhyzvF58n10pF7k5OmHjD0ou2p5HbT8e97kl9/C5HM9RLiQGpD1k0lgIF7zeHratuac14ec0vrXYpDHTMd4/WnKxFcbPMY7s7Sv5HbH2i+b4rOVC8smf13Nx7IS40FpaXJQK5eLCyM+qPc2lZM7QmtY+XwzKWNr+Y16X0jrnct0ZdWnBRW5/Oq+5ZsnHh6A/X1hCc7Fy6PncKfXmHlwg9ZLOSQx5+oVnb3Pp/1TeF2vnK/n8D3w4qBs=
   </data>
  </layer>
  <layer name="Spikes" width="134" height="30">
   <data encoding="base64" compression="zlib">
-   eJzt00ENAAAIxLBTgH+5fPBAAm0yCUsAAAAAAAAAAADgr5qA2yp+BwAAAIANDQjCAEc=
+   eJzt07ENADAIwDDu4Vwu7sLUtQuitpQTEgEAAAAAAAAAAAD/qo6ZsoNXFX7fKq8AAAAAmOUAb+ED1w==
   </data>
  </layer>
  <layer name="Portal" width="134" height="30">
   <data encoding="base64" compression="zlib">
-   eJzt0rENACAMA8FME9h/wlAwQwLSnfS9C0cAAAAAAAAAAAAA0C1P67aHt/AvPwIAAADgdQV7kAE5
+   eJzt0rENACAMA8FsEdh/0VAwQwLSnfS9C0cAAAAAAAAAAAAA0C1P67aHt/AvPwIAAADgdQUpGQDB
   </data>
  </layer>
  <objectgroup name="PlatformOb">
@@ -29,11 +26,12 @@
   <object id="121" x="4260" y="287" width="27.3333" height="349.333"/>
   <object id="122" x="2369.33" y="514.667" width="220.667" height="448"/>
   <object id="123" x="2591.33" y="672.667" width="382" height="287.333"/>
-  <object id="124" x="2241.33" y="674.667" width="126.667" height="60"/>
-  <object id="125" x="2274" y="643.333" width="94" height="28"/>
-  <object id="126" x="2305.33" y="610.667" width="61.3333" height="29.3333"/>
   <object id="127" x="1568" y="737" width="799" height="225"/>
   <object id="128" x="1123" y="610" width="442" height="352"/>
+  <object id="156" x="2208" y="704" width="32" height="32"/>
+  <object id="158" x="2240" y="672" width="128" height="64"/>
+  <object id="159" x="2272" y="640" width="96" height="32"/>
+  <object id="160" x="2304" y="608" width="64" height="32"/>
  </objectgroup>
  <objectgroup name="SpikesOb">
   <object id="115" x="2721.62" y="655.375" width="93.125" height="15.375"/>
@@ -89,6 +87,36 @@
   <object id="113" x="179.091" y="679.273" width="91.4545" height="16">
    <properties>
     <property name="color" value="4"/>
+   </properties>
+  </object>
+  <object id="149" x="384" y="384" width="32" height="32">
+   <properties>
+    <property name="color" value="4"/>
+   </properties>
+  </object>
+  <object id="151" x="832" y="384" width="32" height="32">
+   <properties>
+    <property name="color" value="4"/>
+   </properties>
+  </object>
+  <object id="152" x="1888" y="448" width="32" height="32">
+   <properties>
+    <property name="color" value="4"/>
+   </properties>
+  </object>
+  <object id="153" x="1984" y="448" width="32" height="32">
+   <properties>
+    <property name="color" value="4"/>
+   </properties>
+  </object>
+  <object id="154" x="3456" y="352" width="32" height="32">
+   <properties>
+    <property name="color" value="1"/>
+   </properties>
+  </object>
+  <object id="155" x="4064" y="352" width="32" height="32">
+   <properties>
+    <property name="color" value="1"/>
    </properties>
   </object>
  </objectgroup>

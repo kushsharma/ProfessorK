@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-up" width="250" height="50" tilewidth="32" tileheight="32" nextobjectid="601">
- <tileset firstgid="1" name="tiles_128" tilewidth="32" tileheight="32" tilecount="16">
-  <image source="../tiles_128.png" width="128" height="128"/>
- </tileset>
- <tileset firstgid="17" name="tileset-new" tilewidth="32" tileheight="32" spacing="2" margin="1" tilecount="225">
-  <image source="../tileset-new.png" width="512" height="512"/>
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="250" height="50" tilewidth="32" tileheight="32" nextobjectid="618">
+ <tileset firstgid="1" name="tileset" tilewidth="32" tileheight="32" spacing="2" margin="1" tilecount="256">
+  <image source="../tileset.png" width="544" height="544"/>
   <tile id="35">
    <properties>
     <property name="type" value="3"/>
@@ -13,30 +10,30 @@
  </tileset>
  <layer name="Platform" width="250" height="50">
   <data encoding="base64" compression="zlib">
-   eJzt2k1OwzAURWFvhT10DJEoQ1QJMYRKhf3vgXTAgFJVsWP33XdzPumJURW78VH/OBQAzl7nOUQvAsBQdA74o3PAH50D/ugc8EfngD86B/zROeCPzgF/dA74o3PAH50D/ugc8EfngD86B/zROeCPzgF/dA74o3PAH50D/ugc8EfngD86B/zROeCPzgF/dA5Xu4sZ9ZgM6BzwR+eI5vC6qb4HOkeUx3meNjrT+qevCp1vT9Rrz+jr7pPMS7l/c3S+LVHfMd3jug9J5r38b270e5vpyjXhi87j51rn59fb5zL2/QOd+1P8LHw+228lvjuVzkc9F7/Xc+98d/F3i0a+XrQOnf+9P3S+Dp1rNqW4JjrPy/H/m2opNqW4JufOoz+nZZ+p6FNsSnFNzp1Hf07LPK2/ha59b1H7eMWmFNfk3Hn0vjPPtXt2S+/vvaeF11VsSnFNUWeGzrWntvOe33vXvJdQbEpxTVFn5vxcnOb5GjDfhc5H3LNbep7tmmsrNqW4pqgz8zHP58A5Cuw789B5+yiuSfHM9BK978xD5+2juCbFM9NL9L4zD523j+KaFM9ML9H7zjx03j6Ka1I8M71E7zvz0Hn7KK5J8cz0Er3vzEPn7aO4JsUz00v0vjNPS+en0vd30aXXVWtKcU2KZ6aX6H1nntp71vt30uPC6yo2pbgmxTPTyw8N8UoZ
+   eJztm01u1DAYhnMGDtE9RQK2qBJiC5X4W7GFE7BkBUxP0VXbE7S9BjfCIxTJCk789322883zSK+m6jRjJ/ZjO870YgIAy7xyuehdCQBQBc8B7IPnAPbBcwD74DmAffAcwD54DmAfPAewD54D2AfPAeyD5wD2wXMA++A5gH3wHMA+eA5gHzwHsA+eA9gHzwHsg+cA9sFzAPvgOYB98BzAPngOYB88B7APngPYB8/BKmeLaB2zB/AcToUbl1uXu94V6QCeQ29azZv3Lg8ujwqfPfrcj+dghfMd5ZnQOaeuUfD89Og192iX+2IneTnJOZe6RsHz06LXHlOLcp/sJG+m/517OumvH/D8dGjt+Z+G5fb2t8bz43z7fNJdP+C5fbTni5JI833q7/Ba/Lqtef668LM/uXzeeH8uz7rnZ4vXU0RzvihNTd/WcnDOQbG8Lc9DdfF/9zPw/leXbwnlje753TT9uHW5cSk5Hs/bOJUyn/pzT6xOoXkq1M9zcxV5f8vx1DXDVj1T5/OUsSblb/bi+aPz+8HlvsJza99vyiXm1Fq/lF4L+3NPrE6xeUrL81qvQvHHLOl1u99GofrN5Z2T6r3M0VnrR79cfnuvJf0sJaFxJKVvS66fnd/XLl+u/v18fL3WOt9l/DFL2vNY5vJ636ftObXPQmvXGKnHL/vR0u9S3w9TuYu97s9r5nNJ77baJ2V9tXXd/ePn8tY+Z9TrpN22W/uXy+sTarMUpPe/Y2sKLc9rEvM89Z4hd5zp3X97zee5x4WuU6xNYnv/2vHr7I91oXrn3BeWei65/52yptBat9esq1vP5xJ7eBJZ8/y9yweFfJzkPI+lZk8lNobE2m/uwxrPSmo8r31eOp93Sh2k9nlKsnbdpT2Xbl+t5/Gh9nrr8k4xlxv1WfNHa92z5WttG+bUOWduk/Y8pW8tx0xtz7UyWp1S5/uUNtrqr6V9ppbc61Gybpe47zssknqc5j2DlOfLPpZzfiN4XrImHs3zVtmz56GE+mrN/mxOOX60nsPWtNnavtjxZ39cShkfR/C8JCPWqbRv5oxzI3iecp699ytL2kirztKeH8/BH5dCni/7VI3nqf1TY2+j9DtgsYyy3ybdZ2rJrefRmdGvZajOI7WZ5FymPZ9rfdd7xPm8RfbkudY10OpT0nXO2esOMZLnmv+zsRU8b0tuPUddt/eoc43nUs9L5+ejsfJGc2rEOrUInutlNM+ln5deRsob0akR69QivTz/C9AV2Vo=
   </data>
  </layer>
  <layer name="Spikes" width="250" height="50">
   <data encoding="base64" compression="zlib">
-   eJzt2bENACAIAEEWUPff1kYmwMSodw2l0PoRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8LexZju6Rc0LN/Ce/tm7AAAAAADUZfPIv17tAwDYpdqStWgAAAAAAAAAAAAAAOBGE4Y+AJs=
+   eJzt2bENACAIBEBGdSYncFQbTay1MOJdQ6h46o8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAv9WIMma7m2Rfhh/Ip352FwAAAACAc0vnMfd2LQwAkNJpp6yTBgAAAAAAAAAAAAAAXtIBDAQJRw==
   </data>
  </layer>
  <layer name="Portal" width="250" height="50">
   <data encoding="base64" compression="zlib">
-   eJzt2bEJACAMRNFME91/wlg4QIqAIO/B76+/CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOA3eVq3/XgLAAAAAAAAMMsfCAAAAAAAAAAAAAAAAEBHAVoUATk=
+   eJzt2bEJACAMRNFsEd1/0Vg4QIqAIO/B76+/CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOA3eVq3/XgLAAAAAAAAMMsfCAAAAAAAAAAAAAAAAEBHATPEAME=
   </data>
  </layer>
  <layer name="Overlay" width="250" height="50">
   <data encoding="base64" compression="zlib">
-   eJzt0zENACAMAMFaQQusLPgXQ/HQoSR3yUv4CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+NfOZraKAvp5n59sFAX043MAAAAAAAAAAAAAAAAAAAAAqHcBR4YLOw==
+   eJzt07ENwCAMAEFmYBNSkJqG/UfC2cGKLHQn/QjfGgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADca0RPckAtK5rRmxRQz/f5jnpSQD0+h/v5HAAAAAAAAAAAAAAAAAAAAP53AMWDDdA=
   </data>
  </layer>
  <objectgroup name="PlatformOb">
   <object id="510" x="0" y="1184" width="2592" height="416"/>
   <object id="511" x="0" y="0" width="32" height="1184"/>
-  <object id="512" x="2912" y="1248" width="672" height="352"/>
-  <object id="513" x="2976" y="1216" width="32" height="32"/>
-  <object id="514" x="3488" y="1216" width="32" height="32"/>
+  <object id="512" x="2976" y="1248" width="672" height="352"/>
+  <object id="513" x="3040" y="1216" width="32" height="32"/>
+  <object id="514" x="3552" y="1216" width="32" height="32"/>
   <object id="515" x="1792" y="1088" width="32" height="96"/>
   <object id="516" x="1856" y="1088" width="32" height="96"/>
   <object id="517" x="1824" y="1152" width="32" height="32"/>
@@ -61,9 +58,9 @@
   <object id="532" x="4930.25" y="945.25" width="27.75" height="12.75"/>
   <object id="533" x="6672.36" y="898.545" width="12.9091" height="26.9091"/>
   <object id="534" x="6720.91" y="898" width="11.8182" height="27.6364"/>
-  <object id="535" x="3971.33" y="945.667" width="27" height="13.3333"/>
-  <object id="536" x="3491.33" y="1201.67" width="24.6667" height="12.6667"/>
-  <object id="537" x="2978.33" y="1202.33" width="27.3333" height="12"/>
+  <object id="535" x="3970.58" y="947.792" width="27" height="13.3333"/>
+  <object id="536" x="3556.33" y="1206.67" width="24.6667" height="12.6667"/>
+  <object id="537" x="3041.91" y="1207.16" width="27.3333" height="12"/>
   <object id="538" x="1889.67" y="1123.33" width="12.3333" height="24.6667"/>
   <object id="539" x="1827.33" y="1136.67" width="25.6667" height="13.3333"/>
   <object id="540" x="1776.33" y="1122.67" width="13.3333" height="26"/>
@@ -73,17 +70,17 @@
   <object id="543" x="1120" y="1120" width="32" height="32"/>
   <object id="544" x="1504" y="1056" width="32" height="32"/>
   <object id="545" x="2496" y="1088" width="32" height="32"/>
-  <object id="546" x="3232" y="1152" width="32" height="32"/>
+  <object id="546" x="3296" y="1152" width="32" height="32"/>
   <object id="548" x="3360" y="1152" width="32" height="32"/>
-  <object id="550" x="4256" y="960" width="32" height="32"/>
-  <object id="551" x="4512" y="928" width="32" height="32"/>
-  <object id="552" x="4736" y="960" width="32" height="32"/>
+  <object id="550" x="4320" y="992" width="32" height="32"/>
+  <object id="552" x="4704" y="992" width="32" height="32"/>
   <object id="553" x="5536" y="864" width="32" height="32"/>
   <object id="554" x="5760" y="864" width="32" height="32"/>
   <object id="555" x="6112" y="864" width="32" height="32"/>
   <object id="556" x="6432" y="832" width="32" height="32"/>
   <object id="557" x="6304" y="768" width="32" height="32"/>
   <object id="558" x="6592" y="864" width="32" height="32"/>
+  <object id="615" x="4512" y="992" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="PowerUpOb">
   <object id="561" x="992" y="1056" width="32" height="64">
@@ -112,8 +109,8 @@
   <object id="578" x="2720" y="1120" width="32" height="32"/>
   <object id="579" x="2784" y="1120" width="32" height="32"/>
   <object id="580" x="2656" y="1120" width="32" height="32"/>
-  <object id="581" x="3136" y="1152" width="32" height="32"/>
-  <object id="582" x="3296" y="1152" width="32" height="32"/>
+  <object id="581" x="3232" y="1152" width="32" height="32"/>
+  <object id="582" x="3424" y="1152" width="32" height="32"/>
   <object id="583" x="3968" y="896" width="32" height="32"/>
   <object id="584" x="4928" y="896" width="32" height="32"/>
   <object id="585" x="5856" y="768" width="32" height="32"/>
@@ -155,12 +152,7 @@
   </object>
  </objectgroup>
  <objectgroup name="MoverOb">
-  <object id="505" x="2624" y="1216" width="256" height="32">
-   <properties>
-    <property name="direction" value="h"/>
-   </properties>
-  </object>
-  <object id="508" x="3680" y="1023" width="97" height="258">
+  <object id="508" x="3712" y="1024" width="97" height="258">
    <properties>
     <property name="direction" value="v"/>
    </properties>
