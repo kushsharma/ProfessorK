@@ -1,7 +1,7 @@
 package objects;
 
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.Texture.TextureFilter;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
 import com.badlogic.gdx.graphics.g2d.ParticleEffect;
@@ -28,6 +28,7 @@ public class Boss extends GameObject{
 	float distance = 0;
 	float fire_time = 0;
 	
+	private static final float FIRE_TIME = 1.8f;
 	boolean FIRING = false;
 	boolean CAN_FIRE = false;
 	public boolean PLAYER_INSIDE = false;
@@ -38,6 +39,8 @@ public class Boss extends GameObject{
 	ParticleEffect killParticle;
 	TextureRegion hitTexR;
 	boolean SHOW_HIT = false;
+	
+	Sound fireSound;
 	
 	public Boss(World w, Vector2 pos, Light l){
 		world = w;
@@ -59,6 +62,9 @@ public class Boss extends GameObject{
 		Speed = 0.7f;
 		distance = 1.5f;
 		visible = true;
+		
+		fireSound = Gdx.audio.newSound(Gdx.files.internal("sound/boss1_fire.mp3"));
+		
 		
 		//particle
 		killParticle = new ParticleEffect(gameScreen.getAssetLord().manager.get(AssetLord.enemy_kill_particle,ParticleEffect.class));
@@ -99,7 +105,6 @@ public class Boss extends GameObject{
 		playerSprite = new Sprite(idleAnime.getKeyFrame(0));
 		playerSprite.setSize(width, height);
 		playerSprite.setPosition(position.x, position.y);
-		
 		
 		
 		bodyDef = new BodyDef();
@@ -174,11 +179,18 @@ public class Boss extends GameObject{
 		if(FIRING){
 			fire_time += delta;
 		
+			if(GameScreen.BACKGROUND_MUSIC)
+			{
+				//fireSound.play();				
+			}
+			
 			//stop firing after 2 sec
-			if(fire_time > 2)
+			if(fire_time > FIRE_TIME)
 			{
 				FIRING = false;
 				fire_time = 0;
+				
+				//fireSound.stop();
 			}
 		}
 				
@@ -188,19 +200,18 @@ public class Boss extends GameObject{
 		light.setPosition(position.x, position.y);
 		
 		//culling
-		if(position.x > viewportWidth-bWIDTH*0.8 && position.x < viewportWidth+bWIDTH*0.8)
+		if(position.x > viewportWidth-bWIDTH*1.5f && position.x < viewportWidth+bWIDTH*1.5f)
 			visible = true;
 		else
 			visible = false;
 
 		//check for player camera position
+		CAN_FIRE = false;
 		if(!DEAD){
-			if(position.x - viewportWidth < bWIDTH/2)
+			if(position.x - viewportWidth < bWIDTH*1.5f)
 			{
 				CAN_FIRE = true;
 			}
-			else
-				CAN_FIRE = false;
 		}
 		
 		//make ping pong vertical effect
@@ -209,9 +220,15 @@ public class Boss extends GameObject{
 			if(body.getLinearVelocity().y == 0)
 				upPause += delta;
 			body.setLinearVelocity( body.getLinearVelocity().x , 0);
-			FIRING = true;
+			if(upPause <= 0.00000001 && !FIRING)
+			{
+				FIRING = true;
+				
+				if(CAN_FIRE)
+					fireSound.play();
+			}
 
-			if(upPause > 2.2f)			
+			if(upPause > FIRE_TIME + 0.2f)			
 			{
 				body.setLinearVelocity( body.getLinearVelocity().x , -Speed);
 				upPause = 0;
@@ -223,9 +240,15 @@ public class Boss extends GameObject{
 			if(body.getLinearVelocity().y == 0)
 				downPause += delta;
 			body.setLinearVelocity( body.getLinearVelocity().x , 0);
-			FIRING = true;
+			if(downPause <= 0.00000001 && !FIRING)
+			{
+				FIRING = true;
+				
+				if(CAN_FIRE)
+					fireSound.play();
+			}
 
-			if(downPause > 2.2f)			
+			if(downPause > FIRE_TIME + 0.2f)			
 			{
 				body.setLinearVelocity( body.getLinearVelocity().x , Speed);
 				downPause = 0;
@@ -241,8 +264,8 @@ public class Boss extends GameObject{
 		}	
 		
 		if(FIRING)
-			gameScreen.shakeThatAss();
-		
+			gameScreen.shakeThatAss(false);		
+
 		if(GameScreen.PLAYER_PARTICLES)
 			killParticle.update(delta);
 			
@@ -252,21 +275,30 @@ public class Boss extends GameObject{
 	}
 	
 	public void reset(){
+		visible = true;
 		FIRING = DEAD = CAN_FIRE = PLAYER_INSIDE = false;
 		
-		body.setTransform(position, 0);
+		body.setTransform(startPos, 0);
 		body.setLinearVelocity(body.getLinearVelocity().x, Speed);
 		HEALTH = 200;
+				
+		//unlock camera
+		gameScreen.cameraLock(false);
 	}
 	
 	public void hitBullet(int val){
 		if(!CAN_FIRE) return;
+		
+		//don't hit if not close to boss
+		if(Math.abs(Player.getInstance().getPosition().x - position.x) > bWIDTH*0.8f)
+			return;
 		
 		if(HEALTH > val)
 			HEALTH -= val;
 		else
 			setDead();
 		
+		LevelGenerate.getInstance().playEnemyHitSound();
 		SHOW_HIT = true;
 	}
 	
@@ -303,7 +335,7 @@ public class Boss extends GameObject{
 	
 	public void dispose(){
 		world.destroyBody(body);
-		
+		fireSound.dispose();
 		if(GameScreen.PLAYER_PARTICLES){
 			killParticle.dispose();
 		}

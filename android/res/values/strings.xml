@@ -2,5 +2,6 @@
 <resources>
 
     <string name="app_name">ProfessorK</string>
+    <string name="app_desc">Best Game Ever</string>
 
 </resources>

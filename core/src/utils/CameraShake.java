@@ -22,6 +22,7 @@ public class CameraShake {
 	float shakeDuration = 0.1f;
 	float nH,nW;
 	boolean Shake = false;
+	public static final float DEFAULT_SHAKE_POWER = 0.15f;
 	float shakePower = 0.15f;
 	
 	float originalX, originalY;
@@ -34,13 +35,25 @@ public class CameraShake {
 		originalY = camera.position.y;
 	}
 	
-	public void shakeThatAss(boolean sh){
+	public void shakeThatAss(boolean sh, boolean light){
 		//enable disable shakes sequence
 		Shake = sh;
 		originalX = camera.position.x;
 		originalY = camera.position.y;
 		
+		if(light){
+			shakePower = DEFAULT_SHAKE_POWER * 0.3f;
+		}
+		else
+		{
+			shakePower = DEFAULT_SHAKE_POWER;
+		}
+		
 		if(sh)	shakedTime = 0;
+	}
+	
+	public void shakeLight(boolean sh){
+		shakeThatAss(sh, true);
 	}
 	
 	public void update(float delta){

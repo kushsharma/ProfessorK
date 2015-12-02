@@ -528,3 +528,17 @@ scientist
   orig: 15, 23
   offset: 0, 0
   index: -1
+white
+  rotate: false
+  xy: 1, 1
+  size: 3, 3
+  orig: 3, 3
+  offset: 0, 0
+  index: -1
+black
+  rotate: false
+  xy: 67, 14
+  size: 1, 1
+  orig: 1, 1
+  offset: 0, 0
+  index: -1

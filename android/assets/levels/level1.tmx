@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="right-up" width="110" height="40" tilewidth="32" tileheight="32" nextobjectid="41">
- <tileset firstgid="1" name="tileset-new" tilewidth="32" tileheight="32" spacing="2" margin="1" tilecount="225">
-  <image source="../tileset-new.png" width="512" height="512"/>
- </tileset>
- <tileset firstgid="226" name="tiles_128" tilewidth="32" tileheight="32" tilecount="16">
-  <image source="../tiles_128.png" width="128" height="128"/>
+ <tileset firstgid="1" name="tileset" tilewidth="32" tileheight="32" spacing="2" margin="1" tilecount="225">
+  <image source="../tileset.png" width="512" height="512"/>
  </tileset>
  <layer name="Platform" width="110" height="40">
   <data encoding="base64" compression="zlib">
-   eJztlkEKQiEURd8WmlQLaFxBNYwg2v9W2kIGP3AgfNSneeUcuJM/8f17RDUDAAAAACjn8e8BIJu74U0RvGmCN03wpgneNMGbJnjTBG+a4E0TvGmCN03wpgneNMGbJnjTBG+a4E0TvGmCN01m9HYMOVXk3H/kbGb09v2nS8i1IDfT6GNWb8+QTUFeptGHqrd3lJiDzedtG7Jbsl++jeSt9l76RdlbTgepOVOOW1NzL8UZ0VvqbEiR04HHHvd4t9X0HaeFN6+zYO3dmjN77f72ereN7M3rLFh7t3p10Cqpfkb35tlnr3Xwhje84Q1veMMb3nqs8wGysH+2
+   eJztlklOw0AQRWsBB0CMB2ANSMASISGOACeAC5Dsw7DjCkx7pjtSltyiYqrTo03K+k/6ihXZSXW9cttEAAAAAAAA5HP63wWAZE4I3iwCbzaBN5vAm03gzSbwZhN4swm82QTebAJvNoE3m8CbTeDNJvBmE3izCbzZBN5sAm82gTebjNHbHme/IAfDl5zMGL01azrkHGXkmGz0Y6zezjhrnBXOansck3Oy0Q+r3h5FJLs0722ds0G6owvOJS2/ty3Odpud9rtl8lb6XHKR3hblinNN5d5eOK+ct+QV/yWlB1qdmuO+KXkuycR6q7VPfnK+ON8LztH2Bo2UHtSY8Rrvban9fmjT/b4Pb7X2gtB7a0rtpfNd671N1qw9e245d+Iz1lv3uu5nc84T55n83mrtBaH31pKZy82NyCRwrtYfWbP27Mm932RNk/a4e80758NTl6xtVtgjN4+h/6nhQ5t9Oceh67W1hrzFRHqTNbrf2cxITj/lvGr9kX1y8xj6H7ce7TdiPcTMfowr2dva3mSN3d+5p997zR1PPYn1ps3yzLNuLaH/cesp8VYrsrc53pp5lvtvaJ/0uZl6rovpZ2iW3XyE5niIfdLXN9/c+dLn/aZ5y1njUP0c0puWlD209H6Dt/n8AM9CtHU=
   </data>
  </layer>
  <objectgroup name="PlatformOb">

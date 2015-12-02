@@ -78,7 +78,7 @@ public class GameScreen implements Screen{
 	 * Main Menu _ done
 	 * GameStates
 	 * Pause Screen _done
-	 * Teleport Animation
+	 * Teleport Animation _ done
 	 * Fix Light colors
 	 * Clear level screen
 	 * Player Jumps and friction _ done partially
@@ -96,7 +96,7 @@ public class GameScreen implements Screen{
 	 * BUG: mover doesn't take player along with him sometimes
 	 * Reverse Gravity _ done
 	 * Falling rocks
-	 * buttons to make level portal active
+	 * buttons to make level portal active _ done
 	 * Create BeamSpot that throws a big laser from ground that can kill instantly with particles _ done
 	 * Parallax background _ done
 	 * Game time to complete within
@@ -112,6 +112,10 @@ public class GameScreen implements Screen{
 	 * Add scan lines
 	 * Add slomo when die & fix player dying twice _done
 	 * Add boss _ done
+	 * Fix player sprite size - one eye mess up
+	 * add boss laser sound _ done
+	 * improve level up tool tip sequence 
+	 * android icon minmap doesn't work in low api devices
 	 * 
 	 */
 	
@@ -148,7 +152,7 @@ public class GameScreen implements Screen{
 	private Table table;
 	Group pauseScreen;
 	public Group levelClearScreen;
-	TextButton readyButt, scoreBoard, scoreTextButt, scoreHighTextButt, coinsCollectedCount, enemyKilledCount;
+	TextButton nextLevelText, readyButt, scoreBoard, scoreTextButt, scoreHighTextButt, coinsCollectedCount, enemyKilledCount;
 	Label scoreLabel;
 	Sprite scoreSprite;
 	Group controls;
@@ -282,6 +286,9 @@ public class GameScreen implements Screen{
 	}
 	
 	private void createObjects() {
+		//create scoremanager before cinema
+		scoreManager = new ScoreManager();
+
 		//create cinema before level
 		cinema = new Cinema(stage, camera);
 
@@ -291,7 +298,6 @@ public class GameScreen implements Screen{
 		
 		level = new LevelGenerate(camera, world, batch, viewport);
 		cameraShake = new CameraShake(camera);
-		scoreManager = new ScoreManager();
 		
 		if(SOFT_DEBUG) fpsLogger = new FPSLogger();
 		
@@ -407,9 +413,12 @@ public class GameScreen implements Screen{
 		scoreLabel = new Label("0000000", scoreStyle);
 		scoreLabel.setWidth(WIDTH/9);
 		scoreLabel.setPosition(scoreLabel.getWidth() * 1.2f, HEIGHT - scoreLabel.getHeight()*0.8f, Align.right);
+		
+		//added score label before cinema
 		stage.addActor(scoreLabel);
 		
-		System.out.println(scoreLabel.getX());
+		//used to prioritize its view over score
+		cinema.addDialogue();
 		
 		createPauseScreen();
 		
@@ -433,7 +442,7 @@ public class GameScreen implements Screen{
 		TextButtonStyle largeStyle = new TextButtonStyle();
 		largeStyle.font = fontLarge;
 		
-		TextButton nextLevelText = new TextButton("Next Level", largeStyle);
+		nextLevelText = new TextButton("Next Level", largeStyle);
 		nextLevelText.setPosition(WIDTH/2 - nextLevelText.getWidth()/2, HEIGHT/2 - nextLevelText.getHeight()/2);
 		nextLevelText.addListener(new InputListener(){
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
@@ -508,7 +517,8 @@ public class GameScreen implements Screen{
 	}
 	
 	public void showLevelClear(){
-		
+		level.playFinishSound();
+
 		//update max level score
 		scoreManager.unlockLevel(LevelGenerate.CURRENT_LEVEL+1);
 		if(scoreManager.updateHighScore())
@@ -543,6 +553,13 @@ public class GameScreen implements Screen{
 			enemyStarImage.setVisible(false);
 		
 		pauseBack.setVisible(true);
+		
+		//don't go forward, its the end my friend
+		if(LevelGenerate.CURRENT_LEVEL == LevelGenerate.MAX_LEVEL)
+			nextLevelText.setVisible(false);
+		else
+			nextLevelText.setVisible(true);
+		
 		levelClearScreen.setVisible(true);
 		
 		
@@ -645,14 +662,19 @@ public class GameScreen implements Screen{
 	@Override
 	public void show() {
 		//start movie if level is 1
-		if(LevelGenerate.CURRENT_LEVEL == 0)
-			cinema.start(Cinema.MOV_INTRO);
+		if(LevelGenerate.CURRENT_LEVEL == 0){
+			if(scoreManager.TUTORIAL_LEVEL == 0)
+				cinema.start(Cinema.MOV_INTRO);
+			else
+				cinema.start(Cinema.MOV_INTRO_LEVEL);
+		}
 		
 	}
 
 	@Override
 	public void render(float delta) {
-		pCounter.start();
+		if(SOFT_DEBUG)
+			pCounter.start();
 		
 		//Gdx.gl.glClearColor(0.0f, 0.0f, 0.0f, 1);
 		//Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -726,12 +748,13 @@ public class GameScreen implements Screen{
 		cinema.renderUI(batch);
 		batch.end();
 		
-		if(SOFT_DEBUG)
-		fpsLogger.log();
-		
-		pCounter.stop();
-		//System.out.println(pCounter.current+" <- time");		
-		pCounter.reset();
+		if(SOFT_DEBUG){
+			fpsLogger.log();
+
+			pCounter.stop();
+			//System.out.println(pCounter.current+" <- time");		
+			pCounter.reset();			
+		}
 	}
 
 	private void renderLights() {
@@ -747,7 +770,8 @@ public class GameScreen implements Screen{
 		// imagine it being the sun.  Usually the alpha value is just 1, and you change the darkness/brightness with the Red, Green and Blue values for best effect
 
 		//Gdx.gl.glClearColor(0.3f,0.38f,0.4f, 0.7f);
-		Gdx.gl.glClearColor(0f, 0f, 0f, 0.3f);
+
+		Gdx.gl.glClearColor(0f, 0f, 0f, 0.3f); //normal black		
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 					        
 		// start rendering the lights to our spriteBatch
@@ -973,8 +997,8 @@ public class GameScreen implements Screen{
 		controls.setVisible(true);
 	}
 	
-	public void shakeThatAss(){
-		cameraShake.shakeThatAss(true);
+	public void shakeThatAss(boolean lightShake){
+		cameraShake.shakeThatAss(true, lightShake);
 	}
 
 	public void increaseScore(int val) {

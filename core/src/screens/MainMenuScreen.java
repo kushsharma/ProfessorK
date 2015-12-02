@@ -435,7 +435,7 @@ public class MainMenuScreen implements Screen, ActionListener{
 				return true;
 			}
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button){
-				if(DEBUG)System.out.println("Play!!");
+				MyGame.sop("Play!!");
 			}
 		});
 		
@@ -471,7 +471,7 @@ public class MainMenuScreen implements Screen, ActionListener{
 				return true;
 			}
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button){
-				if(DEBUG)System.out.println("Options!!");
+				MyGame.sop("Options!!");
 			}
 		});
 		
@@ -507,7 +507,7 @@ public class MainMenuScreen implements Screen, ActionListener{
 				return true;
 			}
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button){
-				if(DEBUG)System.out.println("Options!!");
+				MyGame.sop("Options!!");
 			}
 		});
 		
@@ -529,7 +529,7 @@ public class MainMenuScreen implements Screen, ActionListener{
 				return true;
 			}
 			public void touchUp(InputEvent event, float x, float y, int pointer, int button){
-				if(DEBUG)System.out.println("Options!!");
+				MyGame.sop("rate!!");
 			}
 		});
 		rateImage.setOrigin(rateImage.getWidth()/2, rateImage.getHeight()/2);

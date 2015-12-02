@@ -117,7 +117,7 @@ public class LevelGenerate {
 	
 	AssetLord Assets = GameScreen.getInstance().getAssetLord();
 	//sounds
-	Sound coinSound, fireSound, playerHurtSound, enemyHurtSound, levelUpSound, portalSound;
+	Sound coinSound, fireSound, playerHurtSound, enemyHurtSound, levelUpSound, portalSound, epicLevelSound, finishSound;
 	Music gameMusic = null, menuMusic = null;
 	
 	public LevelGenerate(OrthographicCamera cam, World w, SpriteBatch b, Viewport view){
@@ -154,6 +154,9 @@ public class LevelGenerate {
 		
 			coinSound = Assets.manager.get(AssetLord.coin_sound, Sound.class);
 			fireSound = Assets.manager.get(AssetLord.fire_sound, Sound.class);
+			finishSound = Assets.manager.get(AssetLord.finish_sound, Sound.class);
+			epicLevelSound = Assets.manager.get(AssetLord.epicLevelup_sound, Sound.class);
+			
 			playerHurtSound = Assets.manager.get(AssetLord.player_hurt_sound, Sound.class);
 			enemyHurtSound = Assets.manager.get(AssetLord.enemy_hurt_sound, Sound.class);
 			levelUpSound = Assets.manager.get(AssetLord.levelup_sound, Sound.class);
@@ -284,7 +287,8 @@ public class LevelGenerate {
 					gameMusic.play();
 				}
 			}
-		}
+		}		
+
 	}
 	
 	private void clearOldLevel() {
@@ -831,13 +835,13 @@ public class LevelGenerate {
 		batch.setProjectionMatrix(camera.combined);
 		batch.begin();
 		
+		for(Portal p:portalPool)
+			p.render(batch);
 		for(Enemy e:enemyPool)
 			e.render(batch);
 		for(Bullet b:activeBulletPool)
 			b.render(batch);
 		for(PowerUp p:powersPool)
-			p.render(batch);
-		for(Portal p:portalPool)
 			p.render(batch);
 		for(Movers m:moverPool)
 			m.render(batch);
@@ -1151,7 +1155,7 @@ public class LevelGenerate {
 			return;
 		
 		if(Bullet.BULLET_POWER == true)
-			gameScreen.shakeThatAss();
+			gameScreen.shakeThatAss(true);
 		
 		if(bulletPool.size > 0)
 		{//get from dead pool
@@ -1478,9 +1482,24 @@ public class LevelGenerate {
 	public void playCoinSound(){
 		if(!GameScreen.BACKGROUND_MUSIC) return;
 		
-		coinSound.play();
+		if(coinSound != null)
+			coinSound.play();
 		
 		
+	}
+	
+	public void playFinishSound(){
+		if(!GameScreen.BACKGROUND_MUSIC) return;
+
+		if(finishSound != null)
+			finishSound.play();
+	}
+	
+	public void playEpicLevelSound(){
+		if(!GameScreen.BACKGROUND_MUSIC) return;
+
+		if(epicLevelSound != null)
+			epicLevelSound.play();
 	}
 	
 	public void playFireSound(){
@@ -1495,6 +1514,7 @@ public class LevelGenerate {
 
 		if(playerHurtSound != null)
 			playerHurtSound.play();
+		
 	}
 	
 	public void playEnemyHitSound(){
@@ -1502,6 +1522,7 @@ public class LevelGenerate {
 
 		if(enemyHurtSound != null)
 			enemyHurtSound.play();
+		
 	}
 	
 	public void playLevelUpSound(){

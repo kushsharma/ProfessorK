@@ -52,7 +52,7 @@ public class Player {
 	public boolean GLOWING = false;
 	private boolean FLYING = false; // disable player gravity effect
 	private float flightTime = 0f;
-	private final float FLYING_TIME = 1.0f;
+	private final float FLYING_TIME = 0.5f;
 
 	private boolean visible = true;
 	public boolean Revived = false;
@@ -540,7 +540,7 @@ public class Player {
 				disableFlying();
 			
 			if(GLOWING){
-				gameScreen.shakeThatAss();	
+				gameScreen.shakeThatAss(true);	
 			}
 			
 			glow.setRotation((time*100)%360);

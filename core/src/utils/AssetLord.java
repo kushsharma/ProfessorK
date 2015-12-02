@@ -60,6 +60,7 @@ public class AssetLord {
 	public static final String gothic_font = "fonts/GOTHIC.TTF";
 	public static final String mecha_font = "fonts/Mecha.ttf";
 	public static final String joystix_font = "fonts/joystixmonospace.ttf";
+	public static final String tiny_font = "size6.ttf";
 	public static final String small_font = "size12.ttf";
 	public static final String medium_font = "size20.ttf";
 	public static final String large_font = "size30.ttf";
@@ -80,6 +81,8 @@ public class AssetLord {
 //	public static final String tutorial4_tex = "final/tutorial/tutorial-4.png";
 	
 	public static final String fire_sound = "sound/Laser_Shoot.mp3";
+	public static final String finish_sound = "sound/lose_0.mp3";
+	public static final String epicLevelup_sound = "sound/epic-levelup.mp3";
 	public static final String coin_sound = "sound/Pickup_Coin.mp3";
 	public static final String player_hurt_sound = "sound/Player_Hit_Hurt.mp3";
 	public static final String enemy_hurt_sound = "sound/Enemy_Hit_Hurt.mp3";
@@ -145,6 +148,12 @@ public class AssetLord {
 		//size1Params.fontParameters.size = (int) (16 * density);
 		size1Params.fontParameters.size = (int) (MyGame.HEIGHT/32f);
 		manager.load(small_font, BitmapFont.class, size1Params);
+		
+		FreeTypeFontLoaderParameter size4Params = new FreeTypeFontLoaderParameter();
+		size4Params.fontFileName = joystix_font;
+		//size1Params.fontParameters.size = (int) (16 * density);
+		size4Params.fontParameters.size = (int) (MyGame.HEIGHT/64f);
+		manager.load(tiny_font, BitmapFont.class, size4Params);
 
 		FreeTypeFontLoaderParameter size2Params = new FreeTypeFontLoaderParameter();
 		size2Params.fontFileName = mecha_font;
@@ -191,6 +200,8 @@ public class AssetLord {
 				
 		
 		manager.load(fire_sound, Sound.class);
+		manager.load(epicLevelup_sound, Sound.class);
+		manager.load(finish_sound, Sound.class);
 		manager.load(coin_sound, Sound.class);
 		manager.load(player_hurt_sound, Sound.class);
 		manager.load(enemy_hurt_sound, Sound.class);
@@ -206,7 +217,7 @@ public class AssetLord {
 	public void finishLoading(){
 		manager.finishLoading();
 		
-		
+		manager.get(tiny_font, BitmapFont.class).setUseIntegerPositions(true);
 		manager.get(small_font, BitmapFont.class).setUseIntegerPositions(true);
 		manager.get(medium_font, BitmapFont.class).setUseIntegerPositions(true);
 		manager.get(large_font, BitmapFont.class).setUseIntegerPositions(true);

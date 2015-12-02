@@ -4496,6 +4496,7 @@ com.softnuke.biosleep.android.AndroidLauncher
 com.softnuke.biosleep.android.AndroidLauncher: AndroidLauncher()
 com.softnuke.biosleep.android.R$drawable: int ic_launcher
 com.softnuke.biosleep.android.R$mipmap: int ic_launcher
+com.softnuke.biosleep.android.R$string: int app_desc
 com.softnuke.biosleep.android.R$string: int app_name
 com.softnuke.biosleep.android.R$style: int GdxTheme
 utils.GameState: utils.GameState[] values()

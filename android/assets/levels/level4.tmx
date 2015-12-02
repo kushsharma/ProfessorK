@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-up" width="250" height="30" tilewidth="32" tileheight="32" nextobjectid="149">
+<map version="1.0" orientation="orthogonal" renderorder="right-up" width="134" height="30" tilewidth="32" tileheight="32" nextobjectid="149">
  <tileset firstgid="1" name="tiles_128" tilewidth="32" tileheight="32" tilecount="16">
   <image source="../tiles_128.png" width="128" height="128"/>
  </tileset>
  <tileset firstgid="17" name="tileset-new" tilewidth="32" tileheight="32" spacing="2" margin="1" tilecount="225">
   <image source="../tileset-new.png" width="512" height="512"/>
  </tileset>
- <layer name="Platform" width="250" height="30">
+ <layer name="Platform" width="134" height="30">
   <data encoding="base64" compression="zlib">
-   eJztm9tKxDAQQPMr/sP2VQvqoyyIjyqo//8PtmChxKbNZTadTM6BYZ/aJpk56dBur8651ynuTo63Ka4uzEvGOHOOqTWfWGrNYT1eiXGDLuac4jme47lt8BzP8dw+eI7neG4fPMdzPLcPnuM5ntsHz/Ecz+2D58593yB+DuYTC56DBC15/uXSXIt1ZLn2h3B87swnFjwHCTR7Pqzi3aV7luq5RnL2t9L+Q+taQD5zTmvUUWydDV6UYMHznP2ttP/QuhaQzy361TP73DUWPI/B3w9L98eW1wK2sZzT2J5X6pnZmQzebwmtrwX8x3JOU3pe6V7iDCQcn7FcE73SQ0736l/KDQ3gOYToIad4nkYPNdEbPeRUwvP7KR42YiwamSx4DiF6yKmE5/Mzvccpnlbx7HStH55DiB5yKuW5/45O2/s4PIcQmnIa6o33Yow4b4nnl7+o4fnW/MeE4/EcQmjK6VZvvBexfXOu5xdX13N//sv8Uve+0hgF5wQ60OZ5yn/tYz3L8fzi4j2Xcsi/xnL+2H1PIrQ9cwAZat8r9mq+Nc+lHQp5fvb3RNA+Ne8VRzWf63mNPUni+9DUb+zxHKSoWUNH9ZTreY19Cc+hZSx4XmO8eA4tg+d4juf2wXM8x3P74Dme47l98BzP8dw+v94C0DE=
+   eJzt2k1qwzAQBeC5Su9gb1tD22UxlC7bQtP736EORGBUW56/jGTxHgxZJfKMP4kEZyai96UeKtfHUjPt501xnZr3RPXDTVQP6+udbwUXcAEXbfTDDVzAhVffcAEXcAEXcOEzH7iAC4uLyx3q96AfbuDi2MUPye4Nd6Zp7S/n+i70ww1c/HcxruqT5PdF6qLFaPaD9XxLLiLW5V7XmJUlPbjQ7Afr+ZZcRK0bce6u04MLTvL9Y91PyUWv4Z7BXt8Ra2bMXi3p3YXkDPY+q2rEw8Q1vbtIKc3La5YtBC5kgQtZ4II/y8elnjZqMl2Zb+BCFg8X1++wz0u9rOqV2pofXMji5SL/zdva79teXeyd1aWaGJ9rcTHcKsLFVv+T4P29utg6q0vFPce1LgaKdZH3n/qT7hVrTc59WSN9RsS9LxoXA/FdeJ1v+Rrp87n7xKNqWSzN6GwutDPfy56LGs8vIy0ezUjrIsKwx/Nu6X9MarqIXPNoRloXEY7h4nwuIq4XLuACLuACLuACLtqaKVycz8UfaHHQMQ==
   </data>
  </layer>
- <layer name="Spikes" width="250" height="30">
+ <layer name="Spikes" width="134" height="30">
   <data encoding="base64" compression="zlib">
-   eJzt1TENAAAIBLFXgH+5LFgAljY5DZcAAAAAAAAAAAAAAAAAAAAAAABbagIAflT8GAAAAAAAAAAA4FoDma0ARw==
+   eJzt00ENAAAIxLBTgH+5fPBAAm0yCUsAAAAAAAAAAADgr5qA2yp+BwAAAIANDQjCAEc=
   </data>
  </layer>
- <layer name="Portal" width="250" height="30">
+ <layer name="Portal" width="134" height="30">
   <data encoding="base64" compression="zlib">
-   eJzt1MEJACAMBMFUE+2/wviwhEBEZmD/97oIAAAAAAAAAAAAAAAAAAAAAAAA4GV5Wrc9vAWAfn4eAAAAAAAAAIDfFMo6ATk=
+   eJzt0rENACAMA8FME9h/wlAwQwLSnfS9C0cAAAAAAAAAAAAA0C1P67aHt/AvPwIAAADgdQV7kAE5
   </data>
  </layer>
  <objectgroup name="PlatformOb">

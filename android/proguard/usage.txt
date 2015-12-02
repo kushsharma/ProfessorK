@@ -323,7 +323,6 @@ com.badlogic.gdx.audio.Sound:
     public abstract void stop()
     public abstract void pause()
     public abstract void resume()
-    public abstract void dispose()
     public abstract void stop(long)
     public abstract void pause(long)
     public abstract void resume(long)
@@ -3890,9 +3889,11 @@ com.badlogic.gdx.scenes.scene2d.actions.Actions:
     219:219:public static com.badlogic.gdx.scenes.scene2d.actions.ColorAction color(com.badlogic.gdx.graphics.Color)
     224:224:public static com.badlogic.gdx.scenes.scene2d.actions.ColorAction color(com.badlogic.gdx.graphics.Color,float)
     229:233:public static com.badlogic.gdx.scenes.scene2d.actions.ColorAction color(com.badlogic.gdx.graphics.Color,float,com.badlogic.gdx.math.Interpolation)
-    257:257:public static com.badlogic.gdx.scenes.scene2d.actions.AlphaAction fadeOut(float)
+    243:243:public static com.badlogic.gdx.scenes.scene2d.actions.AlphaAction alpha(float,float)
     271:271:public static com.badlogic.gdx.scenes.scene2d.actions.AlphaAction fadeIn(float)
     284:284:public static com.badlogic.gdx.scenes.scene2d.actions.VisibleAction show()
+    288:288:public static com.badlogic.gdx.scenes.scene2d.actions.VisibleAction hide()
+    292:294:public static com.badlogic.gdx.scenes.scene2d.actions.VisibleAction visible(boolean)
     298:300:public static com.badlogic.gdx.scenes.scene2d.actions.TouchableAction touchable(com.badlogic.gdx.scenes.scene2d.Touchable)
     308:310:public static com.badlogic.gdx.scenes.scene2d.actions.RemoveActorAction removeActor(com.badlogic.gdx.scenes.scene2d.Actor)
     314:316:public static com.badlogic.gdx.scenes.scene2d.actions.DelayAction delay(float)
@@ -3993,8 +3994,7 @@ com.badlogic.gdx.scenes.scene2d.actions.TemporalAction:
     132:133:public void setReverse(boolean)
 com.badlogic.gdx.scenes.scene2d.actions.TimeScaleAction
 com.badlogic.gdx.scenes.scene2d.actions.TouchableAction
-com.badlogic.gdx.scenes.scene2d.actions.VisibleAction:
-    33:33:public boolean isVisible()
+com.badlogic.gdx.scenes.scene2d.actions.VisibleAction
 com.badlogic.gdx.scenes.scene2d.utils.ArraySelection:
     44:44:public boolean getRangeSelect()
     48:49:public void setRangeSelect(boolean)
@@ -4864,7 +4864,8 @@ objects.BeamSpot:
     255:255:public float getWidth()
     259:259:public float getHeight()
 objects.Boss:
-    274:275:public void shoot()
+    private static final float FIRE_TIME
+    306:307:public void shoot()
 objects.Bullet:
     public static com.badlogic.gdx.graphics.g2d.TextureRegion wallTex
     com.badlogic.gdx.graphics.Texture wallTexx
@@ -5023,6 +5024,7 @@ utils.AssetLord:
     public static final java.lang.String gothic_font
     public static final java.lang.String mecha_font
     public static final java.lang.String joystix_font
+    public static final java.lang.String tiny_font
     public static final java.lang.String small_font
     public static final java.lang.String medium_font
     public static final java.lang.String large_font
@@ -5030,6 +5032,8 @@ utils.AssetLord:
     public static final java.lang.String menu_skin
     public static final java.lang.String game_atlas
     public static final java.lang.String fire_sound
+    public static final java.lang.String finish_sound
+    public static final java.lang.String epicLevelup_sound
     public static final java.lang.String coin_sound
     public static final java.lang.String player_hurt_sound
     public static final java.lang.String enemy_hurt_sound
@@ -5040,7 +5044,9 @@ utils.AssetLord:
 utils.CameraShake:
     float nH
     float nW
-    73:73:public boolean getShake()
+    public static final float DEFAULT_SHAKE_POWER
+    56:57:public void shakeLight(boolean)
+    86:86:public boolean getShake()
 utils.Cinema:
     public static final int MOV_NONE
     public static final int MOV_INTRO
@@ -5063,13 +5069,13 @@ utils.Cinema:
     public static final int MOV_TUT_LEVEL_420
     public static final int MOV_TUT_FIRST_EVOL
     public static final int MOV_TUT_SECOND_EVOL
-    837:837:private void startLevel1()
-    840:842:public void dispose()
+    876:876:private void startLevel1()
+    924:927:public void dispose()
 utils.Constants
 utils.LevelGenerate:
     public static final int MAX_LEVEL
-    790:790:public void loadCinematic()
-    1494:1498:public void playPlayerHitSound()
+    794:794:public void loadCinematic()
+    1513:1518:public void playPlayerHitSound()
 utils.LevelGenerate$TaskQueue:
     public static final int GRAVITY_FLI
     public static final int GRAVITY_FIX

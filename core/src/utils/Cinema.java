@@ -7,11 +7,14 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.Texture.TextureFilter;
+import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.ParticleEffect;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
@@ -21,6 +24,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
+import com.badlogic.gdx.scenes.scene2d.ui.VerticalGroup;
 import com.badlogic.gdx.utils.Align;
 import com.softnuke.biosleep.MyGame;
 
@@ -67,14 +71,17 @@ public class Cinema {
 	
 	int CINEMA_TYPE = 0;
 	
-	Image intro1, introAlien, introPlayerSleep, introPlayerFly, introStar, introAlienRays, introMillFan;
+	Image intro1, introAlien, introPlayerSleep, introPlayerFly, introStar, introAlienRays, introMillFan, introHorlicks;
 	Sprite introLevelPods, introScientist;
+	Animation profkAnime;
+	
 	ParticleEffect introSmokeEffect;
-	Texture intro1T;
+	Texture intro1T = null;
 	
+	BitmapFont fontTiny;
 	BitmapFont fontMedium;
-	
-	TextButton introText1;
+	Skin skin;
+	TextButton dialogText, toolTipText;
 	TextureAtlas atlas = GameScreen.getInstance().getAssetLord().manager.get(AssetLord.game_atlas, TextureAtlas.class);
 	
 	public Cinema(Stage stg, OrthographicCamera cam){
@@ -86,9 +93,53 @@ public class Cinema {
 	
 	private void init(){
 		fontMedium = GameScreen.getInstance().getAssetLord().manager.get(AssetLord.small_font, BitmapFont.class);
+		fontTiny = GameScreen.getInstance().getAssetLord().manager.get(AssetLord.tiny_font, BitmapFont.class);
 		
-		loadIntroMovie();
-		loadIntroLevel();
+		skin = new Skin();
+		skin.addRegions(atlas);
+				
+		TextButtonStyle tStyle = new TextButtonStyle();
+		tStyle.font = fontTiny;
+		tStyle.fontColor = Color.WHITE;
+		tStyle.up = skin.getDrawable("black");
+		
+		toolTipText = new TextButton("", tStyle);
+		toolTipText.setSize(WIDTH*0.2f, HEIGHT/16);
+		toolTipText.align(Align.center);		
+		toolTipText.setPosition(-WIDTH, HEIGHT/2 - toolTipText.getHeight()/2);
+		toolTipText.setVisible(false);
+		toolTipText.setColor(1f,1f,1f, 0.8f);
+		stage.addActor(toolTipText);
+
+		if(LevelGenerate.CURRENT_LEVEL < 2){
+			//only load if tutorial on
+			if(GameScreen.getInstance().getScoreManager().TUTORIAL_LEVEL == 0)
+				loadIntroMovie();
+			
+			loadIntroLevel();			
+		}
+		
+		tStyle.font = fontMedium;
+		dialogText = new TextButton("",tStyle);
+		dialogText.pad(HEIGHT/20);
+		dialogText.setSize(WIDTH, HEIGHT/10);
+		dialogText.align(Align.center);
+		dialogText.addListener(new InputListener(){
+			public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
+				
+				MOV_STAGE ++;
+				anime_time = 0;
+				CAN_EXECUTE = true;
+				
+		 		return true;
+		 	}
+
+		});
+		
+		dialogText.setPosition(WIDTH/2 - dialogText.getWidth()/2, HEIGHT*1.5f);
+		dialogText.setVisible(false);
+		dialogText.setColor(1f, 1f, 1f, 0.8f);		
+		//add dialogue after score to avoide overlap
 		
 	}
 	
@@ -184,38 +235,25 @@ public class Cinema {
 		//Texture introLevel2 = new Texture("level/anime/scientist.png");
 		//introLevel2.setFilter(TextureFilter.Nearest,TextureFilter.Nearest);
 		
-		introScientist = new Sprite(atlas.findRegion("scientist"));
+		TextureRegion[] profSheet = new TextureRegion[2];
+		profSheet[0] = atlas.findRegion("scientist");
+		profSheet[1] = atlas.findRegion("scientist-2");
+		profkAnime = new Animation(0.5f, profSheet);
+		profkAnime.setPlayMode(PlayMode.LOOP);
+		
+		introScientist = new Sprite(profSheet[0]);
 		introScientist.setPosition(camera.position.x + bWIDTH/5, 4);
 		introScientist.setSize(0.7f, 0.7f * introScientist.getHeight()/introScientist.getWidth());
 		introScientist.setFlip(true, false);
 		
-		//Texture introLevel3 = new Texture("level/anime/scientist-2.png");
-		//introLevel3.setFilter(TextureFilter.Nearest,TextureFilter.Nearest);
+		introHorlicks = new Image(skin.getDrawable("white"));
+		introHorlicks.setSize(WIDTH/10, WIDTH/10);
+		introHorlicks.setPosition(-WIDTH, toolTipText.getY() + toolTipText.getHeight());
+		introHorlicks.setVisible(false);
+		introHorlicks.setColor(1f,1f,1f, 0.8f);
+		stage.addActor(introHorlicks);
 		
-		
-		TextButtonStyle tStyle = new TextButtonStyle();
-		tStyle.font = fontMedium;
-		tStyle.fontColor = Color.WHITE;
-		
-		introText1 = new TextButton("lol",tStyle);
-		introText1.align(Align.center);
-		introText1.addListener(new InputListener(){
-			public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
 				
-				MOV_STAGE ++;
-				anime_time = 0;
-				CAN_EXECUTE = true;
-				
-		 		return true;
-		 	}
-
-		});
-		
-		introText1.setWidth(WIDTH * 0.8f);		
-		introText1.setPosition(WIDTH/2 - introText1.getWidth()/2, HEIGHT*2);
-		introText1.setVisible(false);
-		stage.addActor(introText1);
-		
 	}
 
 	public void start(int t){
@@ -237,72 +275,80 @@ public class Cinema {
 				break;
 			}
 			case MOV_INTRO_LEVEL:{
-				introText1.clearActions();
+				dialogText.clearActions();
+				LevelGenerate.getInstance().playMenuMusic();
+				
+				//no tutorial for you
+				if(GameScreen.getInstance().getScoreManager().TUTORIAL_LEVEL != 0){
+					GameScreen.CURRENT_STATE = GameState.RUNNING;
+					GameScreen.getInstance().showControls();					
+				}
+				
 					anime_delay = 6f;
 				break;
 			}
 			case MOV_TUT_LEVEL_3:{
-				introText1.clearActions();
+				dialogText.clearActions();
 				anime_delay = 8f;
 			break;
 			}
 			case MOV_TUT_LEVEL_4:{
-				introText1.clearActions();
+				dialogText.clearActions();
 				anime_delay = 8f;
 			break;
 			}
 			case MOV_TUT_LEVEL_5:{
-				introText1.clearActions();
+				dialogText.clearActions();
 				anime_delay = 6f;				
 			break;
 			}
 			case MOV_TUT_LEVEL_6:{
-				introText1.clearActions();
+				dialogText.clearActions();
 				anime_delay = 6f;				
 			break;
 			}
 			case MOV_TUT_LEVEL_7:{
-				introText1.clearActions();
+				dialogText.clearActions();
 				anime_delay = 8f;				
 			break;
 			}
 			case MOV_TUT_LEVEL_8:{
-				introText1.clearActions();
+				dialogText.clearActions();
 				anime_delay = 8f;				
 			break;
 			}
 			case MOV_TUT_LEVEL_9:{
-				introText1.clearActions();
+				dialogText.clearActions();
 				anime_delay = 8f;				
 			break;
 			}
 			case MOV_TUT_LEVEL_10:{
-				introText1.clearActions();
+				dialogText.clearActions();
 				anime_delay = 6f;				
 			break;
 			}
 			case MOV_TUT_LEVEL_11:{
-				introText1.clearActions();
+				dialogText.clearActions();
 				anime_delay = 10f;				
 			break;
 			}
 			case MOV_TUT_LEVEL_12:{
-				introText1.clearActions();
+				dialogText.clearActions();
 				anime_delay = 6f;				
 			break;
 			}
 			case MOV_TUT_LEVEL_13:{
-				introText1.clearActions();
+				dialogText.clearActions();
 				anime_delay = 8f;				
 			break;
 			}
 			case MOV_TUT_LEVEL_14:{
-				introText1.clearActions();
+				dialogText.clearActions();
 				anime_delay = 5f;				
 			break;
 			}
 			case MOV_TUT_LEVEL_15:{
-				introText1.clearActions();
+				dialogText.clearActions();
 				anime_delay = 5f;				
 			break;
 			}
@@ -310,22 +356,27 @@ public class Cinema {
 			
 			
 			case MOV_TUT_LEVEL_420:{
-				introText1.clearActions();
 				anime_delay = 5f;				
 			break;
 			}
 			case MOV_TUT_FIRST_EVOL:{
+				hideDialogue();
+				
 				Player.getInstance().enableFlying(1);
 				Player.getInstance().makeItGlow();
+				LevelGenerate.getInstance().playEpicLevelSound();
 				
-				anime_delay = 5f;				
+				//anime_delay = 5f;				
 			break;
 			}
 			case MOV_TUT_SECOND_EVOL:{
+				hideDialogue();
+				
 				Player.getInstance().enableFlying(1);
 				Player.getInstance().makeItGlow();
-				
-				anime_delay = 5f;				
+				LevelGenerate.getInstance().playEpicLevelSound();
+
+				//anime_delay = 5f;				
 			break;
 			}
 		}
@@ -375,6 +426,8 @@ public class Cinema {
 				break;
 			}
 			case MOV_INTRO_LEVEL:{
+				introScientist.setRegion(profkAnime.getKeyFrame(time));
+				
 				if(Player.getInstance().getPosition().x > introScientist.getX())
 					introScientist.setFlip(false, false);
 				else
@@ -402,18 +455,16 @@ public class Cinema {
 				case MOV_TUT_LEVEL_3:{
 					switch(MOV_STAGE){
 					case 1:{
-						introText1.setText("Prof K: Psss! Can you hear me?\nI am trying to talk using modern version\nof cell phone...");
-						introText1.setVisible(true);
-						introText1.addAction(Actions.moveTo(introText1.getX(), HEIGHT - introText1.getHeight()*3, 1f));
+						showDialogue("Prof K: Psss! Can you hear me?\nI am trying to talk using modern version\nof cell phone...");
 					}break;
 					case 2:{
-						introText1.setText("Prof K: I forgot to introduce myself.\nI am Professor Kush...");
+						showDialogue("Prof K: I forgot to introduce myself.\nI am Professor Kush...");
 					}break;
 					case 3:{
-						introText1.setText("Prof K: I am also stuck here since last 10 years.\nYou are my last hope.");
+						showDialogue("Prof K: I am also stuck here since last 10 years.\nYou are my last hope.");
 					}break;
 					case 4:{
-						introText1.addAction(Actions.moveTo(introText1.getX(), HEIGHT*2, 1f));
+						hideDialogue();
 						
 						MOV_STAGE = 0;
 						CINEMA_TYPE = MOV_NONE;
@@ -425,32 +476,25 @@ public class Cinema {
 				case MOV_TUT_LEVEL_4:{
 					switch(MOV_STAGE){
 					case 1:{
-						introText1.setText("Prof K: Remember! Drink as much milk as you can...");
-						introText1.setVisible(true);
-						introText1.addAction(Actions.moveTo(introText1.getX(), HEIGHT - introText1.getHeight()*3, 1f));
+						showDialogue("Prof K: Remember! Drink as much milk as you can.\n'Horlicks' will make you equally stronger & sharper.");
 					}break;
 					case 2:{
-						introText1.setText("Prof K: 'Horlicks' will make you equally stronger & sharper.");
-					}break;
-					case 3:{
-						introText1.addAction(Actions.moveTo(introText1.getX(), HEIGHT*2, 1f));
+						hideDialogue();
 						
 						MOV_STAGE = 0;
 						CINEMA_TYPE = MOV_NONE;
-					}		
+					}break;
 					}
 					break;
 				}
 				case MOV_TUT_LEVEL_5:{
 					switch(MOV_STAGE){
 					case 1:{
-						introText1.setText("Prof K: Some levels may have hidden walls.");
-						introText1.setVisible(true);
-						introText1.addAction(Actions.moveTo(introText1.getX(), HEIGHT - introText1.getHeight()*3, 1f));
+						showDialogue("Prof K: Some levels may have hidden walls.");
 						break;
 					}
 					case 2:{
-						introText1.addAction(Actions.moveTo(introText1.getX(), HEIGHT*2, 1f));
+						hideDialogue();
 						
 						MOV_STAGE = 0;
 						CINEMA_TYPE = MOV_NONE;
@@ -462,30 +506,28 @@ public class Cinema {
 				case MOV_TUT_LEVEL_6:{
 					switch(MOV_STAGE){
 					case 1:{
-						introText1.setText("Prof K: You might have noticed by now...");
-						introText1.setVisible(true);
-						introText1.addAction(Actions.moveTo(introText1.getX(), HEIGHT - introText1.getHeight()*3, 1f));
+						showDialogue("Prof K: You might have noticed by now...");
 					}break;
 					case 2:{
-						introText1.setText("Prof K: Everytime you teleport,\nyou lose super human abilities...");
+						showDialogue("Prof K: Everytime you teleport,\nyou lose super human abilities...");
 					}break;
 					case 3:{
-						introText1.setText("Prof K: Your tiny brain is not capable\nof understanding the whole process.\nIn layman terms...");
+						showDialogue("Prof K: Your tiny brain is not capable\nof understanding the whole process.\nIn layman terms...");
 					}break;
 					case 4:{
-						introText1.setText("Prof K: Teleporter cannot rearrange 'Horlicks'\n atoms along with milk in the body...");
+						showDialogue("Prof K: Teleporter cannot rearrange 'Horlicks'\n atoms along with milk in the body...");
 					}break;
 					case 5:{
-						introText1.setText("Prof K: Once atoms are disintegrated from entry portal,\nthey are lost as a whole...");
+						showDialogue("Prof K: Once atoms are disintegrated from entry portal,\nthey are lost as a whole...");
 					}break;
 					case 6:{
-						introText1.setText("Prof K: But you don't have to worry about anything...");
+						showDialogue("Prof K: But you don't have to worry about anything...");
 					}break;
 					case 7:{
-						introText1.setText("Prof K: As long as you keep drinking milk!");
+						showDialogue("Prof K: As long as you keep drinking milk!");
 					}break;
 					case 8:{
-						introText1.addAction(Actions.moveTo(introText1.getX(), HEIGHT*2, 1f));
+						hideDialogue();
 						
 						MOV_STAGE = 0;
 						CINEMA_TYPE = MOV_NONE;
@@ -496,19 +538,15 @@ public class Cinema {
 				case MOV_TUT_LEVEL_7:{
 					switch(MOV_STAGE){
 					case 1:{
-						introText1.setText("Prof K: Watch out for neutron beam exhaust.");
-						introText1.setVisible(true);
-						introText1.addAction(Actions.moveTo(introText1.getX(), HEIGHT - introText1.getHeight()*3, 1f));
+						showDialogue("Prof K: Watch out for neutron beam exhaust.");
 						break;
 					}
 					case 2:{
-						introText1.setText("Prof K: They may look beautiful\nbut can put your pants on fire!");
-						introText1.setVisible(true);
-						introText1.addAction(Actions.moveTo(introText1.getX(), HEIGHT - introText1.getHeight()*3, 1f));
+						showDialogue("Prof K: They may look beautiful\nbut can put your pants on fire!");
 						break;
 					}
 					case 3:{
-						introText1.addAction(Actions.moveTo(introText1.getX(), HEIGHT*2, 1f));
+						hideDialogue();
 						
 						MOV_STAGE = 0;
 						CINEMA_TYPE = MOV_NONE;
@@ -520,19 +558,17 @@ public class Cinema {
 				case MOV_TUT_LEVEL_8:{
 					switch(MOV_STAGE){
 					case 1:{
-						introText1.setText("Prof K: I don't know why but i just love\nseeing you try so hard...");
-						introText1.setVisible(true);
-						introText1.addAction(Actions.moveTo(introText1.getX(), HEIGHT - introText1.getHeight()*3, 1f));
+						showDialogue("Prof K: I don't know why but i just love\nseeing you try so hard...");
 						break;
 					}
 					case 2:{
-						introText1.setText("Prof K: By the way, here is a piece of advice...");
+						showDialogue("Prof K: By the way, here is a piece of advice...");
 					}break;
 					case 3:{
-						introText1.setText("Prof K: Once you get out of here, buy some clothes.\nClowns look better than you.");
+						showDialogue("Prof K: Once you get out of here, buy some clothes.\nClowns look better than you.");
 					}break;
 					case 4:{
-						introText1.addAction(Actions.moveTo(introText1.getX(), HEIGHT*2, 1f));
+						hideDialogue();
 						
 						MOV_STAGE = 0;
 						CINEMA_TYPE = MOV_NONE;
@@ -544,13 +580,11 @@ public class Cinema {
 				case MOV_TUT_LEVEL_9:{
 					switch(MOV_STAGE){
 					case 1:{
-						introText1.setText("Prof K: Some levels may need you to activate\nthe switch to powerup portal.");
-						introText1.setVisible(true);
-						introText1.addAction(Actions.moveTo(introText1.getX(), HEIGHT - introText1.getHeight()*3, 1f));
+						showDialogue("Prof K: Some levels may need you to activate\nthe switch to powerup portal.");
 						break;
 					}
 					case 2:{
-						introText1.addAction(Actions.moveTo(introText1.getX(), HEIGHT*2, 1f));
+						hideDialogue();
 						
 						MOV_STAGE = 0;
 						CINEMA_TYPE = MOV_NONE;
@@ -562,19 +596,15 @@ public class Cinema {
 				case MOV_TUT_LEVEL_10:{
 					switch(MOV_STAGE){
 					case 1:{
-						introText1.setText("Prof K: You may find here enough milk to transform\neven more powerful...");
-						introText1.setVisible(true);
-						introText1.addAction(Actions.moveTo(introText1.getX(), HEIGHT - introText1.getHeight()*3, 1f));
+						showDialogue("Prof K: You may find here enough milk to transform\neven more powerful...");
 						break;
 					}
 					case 2:{
-						introText1.setText("Prof K: But remember to use that power wisely.");
-						introText1.setVisible(true);
-						introText1.addAction(Actions.moveTo(introText1.getX(), HEIGHT - introText1.getHeight()*3, 1f));
+						showDialogue("Prof K: But remember to use that power wisely.");
 						break;
 					}
 					case 3:{
-						introText1.addAction(Actions.moveTo(introText1.getX(), HEIGHT*2, 1f));
+						hideDialogue();
 						
 						MOV_STAGE = 0;
 						CINEMA_TYPE = MOV_NONE;
@@ -586,13 +616,11 @@ public class Cinema {
 				case MOV_TUT_LEVEL_11:{
 					switch(MOV_STAGE){
 					case 1:{
-						introText1.setText("Prof K: You are really enjoying the power, don't you?");
-						introText1.setVisible(true);
-						introText1.addAction(Actions.moveTo(introText1.getX(), HEIGHT - introText1.getHeight()*3, 1f));
+						showDialogue("Prof K: You are really enjoying the power, don't you?");
 						break;
 					}
 					case 2:{
-						introText1.addAction(Actions.moveTo(introText1.getX(), HEIGHT*2, 1f));
+						hideDialogue();
 						
 						MOV_STAGE = 0;
 						CINEMA_TYPE = MOV_NONE;
@@ -604,25 +632,19 @@ public class Cinema {
 				case MOV_TUT_LEVEL_12:{
 					switch(MOV_STAGE){
 					case 1:{
-						introText1.setText("Prof K: Gravity is a great force to master...");
-						introText1.setVisible(true);
-						introText1.addAction(Actions.moveTo(introText1.getX(), HEIGHT - introText1.getHeight()*3, 1f));
+						showDialogue("Prof K: Gravity is a great force to master...");
 						break;
 					}
 					case 2:{
-						introText1.setText("Prof K: I realized this by falling from stairs,\ntrust me worth it! Ouch...");
-						introText1.setVisible(true);
-						introText1.addAction(Actions.moveTo(introText1.getX(), HEIGHT - introText1.getHeight()*3, 1f));
+						showDialogue("Prof K: I realized this by falling from stairs,\ntrust me worth it! Ouch...");
 						break;
 					}
 					case 3:{
-						introText1.setText("Prof K: I hope you enjoyed talking to me,\nask your master to rate this world well.");
-						introText1.setVisible(true);
-						introText1.addAction(Actions.moveTo(introText1.getX(), HEIGHT - introText1.getHeight()*3, 1f));
+						showDialogue("Prof K: I hope you enjoyed talking to me,\nask your master to rate this world well.");
 						break;
 					}
 					case 4:{
-						introText1.addAction(Actions.moveTo(introText1.getX(), HEIGHT*2, 1f));
+						hideDialogue();
 						
 						MOV_STAGE = 0;
 						CINEMA_TYPE = MOV_NONE;
@@ -634,31 +656,23 @@ public class Cinema {
 				case MOV_TUT_LEVEL_13:{
 					switch(MOV_STAGE){
 					case 1:{
-						introText1.setText("Prof K: Finally the boss faceoff!\nJust don't cry like a baby when it appears.");
-						introText1.setVisible(true);
-						introText1.addAction(Actions.moveTo(introText1.getX(), HEIGHT - introText1.getHeight()*3, 1f));
+						showDialogue("Prof K: Finally the boss faceoff!\nLets see how well you have mastered Horlicks.");//\nJust don't cry like a baby when it appears.");
 						break;
 					}
 					case 2:{
-						introText1.setText("Unknown: You filthy human.\nIt's going to be fun killing you.");
-						introText1.setVisible(true);
-						introText1.addAction(Actions.moveTo(introText1.getX(), HEIGHT - introText1.getHeight()*3, 1f));
+						showDialogue("Unknown: You filthy human.\nIt's going to be fun killing you...");
 						break;
 					}
 					case 3:{
-						introText1.setText("Unknown: Hahahahahah!!! *cough* Haha *cough*");
-						introText1.setVisible(true);
-						introText1.addAction(Actions.moveTo(introText1.getX(), HEIGHT - introText1.getHeight()*3, 1f));
+						showDialogue("Unknown: Hahahahahah!!! *cough* Haha *cough*...");
 						break;
 					}
 					case 4:{
-						introText1.setText("Unknown: I am getting to old for this sh*t.");
-						introText1.setVisible(true);
-						introText1.addAction(Actions.moveTo(introText1.getX(), HEIGHT - introText1.getHeight()*3, 1f));
+						showDialogue("Unknown: I am getting too old for these things.");
 						break;
 					}
 					case 5:{
-						introText1.addAction(Actions.moveTo(introText1.getX(), HEIGHT*2, 1f));
+						hideDialogue();
 						
 						MOV_STAGE = 0;
 						CINEMA_TYPE = MOV_NONE;
@@ -670,13 +684,11 @@ public class Cinema {
 				case MOV_TUT_LEVEL_420:{
 					switch(MOV_STAGE){
 					case 1:{
-						introText1.setText("Prof K: How could you find this private area you stupid kid!");
-						introText1.setVisible(true);
-						introText1.addAction(Actions.moveTo(introText1.getX(), HEIGHT - introText1.getHeight()*3, 1f));
+						showDialogue("Prof K: How could you find this private area you stupid kid!");
 						break;
 					}
 					case 2:{
-						introText1.addAction(Actions.moveTo(introText1.getX(), HEIGHT*2, 1f));
+						hideDialogue();
 						
 						MOV_STAGE = 0;
 						CINEMA_TYPE = MOV_NONE;
@@ -689,12 +701,18 @@ public class Cinema {
 				case MOV_TUT_FIRST_EVOL:{
 					switch(MOV_STAGE){
 					case 1:{
-						
+						showNotify("Evolved to Super");
 						
 						break;
 					}
 					case 2:{
-						//introText1.addAction(Actions.moveTo(introText1.getX(), HEIGHT*2, 1f));
+						showNotify("Gun Enabled");
+						
+						break;
+					}
+					case 3:{
+						hideNotify();
+						hideDialogue();
 						
 						MOV_STAGE = 0;
 						CINEMA_TYPE = MOV_NONE;
@@ -706,14 +724,19 @@ public class Cinema {
 				case MOV_TUT_SECOND_EVOL:{
 					switch(MOV_STAGE){
 					case 1:{
-						introText1.setText("Prof K: Try holding fire key.");
-						introText1.setVisible(true);
-						introText1.addAction(Actions.moveTo(introText1.getX(), HEIGHT - introText1.getHeight()*3, 1f));
+						showNotify("Evolved to Mega");
 						
 						break;
 					}
 					case 2:{
-						introText1.addAction(Actions.moveTo(introText1.getX(), HEIGHT*2, 1f));
+						showDialogue("Prof K: Try holding fire key.");
+						showNotify("Dope Enabled");
+						
+						break;
+					}
+					case 3:{
+						hideNotify();
+						hideDialogue();
 						
 						MOV_STAGE = 0;
 						CINEMA_TYPE = MOV_NONE;
@@ -735,39 +758,41 @@ public class Cinema {
 		
 		switch(MOV_STAGE){
 		case 1:{
-			introText1.setText("You: What just happened?");
-			introText1.setVisible(true);
-			introText1.addAction(Actions.moveTo(introText1.getX(), HEIGHT - introText1.getHeight()*3, 1f));
+			showDialogue("You: What just happened?");			
 		}break;
 		case 2:{
-			introText1.setText("Prof K: Calm down! You were abducted by aliens...");
+			showDialogue("Prof K: Calm down! You were abducted by aliens...");
 		}break;
 		case 3:{
-			introText1.setText("Prof K: Well, it's normal to freak out actually.\n But before that...");
+			showDialogue("Prof K: Well, it's normal to freak out actually.\n But before that...");
 		}break;
 		case 4:{
-			introText1.setText("Prof K: I don't have much time,\n so listen closely...");
+			showDialogue("Prof K: I don't have much time,\n so listen closely...");
 		}break;
 		case 5:{
-			introText1.setText("Prof K: The race that rules here is similar to humans,\nexcept that they are evil and love milk too much...");
+			showDialogue("Prof K: The race that rules here is similar to humans,\nexcept that they are evil and love milk too much...");
 		}break;
 		case 6:{
-			introText1.setText("Prof K: You have to fight back to survive.\nLuckily I have been working on a compound...");
+			showDialogue("Prof K: You have to fight back to survive.\nLuckily I have been working on a compound...");
 		}break;
 		case 7:{
-			introText1.setText("Prof K: This compound can enhance human ability by \ngenetically modifying ordinary milk...");
+			showDialogue("Prof K: This compound can enhance human ability by \ngenetically modifying ordinary milk...");
 		}break;
 		case 8:{
-			introText1.setText("Prof K: And this planet has more than enough.\nHere take this, I named it 'Horlicks'...");
+			showDialogue("Prof K: And this planet has more than enough.\nHere take this, I named it 'Horlicks'...");
+			showNotify("Horlicks Acquired");			
+			
 		}break;
 		case 9:{
-			introText1.setText("Prof K: Just remember, drink as much milk as you can!\n You should go now.");
+			showDialogue("Prof K: Just remember, drink as much milk as you can!\n You should go now.");
+			hideNotify();
+
 			
 			if(GameScreen.getInstance().getScoreManager().TUTORIAL_LEVEL == 0)
 				GameScreen.getInstance().showControls();
 		}break;
 		case 10:{
-			introText1.addAction(Actions.moveTo(introText1.getX(), HEIGHT*2, 1f));
+			hideDialogue();
 			
 		}break;
 		}
@@ -776,6 +801,8 @@ public class Cinema {
 	private void handleMovIntro() {
 		switch(MOV_STAGE){
 		case 1:{
+			showDialogue("Honey! Dinner is ready, come inside.");
+			
 			introStar.setVisible(true);
 		}break;
 		case 2:{
@@ -784,6 +811,7 @@ public class Cinema {
 			introAlien.addAction(Actions.moveTo(WIDTH - WIDTH*0.3f, HEIGHT/9 + introAlienRays.getHeight(), 1f, Interpolation.sineOut));
 		}break;
 		case 3:{
+			hideDialogue();
 			
 		}break;
 		case 4:{
@@ -796,18 +824,29 @@ public class Cinema {
 			introPlayerSleep.setVisible(false);
 		}break;
 		case 6:{
+			showDialogue("Honey??");
+
 			introPlayerFly.setVisible(false);
 		}break;
 		case 7:{
+
 			introAlienRays.setVisible(false);
 			introAlien.addAction(Actions.moveTo(WIDTH - WIDTH*0.3f, 2*HEIGHT, 2f, Interpolation.sineOut));
 		}break;
 		case 8:{
+			hideDialogue();
+
 			introAlien.setVisible(false);
 			introStar.setVisible(true);
 		}break;
-		case 9:{
-			intro1.addAction(Actions.sequence(Actions.after(Actions.alpha(0, 1f)), Actions.hide()));
+		case 9:{			
+			intro1.addAction(Actions.sequence(Actions.after(Actions.fadeOut(0.5f)), Actions.run(new Runnable(){
+				@Override
+				public void run() {
+					intro1.setVisible(false);					
+				}
+			})));
+			
 			introAlien.setVisible(false);
 			introAlienRays.setVisible(false);
 			introStar.setVisible(false);
@@ -835,14 +874,60 @@ public class Cinema {
 	private void startLevel1() {
 
 	}
+	
+	private void showDialogue(String text){
+		dialogText.setText(text);
+		dialogText.setVisible(true);
+		dialogText.addAction(Actions.moveTo(dialogText.getX(), HEIGHT - dialogText.getHeight(), 1f));
+	}
+	
+	private void hideDialogue(){
+		dialogText.addAction(Actions.sequence(Actions.after(Actions.moveTo(dialogText.getX(), HEIGHT*1.5f, 1f)),
+				Actions.run( new Runnable() {
+					public void run() {
+						dialogText.setVisible(false);
+					}
+				})
+			));
+			
+		//dialogText.addAction(Actions.fadeOut(1f));
+		
+		
+	}
 
+	private void showNotify(String text){
+		toolTipText.setText(text);
+		toolTipText.setVisible(true);
+		toolTipText.addAction(Actions.moveTo(0, toolTipText.getY(), 1f));
+		
+		float toolCenter = toolTipText.getWidth()/2;
+		if(LevelGenerate.CURRENT_LEVEL<2){
+			//TODO:
+			//introHorlicks.setVisible(true);
+			introHorlicks.addAction(Actions.moveTo(toolCenter - introHorlicks.getWidth()/2, introHorlicks.getY(), 1f));
+		}
+	}
+	
+	private void hideNotify(){
+		toolTipText.addAction(Actions.moveTo(-WIDTH, toolTipText.getY(), 5f));
+		toolTipText.addAction(Actions.fadeOut(0.5f));
+
+		if(LevelGenerate.CURRENT_LEVEL<2){
+			introHorlicks.addAction(Actions.moveTo(-WIDTH, introHorlicks.getY(), 5f));
+			introHorlicks.addAction(Actions.fadeOut(0.5f));
+
+			//introHorlicks.setVisible(false);
+		}
+	}
+	
 	public void dispose(){
-		intro1T.dispose();
+		if(intro1!=null)
+			intro1T.dispose();
 		
 	}
 
 	public void clearCinema() {
-		introText1.setVisible(false);
+		dialogText.setVisible(false);
 		CINEMA_TYPE = MOV_NONE;
 	}
 
@@ -902,6 +987,11 @@ public class Cinema {
 			break;
 		}		
 		}
+	}
+
+	/** to set its view priority over score text **/
+	public void addDialogue() {
+		stage.addActor(dialogText);
 	}
 	
 }

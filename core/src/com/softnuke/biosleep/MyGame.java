@@ -44,7 +44,6 @@ public static PlatformSpecific platform = null;
 		bHEIGHT = (int) (bWIDTH * 1/ASPECT_RATIO);
 		//PTP = (float)bWIDTH/(float)WIDTH;
 	
-		
 		setScreen(new SplashScreen(this, Assets));
 		
 	}
