@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="right-up" width="50" height="40" tilewidth="32" tileheight="32" nextobjectid="56">
- <tileset firstgid="1" name="tileset" tilewidth="32" tileheight="32" spacing="2" margin="1" tilecount="225">
-  <image source="../tileset.png" width="512" height="512"/>
+ <tileset firstgid="1" name="tileset" tilewidth="32" tileheight="32" spacing="2" margin="1" tilecount="256">
+  <image source="../tileset.png" width="544" height="544"/>
   <tile id="181">
    <properties>
     <property name="color" value="4"/>
@@ -13,7 +13,7 @@
  </imagelayer>
  <layer name="Platform" width="50" height="40">
   <data encoding="base64" compression="zlib">
-   eJztzDEOQEAQhtHpaDU4yJ5dvUejILGFiaiQ95KvmswfAQAAAAAA0Foi6pt3j51xa9qbT/cuqU/K/p7s3e1qu/ykQZI+0gq7OiRJ
+   eJztzDEOQEAQhtHpqDU4yV5f9mQUJLYwERXyXvJVk/kjAAAAAAAAWjViefPusTNuTXvz6d4l9UnZ35O9u11tl580SNJHWgGBpyYz
   </data>
  </layer>
  <objectgroup name="PlatformOb">

@@ -109,6 +109,15 @@ public class Cinema {
 		toolTipText.setPosition(-WIDTH, HEIGHT/2 - toolTipText.getHeight()/2);
 		toolTipText.setVisible(false);
 		toolTipText.setColor(1f,1f,1f, 0.8f);
+		toolTipText.addListener(new InputListener(){
+			public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
+				
+				hideNotify();
+				
+		 		return true;
+		 	}
+
+		});
 		stage.addActor(toolTipText);
 
 		if(LevelGenerate.CURRENT_LEVEL < 2){
@@ -933,6 +942,8 @@ public class Cinema {
 	public void clearCinema() {
 		dialogText.setVisible(false);
 		CINEMA_TYPE = MOV_NONE;
+		hideDialogue();
+		hideNotify();
 	}
 
 	/** notification if there is anything that needs to be done in this new level**/

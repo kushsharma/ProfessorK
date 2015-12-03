@@ -5069,8 +5069,8 @@ utils.Cinema:
     public static final int MOV_TUT_LEVEL_420
     public static final int MOV_TUT_FIRST_EVOL
     public static final int MOV_TUT_SECOND_EVOL
-    880:880:private void startLevel1()
-    928:931:public void dispose()
+    889:889:private void startLevel1()
+    937:940:public void dispose()
 utils.Constants
 utils.LevelGenerate:
     public static final int MAX_LEVEL
