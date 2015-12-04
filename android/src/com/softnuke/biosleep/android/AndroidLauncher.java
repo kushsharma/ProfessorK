@@ -128,7 +128,7 @@ public class AndroidLauncher extends AndroidApplication implements PlatformSpeci
 		if(score < 0)
 			shareBody = "You have to at least try this game once! Its insanely awesome - https://play.google.com/store/apps/details?id="+getPackageName();
 		
-		sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Slomo Jumper");
+		sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, R.string.app_name);
 		sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
 		startActivity(Intent.createChooser(sharingIntent, "Share via"));
 		

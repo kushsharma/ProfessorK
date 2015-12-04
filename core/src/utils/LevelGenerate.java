@@ -41,6 +41,7 @@ import com.badlogic.gdx.maps.tiled.TiledMapImageLayer;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import com.badlogic.gdx.maps.tiled.tiles.AnimatedTiledMapTile;
 import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
@@ -809,7 +810,7 @@ public class LevelGenerate {
 		
 		if(BOSS_LEVEL || Player.getInstance().GLOWING)
 			batch.setColor(Color.BLACK);
-		
+
 		if(tileMap.getLayers().get("Platform") != null)
 			tmRenderer.renderTileLayer((TiledMapTileLayer) tileMap.getLayers().get("Platform"));
 		if(tileMap.getLayers().get("Spikes") != null)

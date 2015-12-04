@@ -224,8 +224,8 @@ public class Boss extends GameObject{
 			{
 				FIRING = true;
 				
-				if(CAN_FIRE)
-					fireSound.play();
+				if(CAN_FIRE && GameScreen.BACKGROUND_MUSIC)
+					fireSound.play(0.7f);
 			}
 
 			if(upPause > FIRE_TIME + 0.2f)			
@@ -244,8 +244,8 @@ public class Boss extends GameObject{
 			{
 				FIRING = true;
 				
-				if(CAN_FIRE)
-					fireSound.play();
+				if(CAN_FIRE && GameScreen.BACKGROUND_MUSIC)
+					fireSound.play(0.7f);
 			}
 
 			if(downPause > FIRE_TIME + 0.2f)			

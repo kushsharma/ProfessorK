@@ -589,15 +589,17 @@ public class Cinema {
 				case MOV_TUT_LEVEL_9:{
 					switch(MOV_STAGE){
 					case 1:{
-						showDialogue("Prof K: Some levels may need you to activate\nthe switch to powerup portal.");
+						showDialogue("Prof K: Some levels may need you to activate\nthe switch to powerup portal...");
 						break;
 					}
 					case 2:{
 						showDialogue("Prof K: Your gun has recoil!\nUse it smart for speed.");
+						showNotify("Fire Gun for speed");
 						break;
 					}
 					case 3:{
 						hideDialogue();
+						hideNotify();
 						
 						MOV_STAGE = 0;
 						CINEMA_TYPE = MOV_NONE;
@@ -697,7 +699,7 @@ public class Cinema {
 				case MOV_TUT_LEVEL_420:{
 					switch(MOV_STAGE){
 					case 1:{
-						showDialogue("Prof K: How could you find this private area you stupid kid!");
+						showDialogue("Prof K: How could you find this private area you stupid kid!\nIt's not ready yet.");
 						break;
 					}
 					case 2:{
@@ -1000,7 +1002,12 @@ public class Cinema {
 		case 15:{
 			start(MOV_TUT_LEVEL_15);
 			break;
-		}		
+		}
+		
+		case 420:{
+			start(MOV_TUT_LEVEL_420);
+			break;
+		}
 		}
 	}
 

@@ -12,9 +12,9 @@ play-image
   index: -1
 title
   rotate: false
-  xy: 419, 903
-  size: 500, 120
-  orig: 500, 120
+  xy: 419, 912
+  size: 600, 111
+  orig: 600, 111
   offset: 0, 0
   index: -1
 settings
@@ -26,7 +26,7 @@ settings
   index: -1
 shoppingcart
   rotate: false
-  xy: 419, 645
+  xy: 419, 654
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
@@ -40,7 +40,7 @@ share-menu
   index: -1
 twitter-kush
   rotate: false
-  xy: 677, 735
+  xy: 677, 744
   size: 166, 166
   orig: 166, 166
   offset: 0, 0
@@ -54,78 +54,78 @@ friends
   index: -1
 star
   rotate: false
-  xy: 259, 448
+  xy: 845, 750
   size: 160, 160
   orig: 160, 160
   offset: 0, 0
   index: -1
 upgrade-level-0
   rotate: false
-  xy: 421, 593
+  xy: 419, 602
   size: 400, 50
   orig: 400, 50
   offset: 0, 0
   index: -1
 upgrade-level-1
   rotate: false
-  xy: 421, 541
+  xy: 259, 550
   size: 400, 50
   orig: 400, 50
   offset: 0, 0
   index: -1
 upgrade-level-2
   rotate: false
-  xy: 421, 489
+  xy: 259, 498
   size: 400, 50
   orig: 400, 50
   offset: 0, 0
   index: -1
 upgrade-level-3
   rotate: false
-  xy: 421, 437
+  xy: 259, 446
   size: 400, 50
   orig: 400, 50
   offset: 0, 0
   index: -1
-coins-128
-  rotate: false
-  xy: 259, 318
-  size: 128, 128
-  orig: 128, 128
-  offset: 0, 0
-  index: -1
 buttonhell
   rotate: false
-  xy: 389, 335
+  xy: 259, 344
   size: 175, 100
   split: 50, 51, 0, 100
   orig: 175, 100
   offset: 0, 0
   index: -1
+coins-128
+  rotate: false
+  xy: 661, 472
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
 shield-128
   rotate: false
-  xy: 566, 307
+  xy: 436, 316
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 slomoclock-128
   rotate: false
-  xy: 696, 307
+  xy: 566, 316
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 play-games-icon-128
   rotate: false
-  xy: 845, 811
+  xy: 696, 380
   size: 128, 90
   orig: 128, 90
   offset: 0, 0
   index: -1
 intro-player-sleep-2
   rotate: false
-  xy: 677, 707
+  xy: 677, 716
   size: 41, 26
   orig: 41, 26
   offset: 0, 0
@@ -139,63 +139,63 @@ intro-player-sleep
   index: -1
 intro-wind-mil-fan
   rotate: false
-  xy: 921, 991
+  xy: 696, 346
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 level-1star
   rotate: false
-  xy: 845, 777
+  xy: 677, 682
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 level-2star
   rotate: false
-  xy: 677, 673
+  xy: 170, 290
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 level-3star
   rotate: false
-  xy: 170, 290
+  xy: 730, 346
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 level-locked
   rotate: false
-  xy: 921, 957
+  xy: 170, 256
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 level-unlocked
   rotate: false
-  xy: 955, 991
+  xy: 764, 346
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 particle
   rotate: false
-  xy: 845, 743
+  xy: 170, 222
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 particle_square_hole
   rotate: false
-  xy: 879, 777
+  xy: 170, 188
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 default-window
   rotate: false
-  xy: 170, 259
+  xy: 791, 571
   size: 27, 29
   split: 4, 3, 20, 3
   orig: 27, 29
@@ -203,7 +203,7 @@ default-window
   index: -1
 default-select
   rotate: false
-  xy: 720, 713
+  xy: 661, 450
   size: 27, 20
   split: 4, 14, 4, 4
   orig: 27, 20
@@ -211,7 +211,7 @@ default-select
   index: -1
 default-round-large
   rotate: false
-  xy: 213, 330
+  xy: 720, 722
   size: 20, 20
   split: 5, 5, 5, 4
   orig: 20, 20
@@ -219,7 +219,7 @@ default-round-large
   index: -1
 default-scroll
   rotate: false
-  xy: 677, 651
+  xy: 213, 330
   size: 20, 20
   split: 2, 2, 2, 2
   orig: 20, 20
@@ -227,7 +227,7 @@ default-scroll
   index: -1
 default-round-down
   rotate: false
-  xy: 921, 935
+  xy: 1007, 890
   size: 12, 20
   split: 5, 5, 5, 4
   orig: 12, 20
@@ -235,7 +235,7 @@ default-round-down
   index: -1
 default-round
   rotate: false
-  xy: 989, 1003
+  xy: 696, 324
   size: 12, 20
   split: 5, 5, 5, 4
   orig: 12, 20
@@ -251,7 +251,7 @@ textfield
   index: -1
 default-slider
   rotate: false
-  xy: 389, 438
+  xy: 677, 672
   size: 8, 8
   split: 2, 2, 2, 2
   orig: 8, 8
@@ -259,7 +259,7 @@ default-slider
   index: -1
 default-pane
   rotate: false
-  xy: 389, 330
+  xy: 845, 745
   size: 5, 3
   split: 1, 1, 1, 1
   orig: 5, 3
@@ -267,7 +267,7 @@ default-pane
   index: -1
 default-rect-pad
   rotate: false
-  xy: 389, 330
+  xy: 845, 745
   size: 5, 3
   split: 1, 1, 1, 1
   orig: 5, 3
@@ -283,7 +283,7 @@ default-splitpane-vertical
   index: -1
 default-splitpane
   rotate: false
-  xy: 711, 702
+  xy: 259, 605
   size: 5, 3
   split: 0, 5, 0, 0
   orig: 5, 3
@@ -291,7 +291,7 @@ default-splitpane
   index: -1
 default-rect-down
   rotate: false
-  xy: 204, 319
+  xy: 711, 711
   size: 3, 3
   split: 1, 1, 1, 1
   orig: 3, 3
@@ -299,7 +299,7 @@ default-rect-down
   index: -1
 default-rect
   rotate: false
-  xy: 955, 986
+  xy: 204, 319
   size: 3, 3
   split: 1, 1, 1, 1
   orig: 3, 3
@@ -307,7 +307,7 @@ default-rect
   index: -1
 default-select-selection
   rotate: false
-  xy: 845, 738
+  xy: 798, 375
   size: 3, 3
   split: 1, 1, 1, 1
   orig: 3, 3
@@ -315,7 +315,7 @@ default-select-selection
   index: -1
 white
   rotate: false
-  xy: 879, 772
+  xy: 170, 183
   size: 3, 3
   orig: 3, 3
   offset: 0, 0
@@ -329,7 +329,7 @@ black
   index: -1
 default-pane-noborder
   rotate: false
-  xy: 4, 1
+  xy: 259, 602
   size: 1, 1
   split: 0, 0, 0, 0
   orig: 1, 1
@@ -337,7 +337,7 @@ default-pane-noborder
   index: -1
 selection
   rotate: false
-  xy: 7, 1
+  xy: 4, 1
   size: 1, 1
   orig: 1, 1
   offset: 0, 0

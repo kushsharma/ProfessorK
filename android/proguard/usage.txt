@@ -315,7 +315,6 @@ com.badlogic.gdx.audio.Music:
     public abstract void dispose()
     public abstract void setOnCompletionListener(com.badlogic.gdx.audio.Music$OnCompletionListener)
 com.badlogic.gdx.audio.Sound:
-    public abstract long play(float)
     public abstract long play(float,float,float)
     public abstract long loop()
     public abstract long loop(float)
@@ -5069,13 +5068,13 @@ utils.Cinema:
     public static final int MOV_TUT_LEVEL_420
     public static final int MOV_TUT_FIRST_EVOL
     public static final int MOV_TUT_SECOND_EVOL
-    889:889:private void startLevel1()
-    937:940:public void dispose()
+    891:891:private void startLevel1()
+    939:942:public void dispose()
 utils.Constants
 utils.LevelGenerate:
     public static final int MAX_LEVEL
-    794:794:public void loadCinematic()
-    1513:1518:public void playPlayerHitSound()
+    795:795:public void loadCinematic()
+    1514:1519:public void playPlayerHitSound()
 utils.LevelGenerate$TaskQueue:
     public static final int GRAVITY_FLI
     public static final int GRAVITY_FIX

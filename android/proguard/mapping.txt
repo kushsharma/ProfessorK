@@ -458,6 +458,7 @@ com.badlogic.gdx.audio.Music$OnCompletionListener -> com.badlogic.gdx.b.d:
     void onCompletion(com.badlogic.gdx.audio.Music) -> a
 com.badlogic.gdx.audio.Sound -> com.badlogic.gdx.b.e:
     long play() -> play
+    long play(float) -> play
     void dispose() -> dispose
 com.badlogic.gdx.backends.android.AndroidApplication -> com.badlogic.gdx.backends.android.AndroidApplication:
     com.badlogic.gdx.backends.android.AndroidGraphics graphics -> graphics
@@ -9852,17 +9853,17 @@ utils.Cinema -> d.c:
     269:392:void start(int) -> a
     395:403:void render(com.badlogic.gdx.graphics.g2d.SpriteBatch) -> a
     406:413:void renderUI(com.badlogic.gdx.graphics.g2d.SpriteBatch) -> b
-    416:768:void update(float) -> a
-    772:812:void handleIntroLevel() -> f
-    815:885:void handleMovIntro() -> g
-    892:895:void showDialogue(java.lang.String) -> a
-    898:909:void hideDialogue() -> h
-    912:922:void showNotify(java.lang.String) -> b
-    925:934:void hideNotify() -> i
-    943:947:void clearCinema() -> a
-    951:1005:void levelUpdate(int) -> b
-    1009:1010:void addDialogue() -> b
-    924:924:void access$0(utils.Cinema) -> a
+    416:770:void update(float) -> a
+    774:814:void handleIntroLevel() -> f
+    817:887:void handleMovIntro() -> g
+    894:897:void showDialogue(java.lang.String) -> a
+    900:911:void hideDialogue() -> h
+    914:924:void showNotify(java.lang.String) -> b
+    927:936:void hideNotify() -> i
+    945:949:void clearCinema() -> a
+    953:1012:void levelUpdate(int) -> b
+    1016:1017:void addDialogue() -> b
+    926:926:void access$0(utils.Cinema) -> a
 utils.Cinema$1 -> d.d:
     utils.Cinema this$0 -> a
     115:117:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
@@ -9874,10 +9875,10 @@ utils.Cinema$3 -> d.f:
     168:172:boolean touchDown(com.badlogic.gdx.scenes.scene2d.InputEvent,float,float,int,int) -> touchDown
 utils.Cinema$4 -> d.g:
     utils.Cinema this$0 -> a
-    859:860:void run() -> run
+    861:862:void run() -> run
 utils.Cinema$5 -> d.h:
     utils.Cinema this$0 -> a
-    901:902:void run() -> run
+    903:904:void run() -> run
 utils.GameState -> d.i:
     utils.GameState READY -> a
     utils.GameState RUNNING -> b
@@ -9945,67 +9946,67 @@ utils.LevelGenerate -> d.j:
     com.badlogic.gdx.audio.Music gameMusic -> aa
     com.badlogic.gdx.audio.Music menuMusic -> ab
     com.badlogic.gdx.utils.Array tileImageLayers -> ac
-    155:181:void loadSounds() -> z
-    186:192:void prepareBullets() -> a
-    195:264:void levelTiled() -> b
-    267:292:void loadNextLevel() -> c
-    297:301:void clearOldLevel() -> A
-    305:788:void buildShapes(com.badlogic.gdx.maps.tiled.TiledMap,com.badlogic.gdx.physics.box2d.World) -> a
-    798:868:void render(com.badlogic.gdx.graphics.g2d.SpriteBatch,com.badlogic.gdx.graphics.glutils.ShapeRenderer) -> a
-    871:893:void renderParticles(com.badlogic.gdx.graphics.g2d.SpriteBatch) -> a
-    901:905:void renderOverlayed(com.badlogic.gdx.graphics.g2d.SpriteBatch) -> b
-    909:916:void renderLights(com.badlogic.gdx.graphics.g2d.SpriteBatch) -> c
-    919:983:void update(float) -> a
-    987:988:void pushLight(objects.Light) -> a
-    992:1015:void cleanUpLevel() -> d
-    1018:1062:void reset() -> e
-    1065:1069:void pauseMusic() -> f
-    1072:1074:void pauseEverything() -> g
-    1077:1086:void resumeEverything() -> h
-    1090:1090:void dimMusic() -> i
-    1093:1097:void playMenuMusic() -> j
-    1101:1111:void flipGravity() -> k
-    1115:1125:void fixGravity() -> l
-    1129:1144:void enemyWallBounce(com.badlogic.gdx.physics.box2d.Fixture) -> a
-    1149:1182:void fireBullet() -> m
-    1185:1196:void test() -> n
-    1200:1206:int getCoinCollected() -> o
-    1211:1216:int getEnemyKilled() -> p
-    1222:1231:void coinPlayerCollide(com.badlogic.gdx.physics.box2d.Fixture) -> b
-    1235:1244:void enemyFlying(com.badlogic.gdx.physics.box2d.Fixture) -> c
-    1249:1275:void enemyPlayerCollide(com.badlogic.gdx.physics.box2d.Fixture,com.badlogic.gdx.physics.box2d.Fixture) -> a
-    1279:1298:void enemyBulletCollide(com.badlogic.gdx.physics.box2d.Fixture,com.badlogic.gdx.physics.box2d.Fixture) -> b
-    1303:1314:void bossPlayerCollide(com.badlogic.gdx.physics.box2d.Fixture,boolean) -> a
-    1317:1333:void bossBulletCollide(com.badlogic.gdx.physics.box2d.Fixture,com.badlogic.gdx.physics.box2d.Fixture) -> c
-    1337:1347:void beamPlayerCollide(com.badlogic.gdx.physics.box2d.Fixture,boolean) -> b
-    1351:1359:void bulletPlatformCollide(com.badlogic.gdx.physics.box2d.Fixture) -> d
-    1363:1375:void updateMove(java.util.HashMap) -> a
-    1379:1400:void powerUpPlayer(com.badlogic.gdx.physics.box2d.Fixture) -> e
-    1404:1420:void levelClearPortal(com.badlogic.gdx.physics.box2d.Fixture) -> f
-    1427:1439:void levelClear() -> B
-    1443:1449:void toggleExitPortalSwitch(boolean) -> a
-    1453:1466:void switchPlayerCollide(com.badlogic.gdx.physics.box2d.Fixture) -> g
-    1470:1480:void gravityPlayerCollide(com.badlogic.gdx.physics.box2d.Fixture) -> h
-    1483:1489:void playCoinSound() -> q
-    1492:1496:void playFinishSound() -> r
-    1499:1503:void playEpicLevelSound() -> s
-    1506:1510:void playFireSound() -> t
-    1521:1526:void playEnemyHitSound() -> u
-    1529:1533:void playLevelUpSound() -> v
-    1543:1543:objects.Switch getLevelSwitch() -> w
-    1547:1549:void dispose() -> x
-    1552:1633:void dispose(boolean) -> b
-    1638:1647:com.badlogic.gdx.physics.box2d.PolygonShape getRectangle(com.badlogic.gdx.maps.objects.RectangleMapObject) -> a
-    1651:1655:com.badlogic.gdx.physics.box2d.CircleShape getCircle(com.badlogic.gdx.maps.objects.CircleMapObject) -> a
-    1659:1670:com.badlogic.gdx.physics.box2d.PolygonShape getPolygon(com.badlogic.gdx.maps.objects.PolygonMapObject) -> a
-    1674:1685:com.badlogic.gdx.physics.box2d.ChainShape getPolyline(com.badlogic.gdx.maps.objects.PolylineMapObject) -> a
-    1689:1689:utils.LevelGenerate getInstance() -> y
+    156:182:void loadSounds() -> z
+    187:193:void prepareBullets() -> a
+    196:265:void levelTiled() -> b
+    268:293:void loadNextLevel() -> c
+    298:302:void clearOldLevel() -> A
+    306:789:void buildShapes(com.badlogic.gdx.maps.tiled.TiledMap,com.badlogic.gdx.physics.box2d.World) -> a
+    799:869:void render(com.badlogic.gdx.graphics.g2d.SpriteBatch,com.badlogic.gdx.graphics.glutils.ShapeRenderer) -> a
+    872:894:void renderParticles(com.badlogic.gdx.graphics.g2d.SpriteBatch) -> a
+    902:906:void renderOverlayed(com.badlogic.gdx.graphics.g2d.SpriteBatch) -> b
+    910:917:void renderLights(com.badlogic.gdx.graphics.g2d.SpriteBatch) -> c
+    920:984:void update(float) -> a
+    988:989:void pushLight(objects.Light) -> a
+    993:1016:void cleanUpLevel() -> d
+    1019:1063:void reset() -> e
+    1066:1070:void pauseMusic() -> f
+    1073:1075:void pauseEverything() -> g
+    1078:1087:void resumeEverything() -> h
+    1091:1091:void dimMusic() -> i
+    1094:1098:void playMenuMusic() -> j
+    1102:1112:void flipGravity() -> k
+    1116:1126:void fixGravity() -> l
+    1130:1145:void enemyWallBounce(com.badlogic.gdx.physics.box2d.Fixture) -> a
+    1150:1183:void fireBullet() -> m
+    1186:1197:void test() -> n
+    1201:1207:int getCoinCollected() -> o
+    1212:1217:int getEnemyKilled() -> p
+    1223:1232:void coinPlayerCollide(com.badlogic.gdx.physics.box2d.Fixture) -> b
+    1236:1245:void enemyFlying(com.badlogic.gdx.physics.box2d.Fixture) -> c
+    1250:1276:void enemyPlayerCollide(com.badlogic.gdx.physics.box2d.Fixture,com.badlogic.gdx.physics.box2d.Fixture) -> a
+    1280:1299:void enemyBulletCollide(com.badlogic.gdx.physics.box2d.Fixture,com.badlogic.gdx.physics.box2d.Fixture) -> b
+    1304:1315:void bossPlayerCollide(com.badlogic.gdx.physics.box2d.Fixture,boolean) -> a
+    1318:1334:void bossBulletCollide(com.badlogic.gdx.physics.box2d.Fixture,com.badlogic.gdx.physics.box2d.Fixture) -> c
+    1338:1348:void beamPlayerCollide(com.badlogic.gdx.physics.box2d.Fixture,boolean) -> b
+    1352:1360:void bulletPlatformCollide(com.badlogic.gdx.physics.box2d.Fixture) -> d
+    1364:1376:void updateMove(java.util.HashMap) -> a
+    1380:1401:void powerUpPlayer(com.badlogic.gdx.physics.box2d.Fixture) -> e
+    1405:1421:void levelClearPortal(com.badlogic.gdx.physics.box2d.Fixture) -> f
+    1428:1440:void levelClear() -> B
+    1444:1450:void toggleExitPortalSwitch(boolean) -> a
+    1454:1467:void switchPlayerCollide(com.badlogic.gdx.physics.box2d.Fixture) -> g
+    1471:1481:void gravityPlayerCollide(com.badlogic.gdx.physics.box2d.Fixture) -> h
+    1484:1490:void playCoinSound() -> q
+    1493:1497:void playFinishSound() -> r
+    1500:1504:void playEpicLevelSound() -> s
+    1507:1511:void playFireSound() -> t
+    1522:1527:void playEnemyHitSound() -> u
+    1530:1534:void playLevelUpSound() -> v
+    1544:1544:objects.Switch getLevelSwitch() -> w
+    1548:1550:void dispose() -> x
+    1553:1634:void dispose(boolean) -> b
+    1639:1648:com.badlogic.gdx.physics.box2d.PolygonShape getRectangle(com.badlogic.gdx.maps.objects.RectangleMapObject) -> a
+    1652:1656:com.badlogic.gdx.physics.box2d.CircleShape getCircle(com.badlogic.gdx.maps.objects.CircleMapObject) -> a
+    1660:1671:com.badlogic.gdx.physics.box2d.PolygonShape getPolygon(com.badlogic.gdx.maps.objects.PolygonMapObject) -> a
+    1675:1686:com.badlogic.gdx.physics.box2d.ChainShape getPolyline(com.badlogic.gdx.maps.objects.PolylineMapObject) -> a
+    1690:1690:utils.LevelGenerate getInstance() -> y
 utils.LevelGenerate$TaskQueue -> d.k:
     com.badlogic.gdx.utils.Array tasks -> a
     utils.LevelGenerate this$0 -> b
-    1707:1726:void execute() -> a
-    1729:1730:void push(int) -> a
-    1733:1734:void clear() -> b
+    1708:1727:void execute() -> a
+    1730:1731:void push(int) -> a
+    1734:1735:void clear() -> b
 utils.MyContactListener -> d.l:
     21:165:void beginContact(com.badlogic.gdx.physics.box2d.Contact) -> a
     170:208:void endContact(com.badlogic.gdx.physics.box2d.Contact) -> b
